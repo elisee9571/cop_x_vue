@@ -340,9 +340,9 @@
                                 <button class="btn_paiement prev-3 prev">Précédent</button>
                                 <button class="btn_paiement submit">Valider</button>
                             </div>
-                            <p class="petite_ligne">En confirmant votre commande vous acceptez <a href="#">nos
-                                    conditions générales</a>, <a href="#">notre politique de confidentialité</a> et <a
-                                    href="#">nos modalités concernant les retours</a>
+                            <p class="petite_ligne">En confirmant votre commande vous acceptez <a href="/faq">nos
+                                    conditions générales</a>, <a href="/faq">notre politique de confidentialité</a> et <a
+                                    href="/faq">nos modalités concernant les retours</a>
                                 et donnez votre autorisation pour que COP X conserve certaines de vos donnés dans le but
                                 d'améliorer vos prochaines expériences de shopping.</p>
                         </div>

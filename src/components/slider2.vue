@@ -1,71 +1,48 @@
 <template>
-    <div class="container-fluid container2 container_slider">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container2 container_slider">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
-            <div class="carousel-inner">
-                <div class="carousel-item active">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
 
-                    <div class="row">
-                        <div v-for="produit in produits" :key="produit.id"
-                            class="text-center col-lg-2 col-md-4 col-4 slider_box ">
-                            <h4>{{ produit.marque }}</h4>
+                            <div class="row justify-content-center">
+                                <div v-for="produit in produits" :key="produit.id"
+                                    class="text-center col-lg-2 col-md-4 col-4 slider_box ">
+                                    <h4>{{ produit.marque }}</h4>
 
-                            <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
+                                    <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
 
 
-                            <div class="contentBx">
-                                <h2>{{ produit.nom }}</h2>
-                                <div class="size">
-                                    <h3>Tailles :</h3>
-                                    <span>{{ produit.Tailles[0].taille }}</span>
+                                    <div class="contentBx">
+                                        <h2>{{ produit.nom }}</h2>
+                                        <div class="size">
+                                            <h3>Tailles :</h3>
+                                            <span>{{ produit.Tailles[0].taille }}</span>
+                                        </div>
+
+                                        <router-link :to="`/pageproduit/${produit.id}`">
+                                            Voir plus
+                                        </router-link>
+                                    </div>
+
                                 </div>
-
-                                <router-link :to="`/pageproduit/${produit.id}`">
-                                    Voir plus
-                                </router-link>
                             </div>
 
                         </div>
                     </div>
 
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-
-                <!-- <div class="carousel-item">
-
-                    <div class="row">
-                        <div v-for="produit in produits" :key="produit.id" class="col-lg-2 col-md-4 col-4 slider_box ">
-                            <h4>{{ produit.marque }}</h4>
-
-                            <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
-
-
-                            <div class="contentBx">
-                                <h2>{{ produit.nom }}</h2>
-                                <div class="size">
-                                    <h3>Taille :</h3>
-                                    <span></span>
-                                </div>
-
-                                <router-link :to="`/pageproduit/${produit.id}`">
-                                    Voir plus
-                                </router-link>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div> -->
-
             </div>
-
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
 
 
@@ -117,7 +94,7 @@
         },
         created() {
             this.axios
-                .get("http://localhost:3000/produit/limit/4")
+                .get("http://localhost:3000/produit/order1/3")
                 .then((res) => {
                     this.produits = res.data.produits;
                 })

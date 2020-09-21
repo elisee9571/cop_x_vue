@@ -2,11 +2,11 @@
     <!-- profil client -->
     <div class="container">
         <h1 class="text-center">Mon Profil</h1>
-        <div class="row" v-if="message !== null">
+        <!-- <div class="row" v-if="message !== null">
             <div class="col-12 text-lg-center">
                 {{ message }}
             </div>
-        </div> 
+        </div> --> 
 
         <!-- image du profil -->
         <div class="row">

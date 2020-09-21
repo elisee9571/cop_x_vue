@@ -12,14 +12,22 @@
     
       <mynav /> <!-- import mynav -->
       <carousel /> <!-- import carousel -->
+      <div data-aos="fade-right">
       <h1 class="grand_titre">Nos Nouveautés</h1>
+      </div>
       <slider /> <!-- import slider -->
+      <div data-aos="fade-right">
       <h1 class="grand_titre">Nos marques</h1>
+      </div>
       <marque /> <!-- import marque -->
       <offre /> <!-- import offre -->
+      <div data-aos="fade-right">
       <h1 class="grand_titre">Les plus demandés</h1>
+      </div>
       <slider2 /> <!-- import slider2 -->
+      <div data-aos="fade-right">
       <h1 class="grand_titre">Devenir membre</h1>
+      </div>
       <abonnement /> <!-- import abonnement -->
       <myfooter /> <!-- import myfooter -->
     </div>

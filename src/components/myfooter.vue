@@ -12,11 +12,11 @@
                 <div class="w-100"></div>
                 <a href="/lifestyle">lifestyle</a>
                 <div class="w-100"></div>
-                <a href="">politique de confidentialité</a>
+                <a href="/faq">politique de confidentialité</a>
                 <div class="w-100"></div>
-                <a href="">mentions légales</a>
+                <a href="/faq">mentions légales</a>
                 <div class="w-100"></div>
-                <a href="">condition d'utilisateur</a>
+                <a href="/faq">condition d'utilisateur</a>
             </div>
 
             <!-- réseaux -->

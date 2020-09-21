@@ -2,9 +2,9 @@
     <div class="container-fluid image_offre_box">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-12 image_offre">
-
-                <img src="../assets/offre_1.jpg" class="image_hover " alt="...">
-
+                <div data-aos="zoom-in-up">
+                    <img src="../assets/offre_1.jpg" class="image_hover " alt="...">
+                </div>
                 <div class="contenu_box text-center">
                     <h7>Actualité</h7>
                     <p class="text_contenu">Toutes les dernières paires limitées, neuves et authentiques.</p>
@@ -14,9 +14,9 @@
             </div>
 
             <div class="col-lg-3 col-md-6 image_offre">
-
-                <img src="../assets/offre_2.jpg" class="image_hover" alt="...">
-
+                <div data-aos="zoom-in-up">
+                    <img src="../assets/offre_2.jpg" class="image_hover" alt="...">
+                </div>
                 <div class="contenu_box text-center">
                     <h7>Paiement sécurisé</h7>
                     <p class="text_contenu">Afin de faciliter et accélérer vos paiement, découvrer nos modes.</p>
@@ -26,9 +26,9 @@
             </div>
 
             <div class="col-lg-3 col-md-6 image_offre">
-
-                <img src="../assets/offre_3.jpg" class="image_hover" alt="...">
-
+                <div data-aos="zoom-in-up">
+                    <img src="../assets/offre_3.jpg" class="image_hover" alt="...">
+                </div>
                 <div class="contenu_box text-center">
                     <h7>Livraison gratuite pour les membres</h7>
                     <p class="text_contenu">Venez découvrir nos avantages en étant membre.</p>
@@ -39,9 +39,9 @@
             </div>
 
             <div class="col-lg-3 col-md-6 image_offre">
-
-                <img src="../assets/offre_4.jpg" class="image_hover" alt="...">
-
+                <div data-aos="zoom-in-up">
+                    <img src="../assets/offre_4.jpg" class="image_hover" alt="...">
+                </div>
                 <div class="contenu_box text-center">
                     <h7>Contactez-nous</h7>
                     <p class="text_contenu">N'hésitez pas à nous faire part de vos problèmes.</p>
@@ -134,14 +134,14 @@
         align-items: center;
         padding: 0 50px;
         transition: 0.5s;
-        
+
         visibility: hidden;
         transform: translateY(-600%);
 
     }
 
     .container-fluid .image_offre:hover .text_contenu {
-        
+
         visibility: visible;
         transition-delay: 0.5s;
     }
