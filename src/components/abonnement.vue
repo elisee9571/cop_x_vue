@@ -1,22 +1,37 @@
 <template>
     <!-- card abonnement -->
     <div class="container">
-        <div data-aos="fade-up" data-aos-anchor-placement="top-center">
+        <div data-aos="zoom-in">
             <div class="pricing-table">
+
                 <div v-for="abonnement in abonnements" :key="abonnement.id" class="pricing-card">
                     <!-- nom -->
                     <h3 class="pricing-card-header">{{ abonnement.nom }}</h3>
                     <!-- prix -->
                     <div class="price">{{ abonnement.prix }}<sup>€</sup><span>/mois</span></div>
                     <ul>
+
                         <!-- Tirage au sort de la sneakers du mois -->
-                        <li class="tirage">{{ abonnement.description }}</li>
+                        <div data-aos="fade-right">
+                            <li class="tirage">{{ abonnement.description }}</li>
+                        </div>
+
                         <!-- avantge -->
-                        <li>{{ abonnement.avantage1 }}</li>
-                        <li>{{ abonnement.avantage2 }}</li>
-                        <li>{{ abonnement.avantage3 }}</li>
-                        <li>{{ abonnement.avantage4 }}</li>
-                        <li>{{ abonnement.avantage5 }}</li>
+                        <div data-aos="fade-right">
+                            <li>{{ abonnement.avantage1 }}</li>
+                        </div>
+                        <div data-aos="fade-right">
+                            <li>{{ abonnement.avantage2 }}</li>
+                        </div>
+                        <div data-aos="fade-right">
+                            <li>{{ abonnement.avantage3 }}</li>
+                        </div>
+                        <div data-aos="fade-right">
+                            <li>{{ abonnement.avantage4 }}</li>
+                        </div>
+                        <div data-aos="fade-right">
+                            <li>{{ abonnement.avantage5 }}</li>
+                        </div>
 
                     </ul>
                     <a href="/profil" class="order-btn">s'abonner</a>
@@ -24,6 +39,7 @@
             </div>
         </div>
     </div>
+
 </template>
 
 <script>

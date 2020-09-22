@@ -52,16 +52,16 @@
             </div>
 
             <div class="contactForm_box col-lg-8 col-md-12 order-lg-2 order-1 ">
-                <div class="contactForm">
+                <div class="contactForm" >
                     <h2>Envoyer un message</h2>
 
-                    <div class="formBox">
+                    <div class="formBox" @submit.prevent="send">
                         <div class="inputBox w50">
                             <input type="text" name="" required v-model="nom">
                             <span>Nom</span>
                         </div>
                         <div class="inputBox w50">
-                            <input type="text" name="" required v-model="nom">
+                            <input type="text" name="" required v-model="prenom">
                             <span>Prenom</span>
                         </div>
                         <div class="inputBox w50">
@@ -69,11 +69,11 @@
                             <span>Email</span>
                         </div>
                         <div class="inputBox w50">
-                            <input type="text" name="" required>
+                            <input type="text" name="" required v-model="subject">
                             <span>Objet</span>
                         </div>
                         <div class="inputBox w100">
-                            <textarea name="" required></textarea>
+                            <textarea name="" required v-model="text"></textarea>
                             <span>Ecrire votre message ici</span>
                         </div>
                         <div class="inputBox w100">
@@ -93,6 +93,30 @@
 <script>
     export default {
         name: 'pagecontact',
+
+        data() {
+        return {
+            nom: "",
+            email: "",
+            subject: "",
+            text: "",
+        }
+    },
+    methods:{
+         send: function (){
+            
+            this.axios.post("http://localhost:3000/nodemailer/sendmail",{
+                email: this.email,
+                nom: this.nom,
+                subject: this.obj,
+                text: this.text
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+        },
+    },
     }
 </script>
 

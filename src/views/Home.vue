@@ -1,36 +1,36 @@
 <template>
   <div class="home" id="Home">
     <!-- import loading -->
-    <!-- <div class="loader">
+    <div class="loader">
       <svg width="200" height="250" viewBox="0 0 50 50">
         <polygon stroke-width="1" stroke="#fff" fill="none" points="20,1 40,40 1,40">
         </polygon>
         <text fill="#fff" x="10" y="52">Loading</text>
       </svg>
-    </div> -->
-
-    
-      <mynav /> <!-- import mynav -->
-      <carousel /> <!-- import carousel -->
-      <div data-aos="fade-right">
-      <h1 class="grand_titre">Nos Nouveautés</h1>
-      </div>
-      <slider /> <!-- import slider -->
-      <div data-aos="fade-right">
-      <h1 class="grand_titre">Nos marques</h1>
-      </div>
-      <marque /> <!-- import marque -->
-      <offre /> <!-- import offre -->
-      <div data-aos="fade-right">
-      <h1 class="grand_titre">Les plus demandés</h1>
-      </div>
-      <slider2 /> <!-- import slider2 -->
-      <div data-aos="fade-right">
-      <h1 class="grand_titre">Devenir membre</h1>
-      </div>
-      <abonnement /> <!-- import abonnement -->
-      <myfooter /> <!-- import myfooter -->
     </div>
+
+
+    <mynav /> <!-- import mynav -->
+    <carousel /> <!-- import carousel -->
+    <div data-aos="fade-right">
+      <h1 class="grand_titre">Nos Nouveautés</h1>
+    </div>
+    <slider /> <!-- import slider -->
+    <div data-aos="fade-right">
+      <h1 class="grand_titre">Nos marques</h1>
+    </div>
+    <marque /> <!-- import marque -->
+    <offre /> <!-- import offre -->
+    <div data-aos="fade-right">
+      <h1 class="grand_titre">Les plus demandés</h1>
+    </div>
+    <slider2 /> <!-- import slider2 -->
+    <div data-aos="fade-right">
+      <h1 class="grand_titre">Devenir membre</h1>
+    </div>
+    <abonnement /> <!-- import abonnement -->
+    <myfooter /> <!-- import myfooter -->
+  </div>
 </template>
 
 <script>
@@ -61,22 +61,23 @@
       slider2,
       abonnement,
     },
-    /* mounted() {
+    mounted() {
       const loader = document.querySelector('.loader');
 
       window.addEventListener('load', () => {
         loader.classList.add('fondu-out');
       })
-    } */
+    }
 
 
   }
 </script>
 <style>
-.home{
-  height: 100%;
-  width: 100%;
-}
+  .home {
+    height: 100%;
+    width: 100%;
+  }
+
   h1.grand_titre {
     left: 10px;
     margin-bottom: 50px;

@@ -1,34 +1,37 @@
 <template>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="container2 container_slider">
+            <div class=" container2 container_slider">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
 
+
                             <div class="row justify-content-center">
                                 <div v-for="produit in produits" :key="produit.id"
-                                    class="text-center col-lg-2 col-md-4 col-4 slider_box ">
+                                    class="text-center col-lg-3 col-md-4 col-7 slider_box ">
                                     <h4>{{ produit.marque }}</h4>
 
                                     <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
 
+                                    <div class="row text-center">
+                                        <div class="contentBx ">
+                                            <h2 class="">{{ produit.nom }}</h2>
 
-                                    <div class="contentBx">
-                                        <h2>{{ produit.nom }}</h2>
-                                        <div class="size">
-                                            <h3>Tailles :</h3>
-                                            <span>{{ produit.Tailles[0].taille }}</span>
+                                            <div class="size">
+                                                <h3>Tailles :</h3>
+                                                <span>{{ produit.Tailles[0].taille }}</span>
+                                            </div>
+
+                                            <router-link :to="`/pageproduit/${produit.id}`">
+                                                Voir plus
+                                            </router-link>
                                         </div>
-
-                                        <router-link :to="`/pageproduit/${produit.id}`">
-                                            Voir plus
-                                        </router-link>
                                     </div>
-
                                 </div>
                             </div>
+
 
                         </div>
                     </div>
@@ -53,39 +56,41 @@
         </div>
  -->
 
+
         <!-- <div>
-            <div class="glide">
-                <div class="glide__track" data-glide-el="track">
-                    <div class="row">
-                        <div v-for="produit in produits" :key="produit.id" class="col-lg-3 col-md-5 col-sm-5 card">
-
-                            <h4>{{ produit.marque }}</h4>
-
-                            <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
+            <div class=" container2 container_slider">
+                <div class="glide carousel-inner">
+                    <div class="glide__track carousel-item active" data-glide-el="track">
 
 
-                            <div class="contentBx">
-                                <h2>{{ produit.nom }}</h2>
-                                <div class="size">
-                                    <h3>Tailles :</h3>
-                                    <span>{{ produit.Tailles[0].taille }}</span>
+                        <div class="row justify-content-center">
+                            <div v-for="produit in produits" :key="produit.id"
+                                class="text-center col-lg-3 col-md-4 col-7 slider_box ">
+                                <h4>{{ produit.marque }}</h4>
+
+                                <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
+
+
+                                <div class="contentBx">
+                                    <h2>{{ produit.nom }}</h2>
+                                    <div class="size">
+                                        <h3>Tailles :</h3>
+                                        <span>{{ produit.Tailles[0].taille }}</span>
+                                    </div>
+
+                                    <router-link :to="`/pageproduit/${produit.id}`">
+                                        Voir plus
+                                    </router-link>
                                 </div>
 
-
-
-                                <router-link :to="`/pageproduit/${produit.id}`">
-                                    Voir plus
-                                </router-link>
-
                             </div>
-
                         </div>
                     </div>
-                </div>
 
-                <div class="glide__arrows" data-glide-el="controls">
-                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+                    </div>
                 </div>
             </div>
         </div> -->
@@ -149,7 +154,11 @@
 
 
 
-
+    .carousel-control-prev,
+    .carousel-control-next {
+        padding: 0;
+        margin: 0;
+    }
 
     /* .carousel-inner {
         background: #6844ff;
@@ -167,8 +176,8 @@
     .container_slider .slider_box {
         position: relative;
         display: flex;
-        width: 300px;
-        height: 450px;
+        width: 100%;
+        height: 100%;
         background: #232323;
         border-radius: 20px;
         overflow: hidden;
@@ -218,7 +227,7 @@
         transform: translateY(-50%);
         z-index: 10000;
         width: 100%;
-        height: 40%;
+        /* height: 40%; */
         transition: 0.5s;
     }
 
@@ -249,11 +258,12 @@
         text-align: center;
         transition: 1s;
         z-index: 10;
+        left: 0;
     }
 
     .container_slider .slider_box:hover .contentBx {
         height: 210px;
-    }
+    } 
 
     /* titre produit slider_box */
     .container_slider .slider_box .contentBx h2 {
@@ -261,7 +271,6 @@
         color: #fff;
         font-size: 30px;
         font-family: 'Bebas Neue', sans-serif;
-        width: 100%;
     }
 
     /* size produit */

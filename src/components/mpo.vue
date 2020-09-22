@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="row justify-content-center">
                 <div class="col-12 mpo-container_box">
-                    <form action="#">
+                    <form action="#" @submit.prevent="oublier">
                         <h1 class="mpo_titre">Réinitialiser le mot de passe</h1>
 
                         <input class="email_mpo" type="email" name="email" placeholder="Email">
@@ -11,7 +11,7 @@
                                 src="https://img.icons8.com/ios-glyphs/24/000000/box-important.png" />Nous vous
                             enverrons un
                             e-mail pour réinitialiser votre mot de passe.</span>
-                        <button class="envoyer_">Envoyer</button>
+                        <button class="envoyer_" type="submit"  >Envoyer</button>
                         <span><a class="a_mpo" href="/">retour</a></span>
                     </form>
                 </div>
@@ -23,6 +23,24 @@
 <script>
     export default {
         name: 'mpo',
+        data() {
+            return {
+                email: "",
+            };
+        },
+        methods: {
+            oublier: function () {
+                this.axios.post("http://localhost:3000/client/forgetpassword", {
+                        email: this.email,
+                    })
+                    .then((result) => {
+                        alert(result);
+                    })
+                    .catch((err) => {
+                        alert(err);
+                    });
+            },
+        },
     }
 </script>
 

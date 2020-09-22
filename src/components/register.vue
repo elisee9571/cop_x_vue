@@ -96,15 +96,17 @@ export default {
 
         },
         doregister: function (){
-            alert(`Félicitation votre compte a été crée`);
+            
             this.axios.post("http://localhost:3000/client/register",{
                 nom:this.nom,
                 email:this.email,
                 password:this.password
             })
             .then(res =>{
+                
                 console.log(res);
                 if(res.data.token){
+                    
                     localStorage.setItem("token",res.data.token)
 /* une fois les donnes recuperer et stockés il va nous renvoyer sur home */
                     this.$router.push({name: 'login'})
@@ -112,7 +114,7 @@ export default {
                 }
                 else{
                     this.$router.push({name: "register", params: {msg: "non connecté"} })
-                    alert(`non connecté`);
+                    alert(`Vous devez valider votre mail.`);
                 }
             })
             .catch(err => {

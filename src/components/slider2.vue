@@ -1,6 +1,6 @@
 <template>
-    <div class="container-fluid">
-        <div class="row">
+    <div class="container">
+        <div class="row ">
             <div class="container2 container_slider">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
@@ -9,7 +9,7 @@
 
                             <div class="row justify-content-center">
                                 <div v-for="produit in produits" :key="produit.id"
-                                    class="text-center col-lg-2 col-md-4 col-4 slider_box ">
+                                    class="text-center col-lg-3 col-md-4 col-7 slider_box ">
                                     <h4>{{ produit.marque }}</h4>
 
                                     <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
@@ -110,7 +110,12 @@
     /* css */
 
 
-
+.carousel-control-next-icon{
+    margin-left: 50%;
+}
+.carousel-control-prev-icon{
+    margin-right: 50%;
+}
 
 
     /* .carousel-inner {
@@ -129,8 +134,8 @@
     .container_slider .slider_box {
         position: relative;
         display: flex;
-        width: 300px;
-        height: 450px;
+        width: 100%;
+        height: 420px;
         background: #232323;
         border-radius: 20px;
         overflow: hidden;
@@ -211,6 +216,7 @@
         text-align: center;
         transition: 1s;
         z-index: 10;
+        left: 0;
     }
 
     .container_slider .slider_box:hover .contentBx {

@@ -6,7 +6,7 @@
             <div class="col-12 text-lg-center">
                 {{ message }}
             </div>
-        </div> --> 
+        </div> -->
 
         <!-- image du profil -->
         <div class="row">
@@ -60,10 +60,10 @@
                             src="https://img.icons8.com/android/25/000000/lock.png" /> sécurité</a>
 
                     <!-- deconnexion -->
-                    <a class="nav-link nav_titre_profil" data-toggle="pill"
-                        href="#v-pills-deconnexion" role="tab" aria-controls="v-pills-deconnexion"
-                        aria-selected="false" @click="logout"><img class="icon_titre_profil"
-                            src="https://img.icons8.com/windows/30/000000/exit.png"  /> Déconnexion</a>
+                    <a class="nav-link nav_titre_profil" data-toggle="pill" href="#v-pills-deconnexion" role="tab"
+                        aria-controls="v-pills-deconnexion" aria-selected="false" @click="logout"><img
+                            class="icon_titre_profil" src="https://img.icons8.com/windows/30/000000/exit.png" />
+                        Déconnexion</a>
 
 
                 </div>
@@ -209,7 +209,8 @@
                                 </div> -->
 
                                 <div class="form-group">
-                                    <input type="submit" class="btn_jour" value="Sauvegarder les modifications" />
+                                    <input type="submit" class="btn_jour"
+                                        value="Sauvegarder les modifications" />
                                 </div>
 
                             </form>
@@ -339,11 +340,11 @@
 
                     <div class="tab-pane fade" id="v-pills-mdp" role="tabpanel" aria-labelledby="v-pills-mdp-tab">
                         <!-- changer le mdp -->
-                        <div class="row text-center">
-                            <div class="securite col-12">
+                        <div class="row text-center" >
+                            <div class="securite col-12" @submit.prevent="forgeter">
                                 <h1 class="titre_page_nav text-center">Changer mon mot de passe</h1>
 
-                                <!-- mot de passe -->
+                                <!--mon mot de passe -->
                                 <div class="form-group">
                                     <label class="col-md-12 control-label" for="password"> mon Mot de passe:</label>
 
@@ -353,14 +354,16 @@
                                     </div>
                                 </div>
 
+                                <!-- nouveau mdp -->
                                 <div class="form-group">
-                                    <label class="col-md-12 control-label" for="password"> Nouveau Mot de passe:</label>
+                                    <label class="col-md-12 control-label" for="forget"> Nouveau Mot de passe:</label>
                                     <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="password" name="password"
-                                            id="password" v-model="client.password" />
+                                        <input class="input_profil form-control" type="password" name="forget"
+                                            id="forget" v-model="client.forget" />
                                     </div>
                                 </div>
 
+                                <!-- enregistrer -->
                                 <a class="" id="v-pills-mdp_oublié-tab" data-toggle="pill" href="#v-pills-mdp_oublié"
                                     role="tab" aria-controls="v-pills-mdp_oublié" aria-selected="false">
                                     mot de passe oublié</a>
@@ -378,15 +381,14 @@
                         aria-labelledby="v-pills-mdp_oublié-tab">
                         <!-- mdp oublié -->
                         <div class="row">
-                            <div class="securite col-12 text-center">
+                            <div class="securite col-12 text-center" >
                                 <h1 class="titre_page_nav text-center">Réinitialiser Mot De Passe:</h1>
-                                <div class="form-group">
+                                <div class="form-group" @submit.prevent="oublier">
                                     <!-- email -->
 
-                                    <label class="col-md-3 control-label" for="email"> Email: </label>
+                                    <label class="col-md-12 control-label" for="email"> Email: </label>
                                     <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="email" name="email" id="email"
-                                            v-model="client.email" />
+                                        <input class="input_profil form-control" type="email" name="email" id="email" />
                                     </div>
 
 
@@ -430,6 +432,9 @@
 
         data() {
             return {
+                password: "",
+                forget: "",
+                email: "",
                 client: {},
                 message: null,
                 pic: null,
@@ -588,8 +593,10 @@
                     this.client.image = e.target.result;
                 };
             },
+
+            /* update profil */
             update: function () {
-               
+
                 this.axios
                     .put(
                         "http://localhost:3000/client/update/" + this.client.id,
@@ -599,24 +606,58 @@
                         if (res.status === 200) {
                             localStorage.setItem("token", JSON.stringify(res.data.token));
                             this.message = "votre profil est à jour";
-                             alert(`votre profil est à jour`); 
-                            
+                            alert(`votre profil est à jour`);
+
                         } else {
-                            
+
                             this.message = "error: votre profil n'est pas mis à jour";
-                            
+                            alert(`erreur: votre profil n'a pas été mis à jour`);
                         }
                     })
                     .catch((err) => {
-                        alert(`erreur: votre profil n'est pas mis à jour`);
+
                         console.log(err);
                     });
             },
-            logout: function(){
-                localStorage.removeItem("token");
-                this.$router.push({name: "Home", params: {msg: "non connecté"} });
-            }
 
+            /* deconnexion */
+            logout: function () {
+                alert(`Déconnexion, actualiser votre page`);
+                localStorage.removeItem("token");
+                this.$router.push({
+                    name: "Home",
+                    params: {
+                        msg: "non connecté"
+                    }
+                });
+            },
+
+            /* mpo */
+             oublier: function () {
+                this.axios.post("http://localhost:3000/client/forgetpassword", {
+                        email: this.email,
+                    })
+                    .then((result) => {
+                        alert(result);
+                    })
+                    .catch((err) => {
+                        alert(err);
+                    });
+            },
+
+            /* update password */
+            forgeter: function () {
+                this.axios.post("http://localhost:3000/client/updatepassword", {
+                        forget: this.forget,
+                        password:this.password,
+                    })
+                    .then((result) => {
+                        alert(result);
+                    })
+                    .catch((err) => {
+                        alert(err);
+                    });
+            },
 
         },
     };
@@ -773,7 +814,8 @@
 
     .sexe_input {
         width: 10%;
-        margin-top: 10px;
+        margin-top: 5px;
+        margin-right: 10px;
     }
 
     .sexe_label {

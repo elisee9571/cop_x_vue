@@ -7,13 +7,16 @@
                 <form>
                     <h1 class="titre_sign">Créer un compte</h1>
                     <div class="social-container">
-                        <a href="#" class="social"><img class="connection_icon" src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png"/></a>
-                        <a href="#" class="social"><img class="connection_icon" src="https://img.icons8.com/ios/26/000000/google-plus.png"/></a>
+                        <a href="#" class="social"><img class="connection_icon"
+                                src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png" /></a>
+                        <a href="#" class="social"><img class="connection_icon"
+                                src="https://img.icons8.com/ios/26/000000/google-plus.png" /></a>
                     </div>
                     <span class="sous_titre">ou utiliser votre email pour vous inscrire</span>
                     <input class="input_login" type="text" name="nom" id="nom" placeholder="Nom Prénom" v-model="nom">
                     <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email">
-                    <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe" v-model="password">
+                    <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe"
+                        v-model="password">
                     <button class="btn_sign">S'inscrire</button>
                 </form>
             </div>
@@ -22,12 +25,16 @@
                 <form action="">
                     <h1 class="titre_sign">Se connecter</h1>
                     <div class="social-container">
-                        <a href="#" class="social"><img class="connection_icon" src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png"/></a>
-                        <a href="#" class="social"><img class="connection_icon" src="https://img.icons8.com/ios/26/000000/google-plus.png"/></a>
+                        <a href="#" class="social"><img class="connection_icon"
+                                src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png" /></a>
+                        <a href="#" class="social"><img class="connection_icon"
+                                src="https://img.icons8.com/ios/26/000000/google-plus.png" /></a>
                     </div>
                     <span class="sous_titre">ou utiliser votre compte</span>
-                    <input class="input_login" type="email" name="email" id="emaillogin" placeholder="Email" v-model="emaillogin">
-                    <input class="input_login" type="password" name="passwordlogin" id="passwordlogin"  placeholder="Mot de passe" v-model="passwordlogin">
+                    <input class="input_login" type="email" name="email" id="emaillogin" placeholder="Email"
+                        v-model="emaillogin">
+                    <input class="input_login" type="password" name="passwordlogin" id="passwordlogin"
+                        placeholder="Mot de passe" v-model="passwordlogin">
                     <a href="/mpo" class="mdp_oublié">Mot de passe oublié</a>
 
                     <button class="btn_sign">Se connecter</button>
@@ -58,87 +65,101 @@
 </template>
 
 <script>
-export default {
-    name: "login",
+    export default {
+        name: "login",
 
-    data() {
-        return {
-            nom: "",
-            email: "",
-            password: "",
-            emaillogin: "",
-            passwordlogin: ""
+        data() {
+            return {
+                nom: "",
+                email: "",
+                password: "",
+                emaillogin: "",
+                passwordlogin: ""
+            }
+        },
+        components: {},
+        methods: {
+            dologin: function () {
+
+                this.axios.post("http://localhost:3000/client/login", {
+                        email: this.emaillogin,
+                        password: this.passwordlogin
+                    })
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem("token", res.data.token)
+                            /* une fois les donnes recuperer et stockés il va nous renvoyer sur notre page home*/
+                            this.$router.push({
+                                name: 'profil'
+                            })
+                            window.location.reload();
+                        } else {
+                            this.$router.push({
+                                name: "register",
+                                params: {
+                                    msg: "non connecté"
+                                }
+                            })
+                            alert(`non connecté`);
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+
+            },
+            doregister: function () {
+
+                this.axios.post("http://localhost:3000/client/register", {
+                        nom: this.nom,
+                        email: this.email,
+                        password: this.password
+                    })
+                    .then(res => {
+
+                        console.log(res);
+                        if (res.data.token) {
+                            
+                            localStorage.setItem("token", res.data.token)
+
+                            /* une fois les donnes recuperer et stockés il va nous renvoyer sur home */
+                            //this.$router.push({name: 'Login'})
+                            //window.location.reload();--
+                        } else {
+                            this.$router.push({
+                                name: "register",
+                                params: {
+                                    msg: "non connecté"
+                                }
+                            })
+                            alert(`Vous devez valider votre mail.`);
+                            
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+
+            },
+        },
+        mounted() {
+            const signUpButton = document.getElementById("signUp");
+            const signInButton = document.getElementById("signIn");
+            const container = document.getElementById("container");
+            signUpButton.addEventListener("click", () => {
+                container.classList.add("right-panel-active");
+            });
+            signInButton.addEventListener("click", () => {
+                container.classList.remove("right-panel-active");
+            });
+
         }
-    },
-    components:{},
-    methods:{
-         dologin: function (){
-             
-            this.axios.post("http://localhost:3000/client/login",{
-                email: this.emaillogin,
-                password: this.passwordlogin
-            })
-            .then(res =>{
-                if(res.data.token){
-                    localStorage.setItem("token",res.data.token)
-/* une fois les donnes recuperer et stockés il va nous renvoyer sur notre page home*/
-                    this.$router.push({name: 'profil'})
-                    window.location.reload();
-                }
-                else{
-                    this.$router.push({name: "register", params: {msg: "non connecté"} })
-                    alert(`non connecté`);
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
-
-        },
-        doregister: function (){
-            alert(`Félicitation votre compte a été crée`);
-            this.axios.post("http://localhost:3000/client/register",{
-                nom:this.nom,
-                email:this.email,
-                password:this.password
-            })
-            .then(res =>{
-                console.log(res);
-                if(res.data.token){
-                    localStorage.setItem("token",res.data.token)
-/* une fois les donnes recuperer et stockés il va nous renvoyer sur home */
-                    //this.$router.push({name: 'Login'})
-                    //window.location.reload();--
-                }
-                else{
-                    this.$router.push({name: "register", params: {msg: "non connecté"} })
-                    alert(`non connecté`);
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
-
-        },
-    },
-    mounted(){
-        const signUpButton = document.getElementById("signUp");
-        const signInButton = document.getElementById("signIn");
-        const container = document.getElementById("container");
-        signUpButton.addEventListener("click", ()=>{
-            container.classList.add("right-panel-active");
-        });
-         signInButton.addEventListener("click", ()=>{
-            container.classList.remove("right-panel-active");
-        });
 
     }
-    
-}
 </script>
 
 <style>
-@import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
+    @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
 
 
     .titre_sign {
@@ -157,7 +178,7 @@ export default {
         font-family: 'Oswald', sans-serif;
     }
 
-    .sous_titre{
+    .sous_titre {
         font-size: 12px;
         font-family: 'Oswald', sans-serif;
     }
@@ -170,7 +191,8 @@ export default {
         font-family: 'Oswald', sans-serif;
     }
 
-    .btn_sign, .ghost {
+    .btn_sign,
+    .ghost {
         border-radius: 20px;
         border: 1px solid #262626;
         background-color: #262626;
@@ -354,6 +376,7 @@ export default {
         height: 40px;
         width: 40px;
     }
+
     /* .connection_icon{
         filter: invert(0);
     } */
