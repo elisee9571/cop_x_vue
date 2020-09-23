@@ -24,6 +24,7 @@ import VueGlide from 'vue-glide-js'
 import 'vue-glide-js/dist/vue-glide.css'
 Vue.use(VueGlide)
 
+/* effet d'apparition AOS */
 import 'aos/dist/aos.css'; // You can also use  for styles
 
 

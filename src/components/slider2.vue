@@ -94,7 +94,7 @@
         },
         created() {
             this.axios
-                .get("http://localhost:3000/produit/order1/3")
+                .get("http://localhost:3000/produit/order2/3")
                 .then((res) => {
                     this.produits = res.data.produits;
                 })
@@ -185,7 +185,6 @@
         transform: translateY(-50%);
         z-index: 10000;
         width: 100%;
-        height: 40%;
         transition: 0.5s;
     }
 
@@ -258,10 +257,10 @@
     }
 
     .container_slider .slider_box .contentBx .size span {
-        width: 26px;
-        height: 26px;
+        width: 40px;
+        height: 40px;
         text-align: center;
-        line-height: 26px;
+        line-height: 40px;
         font-size: 14px;
         display: inline-block;
         color: #111;

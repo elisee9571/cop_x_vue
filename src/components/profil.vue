@@ -1,12 +1,9 @@
 <template>
     <!-- profil client -->
+    
     <div class="container">
+        
         <h1 class="text-center">Mon Profil</h1>
-        <!-- <div class="row" v-if="message !== null">
-            <div class="col-12 text-lg-center">
-                {{ message }}
-            </div>
-        </div> -->
 
         <!-- image du profil -->
         <div class="row">
@@ -69,6 +66,7 @@
                 </div>
             </div>
 
+            <!-- contenu du profil -->
             <div class="contenu_profil col-lg-8">
                 <div class="tab-content" id="v-pills-tabContent">
 
@@ -209,8 +207,7 @@
                                 </div> -->
 
                                 <div class="form-group">
-                                    <input type="submit" class="btn_jour"
-                                        value="Sauvegarder les modifications" />
+                                    <input type="submit" class="btn_jour" value="Sauvegarder les modifications" />
                                 </div>
 
                             </form>
@@ -340,7 +337,7 @@
 
                     <div class="tab-pane fade" id="v-pills-mdp" role="tabpanel" aria-labelledby="v-pills-mdp-tab">
                         <!-- changer le mdp -->
-                        <div class="row text-center" >
+                        <div class="row text-center">
                             <div class="securite col-12" @submit.prevent="forgeter">
                                 <h1 class="titre_page_nav text-center">Changer mon mot de passe</h1>
 
@@ -381,7 +378,7 @@
                         aria-labelledby="v-pills-mdp_oublié-tab">
                         <!-- mdp oublié -->
                         <div class="row">
-                            <div class="securite col-12 text-center" >
+                            <div class="securite col-12 text-center">
                                 <h1 class="titre_page_nav text-center">Réinitialiser Mot De Passe:</h1>
                                 <div class="form-group" @submit.prevent="oublier">
                                     <!-- email -->
@@ -633,7 +630,7 @@
             },
 
             /* mpo */
-             oublier: function () {
+            oublier: function () {
                 this.axios.post("http://localhost:3000/client/forgetpassword", {
                         email: this.email,
                     })
@@ -649,7 +646,7 @@
             forgeter: function () {
                 this.axios.post("http://localhost:3000/client/updatepassword", {
                         forget: this.forget,
-                        password:this.password,
+                        password: this.password,
                     })
                     .then((result) => {
                         alert(result);
@@ -660,6 +657,7 @@
             },
 
         },
+
     };
 </script>
 

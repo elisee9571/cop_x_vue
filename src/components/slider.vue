@@ -47,53 +47,41 @@
                 </div>
             </div>
         </div>
+
+
         <!-- <div>
-            <vue-glide v-model="active">
+            <vue-glide class="" v-model="active">
                 <vue-glide-slide v-for="i in 5" :key="i">
-                    Slide {{ i }}
+
+                        <div class="">
+                            <div v-for="produit in produits" :key="produit.id" class="">
+                                <h4>{{ produit.marque }}</h4>
+
+                                <img class="" :src="require(`@/assets/${produit.Images[0].image}.png`)">
+
+                                <div class="">
+                                    <div class="">
+                                        <h2 class="">{{ produit.nom }}</h2>
+
+                                        <div class="">
+                                            <h3>Tailles :</h3>
+                                            <span>{{ produit.Tailles[0].taille }}</span>
+                                        </div>
+
+                                        <router-link :to="`/pageproduit/${produit.id}`">
+                                            Voir plus
+                                        </router-link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                    
                 </vue-glide-slide>
             </vue-glide>
         </div>
  -->
-
-
-        <!-- <div>
-            <div class=" container2 container_slider">
-                <div class="glide carousel-inner">
-                    <div class="glide__track carousel-item active" data-glide-el="track">
-
-
-                        <div class="row justify-content-center">
-                            <div v-for="produit in produits" :key="produit.id"
-                                class="text-center col-lg-3 col-md-4 col-7 slider_box ">
-                                <h4>{{ produit.marque }}</h4>
-
-                                <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
-
-
-                                <div class="contentBx">
-                                    <h2>{{ produit.nom }}</h2>
-                                    <div class="size">
-                                        <h3>Tailles :</h3>
-                                        <span>{{ produit.Tailles[0].taille }}</span>
-                                    </div>
-
-                                    <router-link :to="`/pageproduit/${produit.id}`">
-                                        Voir plus
-                                    </router-link>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glide__arrows" data-glide-el="controls">
-                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
 
     </div>
@@ -120,7 +108,7 @@
         },
         created() {
             this.axios
-                .get("http://localhost:3000/produit/order/3")
+                .get("http://localhost:3000/produit/order1/3")
                 .then((res) => {
                     this.produits = res.data.produits;
                 })
@@ -150,205 +138,5 @@
 </script>
 
 <style>
-    /* css */
-
-
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        padding: 0;
-        margin: 0;
-    }
-
-    /* .carousel-inner {
-        background: #6844ff;
-        
-    } */
-
-
-
-    /* slider container + card produit */
-    .container_slider {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .container_slider .slider_box {
-        position: relative;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        background: #232323;
-        border-radius: 20px;
-        overflow: hidden;
-        align-content: center !important;
-        align-items: center !important;
-        text-align: center;
-        /* box-shadow: 0px 0px 40px black; */
-
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        margin: 10px 30px;
-        /* box-sizing: border-box; */
-    }
-
-    .container_slider .slider_box:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #f0f, #22abfa);
-        clip-path: circle(150px at 80% 20%);
-        transition: 0.5s ease-in-out;
-    }
-
-    .container_slider .slider_box:hover:before {
-        clip-path: circle(300px at 80% -20%);
-    }
-
-    /* marque */
-    h4 {
-        position: absolute;
-        top: 30%;
-        left: -20%;
-        font-size: 12em;
-        font-weight: 800;
-        font-style: italic;
-        color: rgba(255, 255, 250, 0.04);
-    }
-
-    /* img produit */
-    .container_slider .slider_box .imgBx {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10000;
-        width: 100%;
-        /* height: 40%; */
-        transition: 0.5s;
-    }
-
-    .container_slider .slider_box:hover .imgBx {
-        top: 0%;
-        transform: translateY(0%);
-    }
-
-    .container_slider .slider_box .imgBx {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -60%);
-        width: 90%;
-    }
-
-    .container_slider .slider_box:hover .imgBx {
-        transform: translate(-50%, -0%) rotate(-15deg);
-        transition: 1s;
-    }
-
-
-    .container_slider .slider_box .contentBx {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 100px;
-        text-align: center;
-        transition: 1s;
-        z-index: 10;
-        left: 0;
-    }
-
-    .container_slider .slider_box:hover .contentBx {
-        height: 210px;
-    } 
-
-    /* titre produit slider_box */
-    .container_slider .slider_box .contentBx h2 {
-        position: relative;
-        color: #fff;
-        font-size: 30px;
-        font-family: 'Bebas Neue', sans-serif;
-    }
-
-    /* size produit */
-    .container_slider .slider_box .contentBx .size {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 20px;
-        transition: 0.5s;
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .container_slider .slider_box:hover .contentBx .size {
-        opacity: 1;
-        visibility: visible;
-        transition-delay: 0.5s;
-    }
-
-    .container_slider .slider_box .contentBx .size h3 {
-        color: #fff;
-        font-size: 17px;
-        text-transform: uppercase;
-        margin-right: 10px;
-        font-family: 'Oswald', sans-serif;
-    }
-
-    .container_slider .slider_box .contentBx .size span {
-        width: 26px;
-        height: 26px;
-        text-align: center;
-        line-height: 26px;
-        font-size: 14px;
-        display: inline-block;
-        color: #111;
-        background: #fff;
-        margin: 0 5px;
-        transition: 0.5s;
-        color: #111;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: 0.4s linear;
-    }
-
-    .container_slider .slider_box .contentBx .size span:hover {
-        background: #6844ff;
-        color: #fff;
-    }
-
-    /* btn voir plus slider_box */
-    .container_slider .slider_box .contentBx a {
-        display: inline-block;
-        padding: 10px;
-        margin-top: 20px;
-        text-decoration: none;
-        font-weight: 500;
-        opacity: 0;
-        transform: translateY(50px);
-        transition: 0.5s;
-        border: 2px solid rgba(104, 68, 255, 255);
-        color: rgba(104, 68, 255, 255);
-        border-radius: 8px;
-        text-transform: uppercase;
-        font-weight: 500;
-        transition: 0.4 linear;
-        font-family: 'Oswald', sans-serif;
-    }
-
-    .container_slider .slider_box:hover .contentBx a {
-        opacity: 1;
-        transform: translateY(0px);
-        transition-delay: 0.75s;
-    }
-
-    .container_slider .slider_box .contentBx a:hover {
-        transition-delay: 0.1s;
-        background: #6844ff;
-        color: #fff;
-        text-transform: uppercase;
-    }
+  
 </style>

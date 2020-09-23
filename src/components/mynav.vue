@@ -105,7 +105,6 @@
         /* nom de ma pasge */
         name: "mynav",
 
-
     }
 </script>
 

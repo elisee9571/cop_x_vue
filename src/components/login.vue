@@ -88,7 +88,7 @@
                     .then(res => {
                         if (res.data.token) {
                             localStorage.setItem("token", res.data.token)
-                            /* une fois les donnes recuperer et stockés il va nous renvoyer sur notre page home*/
+                            // une fois les donnes recuperer et stockés il va nous renvoyer sur notre page home
                             this.$router.push({
                                 name: 'profil'
                             })
@@ -122,7 +122,7 @@
                             
                             localStorage.setItem("token", res.data.token)
 
-                            /* une fois les donnes recuperer et stockés il va nous renvoyer sur home */
+                            // une fois les donnes recuperer et stockés il va nous renvoyer sur home
                             //this.$router.push({name: 'Login'})
                             //window.location.reload();--
                         } else {

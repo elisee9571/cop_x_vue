@@ -1,8 +1,9 @@
 <template>
-
+    <!-- contact -->
     <div class="container">
         <div class="row">
             <div class="contactinfo_box col-lg-4 col-md-12 order-lg-1 order-2">
+                <!-- info contact -->
                 <div class="contactinfo">
                     <div class="row">
                         <div class="col text-lg-left text-center">
@@ -10,14 +11,12 @@
 
                             <div class="row justify-content-center">
                                 <div class="info">
-                                    
-                                            <img class="icon_contact1"
-                                                src="https://img.icons8.com/ios-filled/50/000000/email-open.png" />
 
+                                    <img class="icon_contact1"
+                                        src="https://img.icons8.com/ios-filled/50/000000/email-open.png" />
+                                    <span class="p_email">eltestnode@gmail.com</span>
+                                </div>
 
-                                            <span class="p_email">eltestnode@gmail.com</span>
-                                        </div>
-                                   
                             </div>
                         </div>
                     </div>
@@ -34,15 +33,15 @@
                                 <div class="h-100"></div>
                                 <div class="h-100"></div>
                                 <div class="h-50"></div>
-                                <a href=""><img class="icon_contact"
+                                <a href="" target="_blank"><img class="icon_contact"
                                         src="https://img.icons8.com/android/45/000000/facebook.png" /></a>
 
 
-                                <a href=""><img class="icon_contact"
+                                <a href="https://www.instagram.com/cop___x/" target="_blank"><img class="icon_contact"
                                         src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" /></a>
 
 
-                                <a href=""><img class="icon_contact"
+                                <a href="" target="_blank"><img class="icon_contact"
                                         src="https://img.icons8.com/android/50/000000/twitter.png" /></a>
                             </div>
                         </div>
@@ -51,8 +50,9 @@
                 </div>
             </div>
 
+            <!-- form contact -->
             <div class="contactForm_box col-lg-8 col-md-12 order-lg-2 order-1 ">
-                <div class="contactForm" >
+                <div class="contactForm">
                     <h2>Envoyer un message</h2>
 
                     <div class="formBox" @submit.prevent="send">
@@ -95,28 +95,28 @@
         name: 'pagecontact',
 
         data() {
-        return {
-            nom: "",
-            email: "",
-            subject: "",
-            text: "",
-        }
-    },
-    methods:{
-         send: function (){
-            
-            this.axios.post("http://localhost:3000/nodemailer/sendmail",{
-                email: this.email,
-                nom: this.nom,
-                subject: this.obj,
-                text: this.text
-            })
-            .catch(err => {
-                console.log(err);
-            })
-
+            return {
+                nom: "",
+                email: "",
+                subject: "",
+                text: "",
+            }
         },
-    },
+        methods: {
+            send: function () {
+
+                this.axios.post("http://localhost:3000/nodemailer/sendmail", {
+                        email: this.email,
+                        nom: this.nom,
+                        subject: this.obj,
+                        text: this.text
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+
+            },
+        },
     }
 </script>
 
@@ -145,7 +145,7 @@
         text-decoration: none;
     }
 
-    .titre_contact a:hover{
+    .titre_contact a:hover {
         color: #fff;
         outline: none;
         text-decoration: none;
@@ -159,7 +159,7 @@
 
     .icon_contact1 {
         width: 35px;
-        margin-right: 10px; 
+        margin-right: 10px;
         opacity: 0.7;
         filter: invert(1);
     }

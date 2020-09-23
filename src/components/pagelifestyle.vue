@@ -4,36 +4,6 @@
     <div class="container-fluid">
         <div class="row">
 
-            <!-- input search -->
-            <div class="container container1">
-                <div class="row">
-                    <div class="searchbox">
-                        <input type="text" class="searchbox__input" placeholder="Recherche...">
-                        <img class="searchbox__icon" src="https://img.icons8.com/ios-filled/50/000000/search.png" />
-                    </div>
-                </div>
-            </div>
-
-            <!-- btn filtrer -->
-            <div class="container">
-                <div class="row  justify-content-between">
-                    <div class="order-2 dropdown">
-                        <button class="dropdown-toggle btn_filtrer" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filtrer
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
-
-                    <!-- titre Lifestyle -->
-                    <h1 class="order-1">Lifestyle</h1>
-                </div>
-            </div>
-
             <!-- card produit -->
             <div class="container container2">
                 <div class="row justify-content-center">

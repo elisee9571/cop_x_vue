@@ -78,7 +78,7 @@
 
     .image_offre_box .image_offre {
         width: 100%;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
 
     .image_hover {
@@ -93,14 +93,12 @@
 
     }
 
-    .contenu_box {
-        padding: 0;
-        margin: 0;
+    div .contenu_box {
+        position: absolute;
+        top: 33%;
     }
 
     .container-fluid .image_offre_box .image_offre {
-        position: absolute;
-        bottom: 0;
         width: 100%;
         text-align: center;
         transition: 1s;
@@ -123,7 +121,7 @@
     }
 
     .container-fluid .image_offre:hover .contenu_box h7 {
-        top: 15%;
+        top: -15%;
         transition: 1s;
     }
 
@@ -134,11 +132,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 10px;
+        padding: 0 50px;
         transition: 0.5s;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-385%);
+        transform: translateY(100%);
 
     }
 
@@ -155,112 +153,58 @@
         font-family: 'Bebas Neue', sans-serif;
         font-size: 25px;
         padding: 5px 40px;
-        opacity: 0;
+        opacity: 0; 
         transition: 0.5s;
         display: inline-block;
         text-decoration: none;
-        transform: translateY(-100%);
+        transform: translateY(400%);
     }
 
     .container-fluid .image_offre:hover .btn_decouvrir {
         opacity: 1;
-        transform: translateY(-400%);
+        transform: translateY(200%);
         transition-delay: 0.5s;
     }
 
-    @media (min-width: 0px) {
-
-        /* col- */
-        .container-fluid .image_offre:hover .btn_decouvrir {
-            opacity: 1;
-            transform: translateY(-600%);
-            transition-delay: 0.5s;
-        }
-
-        .container-fluid .image_offre .contenu_box .text_contenu {
-            transform: translateY(-25rem);
-            padding: 0 50px;
-        }
+     @media (min-width: 0px) {
 
         .container-fluid .image_offre .contenu_box h7 {
             font-size: 40px;
         }
+        .container-fluid .image_offre .contenu_box .text_contenu {
+            padding: 0 50px;
+        }
 
         .container-fluid .image_offre .contenu_box .text_contenu_livraison{
-            transform: translateY(-550%) !important;
-        }
+            transform: translateY(150%) !important;
+        } 
     }
-    @media (min-width: 768px) {
+     @media (min-width: 768px) {
 
-        /* col- */
-        .container-fluid .image_offre:hover .btn_decouvrir {
-            opacity: 1;
-            transform: translateY(-560%);
-            transition-delay: 0.5s;
+        .container-fluid .image_offre .contenu_box h7 {
+            font-size: 40px;
+            padding: 0 20px;
         }
+        .container-fluid .image_offre .contenu_box .text_contenu {
+            padding: 0 10px;
+        }
+
+        .container-fluid .image_offre .contenu_box .text_contenu_livraison{
+            transform: translateY(150%) !important;
+        } 
+    }
+    
+   @media (min-width: 1140px) {
 
         .container-fluid .image_offre .contenu_box .text_contenu {
-            transform: translateY(-21rem);
             padding: 0 10px;
         }
 
         .container-fluid .image_offre .contenu_box h7 {
             font-size: 35px;
+             padding: 0 20px;
         }
 
-        .container-fluid .image_offre .contenu_box .text_contenu_livraison{
-            transform: translateY(-460%) !important;
-        }
     }
-
-    @media (min-width: 1140px) {
-
-        .image_offre_box .image_offre {
-            height: 100%;
-        } 
-         /* col- */
-        .container-fluid .image_offre:hover .btn_decouvrir {
-            opacity: 1;
-            transform: translateY(-400%);
-            transition-delay: 0.5s;
-        }
-
-        .container-fluid .image_offre .contenu_box .text_contenu {
-            transform: translateY(-15rem);
-            padding: 0 10px;
-        }
-
-        .container-fluid .image_offre .contenu_box h7 {
-            font-size: 30px;
-        }
-
-        .container-fluid .image_offre .contenu_box .text_contenu_livraison{
-            transform: translateY(-330%) !important;
-        }
-    }
-    @media (min-width: 1281px) {
-
-        .image_offre_box .image_offre {
-            height: 100%;
-        } 
-         /* col- */
-        .container-fluid .image_offre:hover .btn_decouvrir {
-            opacity: 1;
-            transform: translateY(-450%);
-            transition-delay: 0.5s;
-        }
-
-        .container-fluid .image_offre .contenu_box .text_contenu {
-            transform: translateY(-20rem);
-            padding: 0 50px;
-        }
-
-        .container-fluid .image_offre .contenu_box h7 {
-            font-size: 40px;
-        }
-
-        .container-fluid .image_offre .contenu_box .text_contenu_livraison{
-            transform: translateY(-400%) !important;
-        }
-    }
+    
 </style>
