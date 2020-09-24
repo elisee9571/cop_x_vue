@@ -38,6 +38,7 @@
                     <a href="/mpo" class="mdp_oublié">Mot de passe oublié</a>
 
                     <button class="btn_sign">Se connecter</button>
+                    <a class="a_rejoindre" href="/register"><p class="p_rejoindre">Vous n'avez pas encore de compte? Rejoignez-nous.</p></a>
                 </form>
             </div>
 
@@ -88,7 +89,7 @@
                     .then(res => {
                         if (res.data.token) {
                             localStorage.setItem("token", res.data.token)
-                            // une fois les donnes recuperer et stockés il va nous renvoyer sur notre page home
+                            // une fois les donnes recuperer et stockés il va nous renvoyer sur notre page profil
                             this.$router.push({
                                 name: 'profil'
                             })
@@ -122,9 +123,9 @@
                             
                             localStorage.setItem("token", res.data.token)
 
-                            // une fois les donnes recuperer et stockés il va nous renvoyer sur home
-                            //this.$router.push({name: 'Login'})
-                            //window.location.reload();--
+                            // une fois les donnes recuperer et stockés il va nous renvoyer sur login
+                            this.$router.push({name: 'login'})
+                            window.location.reload();
                         } else {
                             this.$router.push({
                                 name: "register",
@@ -160,7 +161,47 @@
 
 <style>
     @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
-
+    /* responsive */
+    @media (min-width: 0px) {
+        .sign-up-container, .overlay-container{
+            display: none;
+        }
+        .sign-in-container{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            transform: translate(50%);
+        }
+        .sign-in-container form{
+            width: 100% !important;
+            margin: 0;
+            padding: 0;
+        }
+        .a_rejoindre{
+           margin-top: 10px;
+            outline: none;
+            text-decoration: none;
+        }
+        .p_rejoindre{
+            color: #333;
+            font-size: 15px;
+            font-weight: 600;
+        }
+    }
+    @media (min-width: 768px) {
+       .sign-up-container, .overlay-container{
+            display: block;
+        }
+        .sign-in-container{
+            transform: translate(0%);
+        }
+        .sign-in-container form{
+            padding: 0 50px;
+        }
+        .a_rejoindre{
+            display: none;
+        }
+    }
 
     .titre_sign {
         color: #333;
@@ -376,8 +417,4 @@
         height: 40px;
         width: 40px;
     }
-
-    /* .connection_icon{
-        filter: invert(0);
-    } */
 </style>

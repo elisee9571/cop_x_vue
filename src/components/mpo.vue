@@ -4,15 +4,15 @@
             <div class="row justify-content-center">
                 <div class="col-12 mpo-container_box">
                     <form action="#" @submit.prevent="oublier">
-                        <h1 class="mpo_titre">Réinitialiser le mot de passe</h1>
+                        <h1 class="mpo_titre" for="mpou">Réinitialiser le mot de passe</h1>
 
-                        <input class="email_mpo" type="email" name="email" placeholder="Email">
+                        <input class="email_mpo" type="email" name="mpou" placeholder="Email" v-model="email" id="mpou">
                         <span><img class="icon_mpo"
                                 src="https://img.icons8.com/ios-glyphs/24/000000/box-important.png" />Nous vous
                             enverrons un
                             e-mail pour réinitialiser votre mot de passe.</span>
                         <button class="envoyer_" type="submit"  >Envoyer</button>
-                        <span><a class="a_mpo" href="/">retour</a></span>
+                        <span><a class="a_mpo" href="/login">retour</a></span>
                     </form>
                 </div>
             </div>

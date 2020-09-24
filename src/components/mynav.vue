@@ -78,18 +78,8 @@
 
                     <!-- mon panier -->
                     <li class="nav-item">
-                        <div class="nav__cart">
-                            <a @click="Panier =!Panier">
-                                <a href="/panier" class="nav-link"><img class="profil_icon"
-                                        src="https://img.icons8.com/material/30/000000/shopping-cart--v1.png" /></a>
-                            </a>
-                            <!--<span class="total-quantity">{{ qtn }}</span>
-                             <div v-if="Panier" class="cart-dropdown">
-                                <ul class="cart-dropdown__list">
-                                    <li v-for="produit in Panier" :key="produit.id">{{ produit.nom }} ({{ quantite }}) {{ produit.prix }}</li>
-                                </ul>
-                            </div> -->
-                        </div>
+                        <a href="/panier" class="nav-link"><img class="profil_icon"
+                                src="https://img.icons8.com/material/30/000000/shopping-cart--v1.png" /></a>
                     </li>
 
                 </ul>

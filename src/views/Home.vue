@@ -35,8 +35,7 @@
 
 <script>
   import mynav from "../components/mynav.vue"; /* import components mynav */
-  import myfooter from "../components/myfooter.vue"; /* import components myfooter */
-
+  
   import carousel from "../components/carousel.vue"; /* import components carousel */
 
   import slider from "../components/slider.vue"; /* import components slider */
@@ -48,6 +47,8 @@
   import slider2 from "../components/slider2.vue"; /* import components slider2 */
 
   import abonnement from "../components/abonnement.vue"; /* import components abonnement */
+  
+  import myfooter from "../components/myfooter.vue"; /* import components myfooter */
 
   export default {
     name: 'Home',

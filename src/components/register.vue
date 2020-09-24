@@ -15,6 +15,7 @@
                     <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email">
                     <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe" v-model="password">
                     <button class="btn_sign">S'inscrire</button>
+                    <a class="a_rejoindre" href="/login"><p class="p_rejoindre">Vous avez déja un compte? Cliquez-ici.</p></a>
                 </form>
             </div>
 
@@ -81,7 +82,7 @@ export default {
             .then(res =>{
                 if(res.data.token){
                     localStorage.setItem("token",res.data.token)
-/* une fois les donnes recuperer et stockés il va nous renvoyer sur notre page home*/
+/* une fois les donnes recuperer et stockés il va nous renvoyer sur notre page profil*/
                     this.$router.push({name: 'profil'})
                     window.location.reload();
                 }
@@ -108,7 +109,7 @@ export default {
                 if(res.data.token){
                     
                     localStorage.setItem("token",res.data.token)
-/* une fois les donnes recuperer et stockés il va nous renvoyer sur home */
+/* une fois les donnes recuperer et stockés il va nous renvoyer sur login */
                     this.$router.push({name: 'login'})
                     window.location.reload();
                 }
@@ -355,8 +356,5 @@ export default {
         margin: 0 5px;
         height: 40px;
         width: 40px;
-    }
-    /* .connection_icon{
-        filter: invert(0);
-    } */
+    } 
 </style>

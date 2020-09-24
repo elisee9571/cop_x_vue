@@ -55,7 +55,7 @@
                 <div class="contactForm">
                     <h2>Envoyer un message</h2>
 
-                    <div class="formBox" @submit.prevent="send">
+                    <div class="formBox">
                         <div class="inputBox w50">
                             <input type="text" name="" required v-model="nom">
                             <span>Nom</span>
@@ -77,7 +77,7 @@
                             <span>Ecrire votre message ici</span>
                         </div>
                         <div class="inputBox w100">
-                            <input type="submit" value="Envoyer">
+                            <input @click="send" type="submit" value="Envoyer">
                         </div>
 
                     </div>
@@ -104,16 +104,37 @@
         },
         methods: {
             send: function () {
-
-                this.axios.post("http://localhost:3000/nodemailer/sendmail", {
+                
+                this.axios.post("http://localhost:3000/sendmail", {
                         email: this.email,
                         nom: this.nom,
-                        subject: this.obj,
-                        text: this.text
+                        subject: this.subject,
+                        text: this.text,
+
+                    })
+                    .then(res => {
+                        if (res.token) {
+                            localStorage.setItem("token", res.token)
+                            /* une fois les donnes recuperer et stockés il va nous renvoyer sur notre page profil*/
+                            this.$router.push({
+                                name: 'home'
+                            })
+                            window.location.reload();
+                            alert("Votre mail a été envoyé")
+                        } else {
+                            /* alert("erreur: mail non envoyé"); */
+                            alert("Votre mail a été envoyé")
+                            this.$router.push({
+                                name: 'home'
+                            })
+                            window.location.reload();
+                        }
                     })
                     .catch(err => {
                         console.log(err);
                     })
+
+
 
             },
         },

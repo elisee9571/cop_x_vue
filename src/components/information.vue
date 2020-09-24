@@ -365,7 +365,7 @@
     /* box */
     .accordion_box {
         width: 100%;
-        max-width: 800px;
+        max-width: 60rem;
         margin: 0 auto;
         padding: 0 1.5rem;
     } 
@@ -431,7 +431,7 @@
     }
 
     .accordion-item:target .answer {
-        max-height: 20rem;
+        max-height: 100%;
     }
 
     .accordion-item:target .accordion-link .fa-plus {

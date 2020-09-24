@@ -62,12 +62,6 @@ const routes = [{
             import ("../components/pageproduit.vue"),
     },
     {
-        path: '/forgeter/:updatepassword',
-        name: 'profil',
-        component: profil,
-
-    },
-    {
         path: '/register',
         name: 'register',
         component: register,
