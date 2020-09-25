@@ -110,12 +110,13 @@ export default {
                     
                     localStorage.setItem("token",res.data.token)
 /* une fois les donnes recuperer et stockés il va nous renvoyer sur login */
-                    this.$router.push({name: 'login'})
-                    window.location.reload();
+                    
                 }
                 else{
-                    this.$router.push({name: "register", params: {msg: "non connecté"} })
+                    /* this.$router.push({name: "register", params: {msg: "non connecté"} }) */
                     alert(`Vous devez valider votre mail.`);
+                    this.$router.push({name: 'home'})
+                    window.location.reload();
                 }
             })
             .catch(err => {

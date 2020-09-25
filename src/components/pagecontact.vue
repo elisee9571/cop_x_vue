@@ -142,11 +142,18 @@
 </script>
 
 <style>
+@media (min-width: 992px) {
+    .contactinfo_box,
+    .contactForm_box {
+        margin: 100px 0 !important;
+    }
+        
+    }
     .contactinfo_box,
     .contactForm_box {
         padding: 0 !important;
         margin: 0 !important;
-        transform: translateY(30%);
+        transform: translateY(12%);
     }
 
     /* container info */

@@ -426,7 +426,7 @@
         data() {
             return {
                 password: "",
-                forget: "",
+                
                 client: {},
                 message: null,
                 pic: null,
@@ -626,7 +626,6 @@
             updatepass: function () {
                 this.axios.get("http://localhost:3000/client/updatepassword", {
                         password: this.password,
-                        forget: this.forget,
                     })
                     .then((result) => {
                         alert(result);

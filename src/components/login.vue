@@ -38,7 +38,9 @@
                     <a href="/mpo" class="mdp_oublié">Mot de passe oublié</a>
 
                     <button class="btn_sign">Se connecter</button>
-                    <a class="a_rejoindre" href="/register"><p class="p_rejoindre">Vous n'avez pas encore de compte? Rejoignez-nous.</p></a>
+                    <a class="a_rejoindre" href="/register">
+                        <p class="p_rejoindre">Vous n'avez pas encore de compte? Rejoignez-nous.</p>
+                    </a>
                 </form>
             </div>
 
@@ -120,21 +122,17 @@
 
                         console.log(res);
                         if (res.data.token) {
-                            
+
                             localStorage.setItem("token", res.data.token)
 
                             // une fois les donnes recuperer et stockés il va nous renvoyer sur login
-                            this.$router.push({name: 'login'})
-                            window.location.reload();
                         } else {
                             this.$router.push({
-                                name: "register",
-                                params: {
-                                    msg: "non connecté"
-                                }
+                                name: 'home'
                             })
+                            window.location.reload();
                             alert(`Vous devez valider votre mail.`);
-                            
+
                         }
                     })
                     .catch(err => {
@@ -161,44 +159,57 @@
 
 <style>
     @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
+
     /* responsive */
     @media (min-width: 0px) {
-        .sign-up-container, .overlay-container{
+
+        .sign-up-container,
+        .overlay-container {
             display: none;
         }
-        .sign-in-container{
+
+        .sign-in-container {
             margin: 0;
             padding: 0;
             display: flex;
             transform: translate(50%);
         }
-        .sign-in-container form{
+
+        .sign-in-container form {
             width: 100% !important;
             margin: 0;
             padding: 0;
         }
-        .a_rejoindre{
-           margin-top: 10px;
+
+        .a_rejoindre {
+            margin-top: 10px;
             outline: none;
             text-decoration: none;
         }
-        .p_rejoindre{
+
+        .p_rejoindre {
             color: #333;
             font-size: 15px;
             font-weight: 600;
         }
     }
+
     @media (min-width: 768px) {
-       .sign-up-container, .overlay-container{
+
+        .sign-up-container,
+        .overlay-container {
             display: block;
         }
-        .sign-in-container{
+
+        .sign-in-container {
             transform: translate(0%);
         }
-        .sign-in-container form{
+
+        .sign-in-container form {
             padding: 0 50px;
         }
-        .a_rejoindre{
+
+        .a_rejoindre {
             display: none;
         }
     }

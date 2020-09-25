@@ -15,6 +15,7 @@ import login from "../components/login.vue"; /* import du components login */
 import register from "../components/register.vue"; /* import du components register */
 import profil from '../components/profil.vue'; /* import du components profil */
 import mpo from '../components/mpo.vue'; /* import du components mpo */
+import validemail from '../components/validemail.vue'; /* import du components validemail */
 
 /* components liée aux pages produits */
 import Sneakers from "../views/Sneakers.vue"; /* import du views Sneakers  */
@@ -100,6 +101,11 @@ const routes = [{
         path: "/contact",
         name: "Contact",
         component: Contact,
+    },
+    {
+        path: "/validemail/:email",
+        name: "validemail",
+        component: validemail,
     },
 ]
 

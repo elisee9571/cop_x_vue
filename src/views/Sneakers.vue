@@ -5,8 +5,8 @@
     <!-- input search -->
     <div class="container container1">
       <div class="row">
-        <div class="searchbox" @search.prevent="rechercher"> 
-          <input type="search" v-model="search" class="searchbox__input" placeholder="Recherche...">
+        <div class="searchbox" @search.prevent="search"> 
+          <input type="search" v-model="nom" class="searchbox__input" placeholder="Recherche...">
           <img class="searchbox__icon" src="https://img.icons8.com/ios-filled/50/000000/search.png" />
         </div>
       </div>
@@ -51,6 +51,7 @@
     data() {
       return {
         produits: {},
+        nom: '',
       };
     },
     created() {
@@ -68,7 +69,7 @@
       //input rechercher 
       search: function () {
         this.axios
-          .get("http://localhost:3000/produit/findBy/:nom")
+          .get("http://localhost:3000/produit/findBy/"+this.nom)
           .then((res) => {
             this.produits = res.data.produits;
           })
