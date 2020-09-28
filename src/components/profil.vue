@@ -339,36 +339,21 @@
                         <!-- changer le mdp -->
                         <div class="row text-center">
                             <div class="securite col-12">
-                                <h1 class="titre_page_nav text-center">Changer mon mot de passe</h1>
+                                <form action="#">
+                                    <h1 class="mpo_titre" for="mpou">Réinitialiser le mot de passe</h1>
 
-                                <!--mon mot de passe -->
-                                <div class="form-group">
-                                    <label class="col-md-12 control-label" for="password"> mon Mot de passe:</label>
-
-                                    <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="password" name="password"
-                                            id="password" v-model="password" />
+                                    <input class="email_mpo" type="email" name="mpou" placeholder="Email"
+                                        v-model="email" id="mpou">
+                                    <span><img class="icon_mpo"
+                                            src="https://img.icons8.com/ios-glyphs/24/000000/box-important.png" />Nous
+                                        vous
+                                        enverrons un
+                                        e-mail pour réinitialiser votre mot de passe.</span>
+                                    <div class="form-group">
+                                        <input @click="oublier" type="submit" class="btn_jour" value="envoyer" />
                                     </div>
-                                </div>
 
-                                <!-- nouveau mdp -->
-                                <div class="form-group">
-                                    <label class="col-md-12 control-label" for="forget"> Nouveau Mot de passe:</label>
-                                    <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="password" name="forget"
-                                            id="forget" v-model="forget" />
-                                    </div>
-                                </div>
-
-                                <!-- oublier -->
-                                <!-- <a class="" id="v-pills-mdp_oublié-tab" data-toggle="pill" href="#v-pills-mdp_oublié"
-                                    role="tab" aria-controls="v-pills-mdp_oublié" aria-selected="false">
-                                    mot de passe oublié</a> -->
-
-                                <!-- enregistrer -->
-                                <div class="form-group">
-                                    <input  @click="updatepass" type="submit" class="btn_jour" value="Sauvegarder" />
-                                </div>
+                                </form>
 
                             </div>
                         </div>
@@ -426,7 +411,7 @@
         data() {
             return {
                 password: "",
-                
+                email: "",
                 client: {},
                 message: null,
                 pic: null,
@@ -622,43 +607,17 @@
                     }
                 });
             },
-            
-            updatepass: function () {
-                this.axios.get("http://localhost:3000/client/updatepassword", {
-                        password: this.password,
+             oublier: function () {
+                this.axios.post("http://localhost:3000/client/forgetpassword", {
+                        email: this.email,
                     })
-                    .then((result) => {
-                        alert(result);
+                    .then(() => {
+                        alert('Un mail va vous être envoyé');
                     })
                     .catch((err) => {
                         alert(err);
                     });
             },
-
-            /* update: function () {
-
-                this.axios
-                    .get(
-                        "http://localhost:3000/client/updatepass/" + this.client.id,
-                        this.client
-                    )
-                    .then((res) => {
-                        if (res.status === 200) {
-                            localStorage.setItem("token", JSON.stringify(res.data.token));
-                            this.message = "votre profil est à jour";
-                            alert(`votre profil est à jour`);
-
-                        } else {
-
-                            this.message = "error: votre profil n'est pas mis à jour";
-                            alert(`erreur: votre profil n'a pas été mis à jour`);
-                        }
-                    })
-                    .catch((err) => {
-
-                        console.log(err);
-                    });
-            }, */
         },
 
     };

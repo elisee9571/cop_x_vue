@@ -88,18 +88,18 @@
 </template>
 
 <script>
-    import {
+  /*   import {
         Glide,
         GlideSlide
-    } from 'vue-glide-js';
+    } from 'vue-glide-js'; */
 
     export default {
         name: 'slider',
 
-        components: {
+        /* components: {
             [Glide.name]: Glide,
             [GlideSlide.name]: GlideSlide
-        },
+        }, */
         data() {
             return {
                 produits: {},
@@ -117,7 +117,7 @@
                 });
         },
 
-        mounted() {
+       /*  mounted() {
             var input = document.querySelector('#options-start-at-input')
 
             var glide = new Glide('#options-start-at', {
@@ -132,7 +132,7 @@
             })
 
             glide.mount()
-        }
+        } */
 
     }
 </script>

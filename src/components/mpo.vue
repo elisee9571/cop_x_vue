@@ -33,11 +33,12 @@
                 this.axios.post("http://localhost:3000/client/forgetpassword", {
                         email: this.email,
                     })
-                    .then((result) => {
-                        alert(result);
+                    .then(() => {
+                        alert('un mail va vous être envoyé');
+                        this.$router.push({ name: 'login'})
                     })
-                    .catch((err) => {
-                        alert(err);
+                    .catch(() => {
+                        alert("erreur: le mail n'est pas reconnu");
                     });
             },
         },

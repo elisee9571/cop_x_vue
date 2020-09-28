@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-
 /* loading */
 /* import loading from '../components/loading.vue'; */
 /* import du components loading */
@@ -17,6 +16,7 @@ import register from "../components/register.vue"; /* import du components regis
 import profil from '../components/profil.vue'; /* import du components profil */
 import mpo from '../components/mpo.vue'; /* import du components mpo */
 import validemail from '../components/validemail.vue'; /* import du components validemail */
+import updatepassword from '../components/updatepassword.vue'; /* import du components updatepassword */
 
 /* components liée aux pages produits */
 import Sneakers from "../views/Sneakers.vue"; /* import du views Sneakers  */
@@ -107,6 +107,11 @@ const routes = [{
         path: "/validemail/:email",
         name: "validemail",
         component: validemail,
+    },
+    {
+        path: "/updatepassword/:forget",
+        name: "updatepassword",
+        component: updatepassword,
     },
 ]
 

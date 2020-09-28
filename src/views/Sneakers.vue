@@ -21,7 +21,7 @@
             Filtrer
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#" @click="order">Le plus récent</a>
+            <a class="dropdown-item" href="#" @click="order">Tout</a>
             <a class="dropdown-item" href="#" @click="prix">Prix croissant</a>
             <a class="dropdown-item" href="#" @click="prix1">Prix décroissant</a>
           </div>

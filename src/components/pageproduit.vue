@@ -35,7 +35,9 @@
 
               <div class="size-container">
                 <h3 class="taille_produit">Tailles</h3>
-                <div class="size1">{{ produit.Tailles[0].taille }}</div>
+                <div class="row">
+                  <div class="size1" v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</div>
+                </div>
               </div>
 
               <div class="ref-container">
@@ -75,7 +77,7 @@
     name: "pageproduit",
 
     data() {
-      return { 
+      return {
         Panier: {},
         produit: {},
         id: this.$route.params.id,
@@ -98,53 +100,52 @@
       mynav,
       myfooter //* import components */
     },
-    
-    methods:{
-      ajouter: function(id, nom, prix){
-          alert(`le produit ${nom}`);
-          this.Panier = this.Panier || [];
-          localStorage.removeItem("panier");
 
-          if(this.Panier.length === 0 ){
-              let quantite =1;
-              this.Panier.push({
-                  produitId: id,
-                  nom: nom,
-                  quantite: quantite,
-                  prix_unitaire: prix,
-                  soustotal: quantite * prix,
-              });
+    methods: {
+      ajouter: function (id, nom, prix) {
+        alert(`le produit ${nom}`);
+        this.Panier = this.Panier || [];
+        localStorage.removeItem("panier");
+
+        if (this.Panier.length === 0) {
+          let quantite = 1;
+          this.Panier.push({
+            produitId: id,
+            nom: nom,
+            quantite: quantite,
+            prix_unitaire: prix,
+            soustotal: quantite * prix,
+          });
+        } else {
+          let alreadyProduit = false;
+          this.Panier.forEach((item) => {
+            if (item.produitId === id) {
+              item.quantite++;
+              item.soustotal = item.quantite * prix,
+                alreadyProduit = true;
+            }
+          });
+          if (alreadyProduit === false) {
+            let quantite = 1;
+            this.Panier.push({
+              produitId: id,
+              nom: nom,
+              quantite: quantite,
+              prix_unitaire: prix,
+              soustotal: quantite * prix,
+            });
           }
-          else{
-              let alreadyProduit = false;
-              this.Panier.forEach((item) =>{
-                  if(item.produitId === id){
-                      item.quantite++;
-                      item.soustotal = item.quantite * prix,
-                      alreadyProduit = true;
-                  }
-              });
-              if(alreadyProduit === false){
-                  let quantite = 1;
-                  this.Panier.push({
-                       produitId: id,
-                  nom: nom,
-                  quantite: quantite,
-                  prix_unitaire: prix,
-                  soustotal: quantite * prix,
-                  });
-              }
-          }
-          localStorage.setItem("panier", JSON.stringify(this.Panier));
+        }
+        localStorage.setItem("panier", JSON.stringify(this.Panier));
       },
-      getLocalStorage(){
-          let getLocalSt = localStorage.getItem("panier");
-          if(getLocalSt != null || getLocalSt !== undefined){
-              this.Panier = JSON.parse(getLocalSt);
-              console.log(this.Panier);
-          }
+      getLocalStorage() {
+        let getLocalSt = localStorage.getItem("panier");
+        if (getLocalSt != null || getLocalSt !== undefined) {
+          this.Panier = JSON.parse(getLocalSt);
+          console.log(this.Panier);
+        }
       },
-  },
+    },
 
 
 
@@ -153,18 +154,18 @@
 
 <style>
   /* css */
-  *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   .card_box {
     margin-bottom: 71px;
   }
 
   /* box image produit */
-  .img_produit_box .arrow-left{
+  .img_produit_box .arrow-left {
     position: absolute;
     top: 6%;
     left: 6%;
@@ -172,6 +173,7 @@
     font-size: 20px;
     cursor: pointer;
   }
+
   .fa-arrow-left:before {
     text-decoration: none !important;
     outline: none !important;
@@ -332,7 +334,9 @@
 
     .img_produit {
       width: 100%;
-      transform: translateY(10%)/*  rotate(-10deg) */;
+      transform: translateY(10%)
+        /*  rotate(-10deg) */
+      ;
     }
 
     /* box titre description etc */

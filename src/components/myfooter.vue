@@ -68,7 +68,6 @@ div .row{
 }
 
     .infooter { 
-        bottom: 0 !important;
         width: 100%;
     }
 

@@ -26,7 +26,7 @@ div .row{
 }
 
 
-
+/* scroll bar */
 ::-webkit-scrollbar{
   width: 12px;
 }

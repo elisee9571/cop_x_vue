@@ -55,32 +55,34 @@
                 <div class="contactForm">
                     <h2>Envoyer un message</h2>
 
-                    <div class="formBox">
-                        <div class="inputBox w50">
-                            <input type="text" name="" required v-model="nom">
-                            <span>Nom</span>
-                        </div>
-                        <div class="inputBox w50">
-                            <input type="text" name="" required v-model="prenom">
-                            <span>Prenom</span>
-                        </div>
-                        <div class="inputBox w50">
-                            <input type="text" name="" required v-model="email">
-                            <span>Email</span>
-                        </div>
-                        <div class="inputBox w50">
-                            <input type="text" name="" required v-model="subject">
-                            <span>Objet</span>
-                        </div>
-                        <div class="inputBox w100">
-                            <textarea name="" required v-model="text"></textarea>
-                            <span>Ecrire votre message ici</span>
-                        </div>
-                        <div class="inputBox w100">
-                            <input @click="send" type="submit" value="Envoyer">
-                        </div>
+                    <form @submit.prevent="send" class="text-left" style="padding:0;">
+                        <div class="formBox">
+                            <div class="inputBox w50">
+                                <input type="text" name="" required v-model="nom">
+                                <span>Nom</span>
+                            </div>
+                            <div class="inputBox w50">
+                                <input type="text" name="" required v-model="prenom">
+                                <span>Prenom</span>
+                            </div>
+                            <div class="inputBox w50">
+                                <input type="text" name="" required v-model="email">
+                                <span>Email</span>
+                            </div>
+                            <div class="inputBox w50">
+                                <input type="text" name="" required v-model="subject">
+                                <span>Objet</span>
+                            </div>
+                            <div class="inputBox w100">
+                                <textarea name="" required v-model="text"></textarea>
+                                <span>Ecrire votre message ici</span>
+                            </div>
+                            <div class="inputBox w100">
+                                <input type="submit" value="Envoyer">
+                            </div>
 
-                    </div>
+                        </div>
+                    </form>
 
                 </div>
             </div>
@@ -104,7 +106,7 @@
         },
         methods: {
             send: function () {
-                
+
                 this.axios.post("http://localhost:3000/sendmail", {
                         email: this.email,
                         nom: this.nom,
@@ -112,27 +114,14 @@
                         text: this.text,
 
                     })
-                    .then(res => {
-                        if (res.token) {
-                            localStorage.setItem("token", res.token)
-                            /* une fois les donnes recuperer et stockés il va nous renvoyer sur notre page profil*/
-                            this.$router.push({
-                                name: 'home'
-                            })
-                            window.location.reload();
-                            alert("Votre mail a été envoyé")
-                        } else {
-                            /* alert("erreur: mail non envoyé"); */
-                            alert("Votre mail a été envoyé")
-                            this.$router.push({
-                                name: 'home'
-                            })
-                            window.location.reload();
-                        }
+                    .then(() => {
+                        alert('Votre mail à été envoyé')
+                        this.$router.push({ name: 'Home'})
+                        window.location.reload();
                     })
-                    .catch(err => {
-                        console.log(err);
-                    })
+                    .catch(() => {
+                        alert("erreur: Votre mail n'à pas été envoyé");
+                    });
 
 
 
@@ -142,13 +131,15 @@
 </script>
 
 <style>
-@media (min-width: 992px) {
-    .contactinfo_box,
-    .contactForm_box {
-        margin: 100px 0 !important;
+    @media (min-width: 992px) {
+
+        .contactinfo_box,
+        .contactForm_box {
+            margin: 100px 0 !important;
+        }
+
     }
-        
-    }
+
     .contactinfo_box,
     .contactForm_box {
         padding: 0 !important;

@@ -27,7 +27,8 @@
                             <a class="dropdown-item" href="/sneakers">NOUVEAUTES</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">NIKE</a>
-                            <a class="dropdown-item" href="#">YEEZY</a>
+                            <a class="dropdown-item" href="#">YEZZY</a>
+                            <a class="dropdown-item" href="#">ADIDAS</a>
                             <a class="dropdown-item" href="#">JORDAN</a>
                             <a class="dropdown-item" href="#">OFF-WHITE</a>
                         </div>
@@ -43,6 +44,7 @@
                             <a class="dropdown-item" href="/streetwear">NOUVEAUTES</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">NIKE</a>
+                            <a class="dropdown-item" href="#">ADIDAS</a>
                             <a class="dropdown-item" href="#">JORDAN</a>
                             <a class="dropdown-item" href="#">OFF-WHITE</a>
                             <a class="dropdown-item" href="#">SUPREME</a>

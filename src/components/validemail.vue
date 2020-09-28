@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row²² text-center validation">
+        <div class="row text-center validation">
             <div class="column">
                 <h1 class="h_valide">Votre mail est Validé</h1>
                 <input type="submit" class="btn_voirplus" onclick="window.location.href ='/login'" value="Connexion">
@@ -37,9 +37,13 @@
 .h_valide{
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 .validation{
-    margin-top: 15% !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
 }
 

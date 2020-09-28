@@ -13,10 +13,10 @@
                                 src="https://img.icons8.com/ios/26/000000/google-plus.png" /></a>
                     </div>
                     <span class="sous_titre">ou utiliser votre email pour vous inscrire</span>
-                    <input class="input_login" type="text" name="nom" id="nom" placeholder="Nom Prénom" v-model="nom">
-                    <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email">
+                    <input class="input_login" type="text" name="nom" id="nom" placeholder="Nom Prénom" v-model="nom" required>
+                    <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email" required>
                     <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe"
-                        v-model="password">
+                        v-model="password" required>
                     <button class="btn_sign">S'inscrire</button>
                 </form>
             </div>
@@ -32,9 +32,9 @@
                     </div>
                     <span class="sous_titre">ou utiliser votre compte</span>
                     <input class="input_login" type="email" name="email" id="emaillogin" placeholder="Email"
-                        v-model="emaillogin">
+                        v-model="emaillogin" required>
                     <input class="input_login" type="password" name="passwordlogin" id="passwordlogin"
-                        placeholder="Mot de passe" v-model="passwordlogin">
+                        placeholder="Mot de passe" v-model="passwordlogin" required>
                     <a href="/mpo" class="mdp_oublié">Mot de passe oublié</a>
 
                     <button class="btn_sign">Se connecter</button>
@@ -293,12 +293,13 @@
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 40px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0, 0, 0, 0.22);
-        position: relative;
         overflow: hidden;
         width: 768px;
         max-width: 100%;
         min-height: 480px;
-        transform: translate(0%, 45%);
+        position: relative;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .form-container {

@@ -11,9 +11,9 @@
                         <a href="#" class="social"><img class="connection_icon" src="https://img.icons8.com/ios/26/000000/google-plus.png"/></a>
                     </div>
                     <span class="sous_titre">ou utiliser votre email pour vous inscrire</span>
-                    <input class="input_login" type="text" name="nom" id="nom" placeholder="Nom Prénom" v-model="nom">
-                    <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email">
-                    <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe" v-model="password">
+                    <input class="input_login" type="text" name="nom" id="nom" placeholder="Nom Prénom" v-model="nom" required>
+                    <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email" required>
+                    <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe" v-model="password" required>
                     <button class="btn_sign">S'inscrire</button>
                     <a class="a_rejoindre" href="/login"><p class="p_rejoindre">Vous avez déja un compte? Cliquez-ici.</p></a>
                 </form>
@@ -27,8 +27,8 @@
                         <a href="#" class="social"><img class="connection_icon" src="https://img.icons8.com/ios/26/000000/google-plus.png"/></a>
                     </div>
                     <span class="sous_titre">ou utiliser votre compte</span>
-                    <input class="input_login" type="email" name="email" id="emaillogin" placeholder="Email" v-model="emaillogin">
-                    <input class="input_login" type="password" name="passwordlogin" id="passwordlogin"  placeholder="Mot de passe" v-model="passwordlogin">
+                    <input class="input_login" type="email" name="email" id="emaillogin" placeholder="Email" v-model="emaillogin" required>
+                    <input class="input_login" type="password" name="passwordlogin" id="passwordlogin"  placeholder="Mot de passe" v-model="passwordlogin" required>
                     <a href="/mpo" class="mdp_oublié">Mot de passe oublié</a>
 
                     <button class="btn_sign">Se connecter</button>
