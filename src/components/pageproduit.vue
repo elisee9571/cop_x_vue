@@ -78,14 +78,14 @@
 
     data() {
       return {
-        Panier: {},
+        /* Panier: {}, */
         produit: {},
         id: this.$route.params.id,
       };
     },
     created() {
-      console.log(this.produits);
-      this.getLocalStorage();
+      /* console.log(this.produits);
+      this.getLocalStorage(); */
       this.axios
         .get("http://localhost:3000/produit/getById/" + this.id)
         .then((res) => {
@@ -101,7 +101,7 @@
       myfooter //* import components */
     },
 
-    methods: {
+    /* methods: {
       ajouter: function (id, nom, prix) {
         alert(`le produit ${nom}`);
         this.Panier = this.Panier || [];
@@ -145,7 +145,7 @@
           console.log(this.Panier);
         }
       },
-    },
+    }, */
 
 
 

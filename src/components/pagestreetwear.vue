@@ -17,7 +17,7 @@
                             <h2>{{ produit.nom }}</h2>
                             <div class="size">
                                 <h3>Tailles :</h3>
-                                <span>{{ produit.Tailles[0].taille }}</span>
+                                <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span>
                             </div>
 
 
