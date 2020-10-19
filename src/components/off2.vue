@@ -28,7 +28,7 @@
         </div>
 
         <!-- titre Sneakers -->
-        <h1 class="order-1">Nouveautés Sneakers</h1>
+        <h1 class="order-1">streetwear Off-white</h1>
       </div>
     </div>
 
@@ -52,11 +52,13 @@
       return {
         produits: {},
         nom: '',
+        marque: this.$route.params.marque,
+        /* categorie: this.$route.params.categorie, */
       };
     },
     created() {
       this.axios
-        .get("http://localhost:3000/produit/categorie/sneakers")
+        .get("http://localhost:3000/produit/marque/off-white/streetwear")
         .then((res) => {
           this.produits = res.data.produits;
         })
@@ -80,7 +82,7 @@
       //filtrer le plus récent 
       order: function () {
         this.axios
-          .get("http://localhost:3000/produit/order/sneakers")
+          .get("http://localhost:3000/produit/order0/off-white/streetwear")
           .then((res) => {
             this.produits = res.data.produits;
           })
@@ -92,7 +94,7 @@
       //filtrer prix croissant
       prix: function () {
         this.axios
-          .get("http://localhost:3000/produit/prix/sneakers")
+          .get("http://localhost:3000/produit/prix0/off-white/streetwear")
           .then((res) => {
             this.produits = res.data.produits;
           })
@@ -104,7 +106,7 @@
       // filtrer prix decroissant
       prix1: function () {
         this.axios
-          .get("http://localhost:3000/produit/prix1/sneakers")
+          .get("http://localhost:3000/produit/prix00/off-white/streetwear")
           .then((res) => {
             this.produits = res.data.produits;
           })

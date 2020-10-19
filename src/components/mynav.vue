@@ -26,11 +26,11 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/sneakers">NOUVEAUTES</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/sneakers">NIKE</a>
-                            <a class="dropdown-item" href="/sneakers">YEZZY</a>
-                            <a class="dropdown-item" href="/sneakers">ADIDAS</a>
-                            <a class="dropdown-item" href="/sneakers">JORDAN</a>
-                            <a class="dropdown-item" href="/sneakers">OFF-WHITE</a>
+                            <a class="dropdown-item" href="/nike1">NIKE</a>
+                            <a class="dropdown-item" href="/yeezy1">YEZZY</a>
+                            <a class="dropdown-item" href="/adidas1">ADIDAS</a>
+                            <a class="dropdown-item" href="/jordan1">JORDAN</a>
+                            <a class="dropdown-item" href="/off1">OFF-WHITE</a>
                         </div>
                     </li>
 
@@ -43,13 +43,13 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/streetwear">NOUVEAUTES</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/streetwear">NIKE</a>
-                            <a class="dropdown-item" href="/streetwear">ADIDAS</a>
-                            <a class="dropdown-item" href="/streetwear">JORDAN</a>
-                            <a class="dropdown-item" href="/streetwear">OFF-WHITE</a>
-                            <a class="dropdown-item" href="/streetwear">SUPREME</a>
-                            <a class="dropdown-item" href="/streetwear">PALACE</a>
-                            <a class="dropdown-item" href="/streetwear">TRAVIS SCOTT</a>
+                            <a class="dropdown-item" href="/nike2">NIKE</a>
+                            <a class="dropdown-item" href="/adidas2">ADIDAS</a>
+                            <a class="dropdown-item" href="/jordan2">JORDAN</a>
+                            <a class="dropdown-item" href="/off2">OFF-WHITE</a>
+                            <a class="dropdown-item" href="/supreme2">SUPREME</a>
+                            <a class="dropdown-item" href="/palace2">PALACE</a>
+                            <a class="dropdown-item" href="/travis2">TRAVIS SCOTT</a>
                         </div>
                     </li>
 

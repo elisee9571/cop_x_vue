@@ -50,6 +50,11 @@
 
             </div>
         </div>
+        <div>
+            <p class="intro">Take.</p>
+            <p class="intro">Ist.</p>
+            <p class="intro">Easy.</p>
+        </div>
     </div>
 </template>
 
@@ -60,6 +65,58 @@
 </script>
 
 <style>
+/* intro */
+p.intro{
+    font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 200px;
+    font-weight: bold;
+    color: transparent;
+    letter-spacing: -10px;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+p.intro:nth-child(1){
+    position: relative;
+    top: 150px;
+    background-image: linear-gradient(to right, #007cf0, #00dfd8);
+    animation: anim-gradient 8s -2.6s infinite;
+}
+p.intro:nth-child(2){
+    background-image: linear-gradient(to right, #7928CA,#FF0080);
+    animation: anim-gradient 8s 0s infinite;
+}
+p.intro:nth-child(3){
+    background-image: linear-gradient(to right, #FF4D4D, #F9CB28);
+    position: relative;
+    bottom: 150px;
+    animation: anim-gradient 8s -5.2s infinite;
+}
+
+
+@keyframes anim-gradient {
+    0%{
+      color: black;
+    }
+    16.667% {
+      color: black;
+    }
+    33.333% {
+        color: transparent;
+    }
+    50% {
+       color: transparent;
+    }
+    66.667% {
+        color: black;
+    }
+    100% {
+       color: black;
+   }
+}
     /* css */
     /* image offre box */
     .image_offre_box {
@@ -153,7 +210,7 @@
         font-family: 'Bebas Neue', sans-serif;
         font-size: 25px;
         padding: 5px 40px;
-        opacity: 0; 
+        opacity: 0;
         transition: 0.5s;
         display: inline-block;
         text-decoration: none;
@@ -166,35 +223,38 @@
         transition-delay: 0.5s;
     }
 
-     @media (min-width: 0px) {
+    @media (min-width: 0px) {
 
         .container-fluid .image_offre .contenu_box h7 {
             font-size: 40px;
         }
+
         .container-fluid .image_offre .contenu_box .text_contenu {
             padding: 0 50px;
         }
 
-        .container-fluid .image_offre .contenu_box .text_contenu_livraison{
+        .container-fluid .image_offre .contenu_box .text_contenu_livraison {
             transform: translateY(150%) !important;
-        } 
+        }
     }
-     @media (min-width: 768px) {
+
+    @media (min-width: 768px) {
 
         .container-fluid .image_offre .contenu_box h7 {
             font-size: 40px;
             padding: 0 20px;
         }
+
         .container-fluid .image_offre .contenu_box .text_contenu {
             padding: 0 10px;
         }
 
-        .container-fluid .image_offre .contenu_box .text_contenu_livraison{
+        .container-fluid .image_offre .contenu_box .text_contenu_livraison {
             transform: translateY(150%) !important;
-        } 
+        }
     }
-    
-   @media (min-width: 1140px) {
+
+    @media (min-width: 1140px) {
 
         .container-fluid .image_offre .contenu_box .text_contenu {
             padding: 0 10px;
@@ -202,9 +262,8 @@
 
         .container-fluid .image_offre .contenu_box h7 {
             font-size: 35px;
-             padding: 0 20px;
+            padding: 0 20px;
         }
 
     }
-    
 </style>

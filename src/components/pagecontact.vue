@@ -37,7 +37,7 @@
                                         src="https://img.icons8.com/android/45/000000/facebook.png" /></a>
 
 
-                                <a href="https://www.instagram.com/cop___x/" target="_blank"><img class="icon_contact"
+                                <a href="https://www.instagram.com/_copx_/" target="_blank"><img class="icon_contact"
                                         src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" /></a>
 
 

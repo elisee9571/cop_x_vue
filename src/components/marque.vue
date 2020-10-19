@@ -2,7 +2,6 @@
     <div class="container">
         <div class="row">
 
-
             <div class="col-lg-2 col-md-4 col-4 marque_box marque_box_nike ">
                 <div data-aos="zoom-in-right">
                     <img src="../assets/icon_nike.png" class="d-block img_marque marque_nike" alt="...">

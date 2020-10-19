@@ -7,6 +7,22 @@ import Home from '../views/Home.vue'
 /* import du components loading */
 
 /* components liée à la page menu */
+/* menu sneakers */
+import nike1 from '../components/nike1.vue'; /* import du components nike1 */
+import yeezy1 from '../components/yeezy1.vue'; /* import du components yeezy1 */
+import adidas1 from '../components/adidas1.vue'; /* import du components adidas1 */
+import jordan1 from '../components/jordan1.vue'; /* import du components jordan1 */
+import off1 from '../components/off1.vue'; /* import du components off1 */
+
+/* menu streetwear */
+import nike2 from '../components/nike2.vue'; /* import du components nike2 */
+import adidas2 from '../components/adidas2.vue'; /* import du components adidas2 */
+import jordan2 from '../components/jordan2.vue'; /* import du components jordan2 */
+import off2 from '../components/off2.vue'; /* import du components off2 */
+import supreme2 from '../components/supreme2.vue'; /* import du components supreme2 */
+import palace2 from '../components/palace2.vue'; /* import du components palace2 */
+import travis2 from '../components/travis2.vue'; /* import du components travis2 */
+
 import Faq from '../views/Faq.vue'; /* import du views Faq */
 import Contact from '../views/Contact.vue'; /* import du views Contact */
 
@@ -112,6 +128,64 @@ const routes = [{
         path: "/updatepassword/:forget",
         name: "updatepassword",
         component: updatepassword,
+    },
+
+    /* menu sneakers */
+    {
+        path: '/nike1',
+        name: 'nike1',
+        component: nike1,
+    },
+    {
+        path: '/yeezy1',
+        name: 'yeezy1',
+        component: yeezy1,
+    },
+    {
+        path: '/adidas1',
+        name: 'adidas1',
+        component: adidas1,
+    },
+    {
+        path: '/jordan1',
+        name: 'jordan1',
+        component: jordan1,
+    },
+    {
+        path: '/off1',
+        name: 'off1',
+        component: off1,
+    },
+
+    /* menu streetwear */
+    {
+        path: '/nike2',
+        name: 'nike2',
+        component: nike2,
+    }, {
+        path: '/adidas2',
+        name: 'adidas2',
+        component: adidas2,
+    }, {
+        path: '/jordan2',
+        name: 'jordan2',
+        component: jordan2,
+    }, {
+        path: '/off2',
+        name: 'off2',
+        component: off2,
+    }, {
+        path: '/supreme2',
+        name: 'supreme2',
+        component: supreme2,
+    }, {
+        path: '/palace2',
+        name: 'palace2',
+        component: palace2,
+    }, {
+        path: '/travis2',
+        name: 'travis2',
+        component: travis2,
     },
 ]
 
