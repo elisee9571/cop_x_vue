@@ -56,10 +56,61 @@
           </div>
 
         </div>
+      </div>
+    </div>
 
+<!-- information commande, paiement etc -->
+    <div class="container-fluid text-center">
+      <div class="row ">
+        <div class="col-12 card-info_box">
 
+          <div class="row justify-content-center">
+            <!-- authenticité -->
+            <div class="col-lg-3 col-md-4 col-6 card-info">
+              <div class="colmun">
+                <i class="card-icon fas fa-award"></i>
+                <p class="p_produit-info-t">100% neufs et authentiques</p>
+                <br>
+                <p class="p_produit-info">Tous les produits vendus
+                  sont authentiques et neufs.</p>
+              </div>
+            </div>
 
+            <!-- livraison -->
+            <div class="col-lg-5 col-md-4 col-6 card-info">
+              <div class="column">
 
+                <i class="card-icon fas fa-box"></i>
+                <p class="p_produit-info-t">Livraison et retours</p>
+                <br>
+                <p class="p_produit-info">Nous livrons uniquement dans l'Europe !</p>
+              </div>
+            </div>
+
+            <!-- paiement -->
+            <div class="col-lg-5 col-md-4 col-6 card-info">
+              <div class="column">
+                <i class="card-icon fas fa-credit-card"></i>
+                <p class="p_produit-info-t">Paiement sécurisé</p>
+                <br>
+                <p class="p_produit-info">Toutes les transactions sont sécurisées 
+                  grâce à un protocole crypté 3D Secure.</p>
+              </div>
+            </div>
+
+            <!-- service client -->
+            <div class="col-lg-3 col-md-4 col-6 card-info">
+              <div class="column">
+                <i class="card-icon fas fa-comments"></i>
+                <p class="p_produit-info-t">Service client</p>
+                <br>
+                <p class="p_produit-info">Contactez-nous par mail du lundi au vendredi !</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -321,6 +372,64 @@
     background-color: #6844ff !important;
     color: #fff;
   }
+
+  /* information commande etc */
+  .p_produit-info-t{
+    font-size: 30px !important;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  .p_produit-info, .p_produit-info-t{
+    font-size: 18px;
+  }
+   .card-info_box {
+        padding: 0 20px;
+        margin: 100px 0;
+    }
+    
+    .card-info {
+        width: 100%;
+        padding: 0 25px;
+        margin: 20px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #22abfa;
+        /* background: linear-gradient(40deg, rgba(151, 120, 255, 255), rgba(104, 68, 255, 255)); */
+    }    
+    .card-info p {
+        margin-top: 20px;
+        color: #fff;
+        max-height: 0;
+        opacity: 0;
+        transition: .3s linear;
+    }
+    
+    .card-info:hover p {
+        max-height: 45px;
+        opacity: 1;
+    }
+    
+    .card-icon {
+        filter: invert(0) !important;
+        color: #fff !important;
+        font-size: 28px !important;
+        background: #6844ff;
+        width: 60px;
+        height: 60px;
+        line-height: 60px !important;
+        border-radius: 50%;
+        transition: .3s linear;
+    }
+    
+    .card-info:hover .card-icon {
+        background: none;
+        transition: 0.5s linear;
+        color: #22abfa !important;
+        transform: scale(1.6);
+    }
 
 
   /* responsive card */

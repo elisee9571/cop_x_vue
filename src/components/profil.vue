@@ -403,11 +403,8 @@
 </template>
 <script>
     import VueJwtDecode from "vue-jwt-decode";
-
     export default {
         name: "profil",
-
-
         data() {
             return {
                 password: "",
@@ -607,6 +604,7 @@
                     }
                 });
             },
+            /* forget password */
              oublier: function () {
                 this.axios.post("http://localhost:3000/client/forgetpassword", {
                         email: this.email,

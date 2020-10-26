@@ -50,11 +50,11 @@
 
             </div>
         </div>
-        <div>
+        <!-- <div>
             <p class="intro">Take.</p>
             <p class="intro">Ist.</p>
             <p class="intro">Easy.</p>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -65,7 +65,7 @@
 </script>
 
 <style>
-/* intro */
+/* intro 
 p.intro{
     font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
@@ -96,7 +96,6 @@ p.intro:nth-child(3){
     animation: anim-gradient 8s -5.2s infinite;
 }
 
-
 @keyframes anim-gradient {
     0%{
       color: black;
@@ -116,7 +115,7 @@ p.intro:nth-child(3){
     100% {
        color: black;
    }
-}
+}*/
     /* css */
     /* image offre box */
     .image_offre_box {

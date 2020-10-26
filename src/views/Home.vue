@@ -16,16 +16,16 @@
       <h1 class="grand_titre">Nos Nouveautés</h1>
     </div>
     <slider /> <!-- import slider -->
+    <news /> <!-- import news -->
+    <div data-aos="fade-right">
+      <h1 class="grand_titre">Les plus demandés</h1>
+    </div>
+    <slider2 /> <!-- import slider2 -->
     <div data-aos="fade-right">
       <h1 class="grand_titre">Nos marques</h1>
     </div>
     <marque /> <!-- import marque -->
     <offre /> <!-- import offre -->
-    <animation /> <!-- import animation -->
-    <div data-aos="fade-right">
-      <h1 class="grand_titre">Les plus demandés</h1>
-    </div>
-    <slider2 /> <!-- import slider2 -->
     <div data-aos="fade-right">
       <h1 class="grand_titre">Devenir membre</h1>
     </div>
@@ -43,9 +43,11 @@
 
   import marque from "../components/marque.vue"; /* import components marque */
 
-  import offre from "../components/offre.vue"; /* import components offre */
+  import news from "../components/news.vue"; /* import components news */
 
   import slider2 from "../components/slider2.vue"; /* import components slider2 */
+
+  import offre from "../components/offre.vue"; /* import components offre */
 
   import abonnement from "../components/abonnement.vue"; /* import components abonnement */
 
@@ -59,6 +61,7 @@
       carousel,
       slider,
       marque,
+      news,
       offre,
       slider2,
       abonnement,

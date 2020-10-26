@@ -25,6 +25,19 @@
 
   export default {
     name: "panier",
+     data() {
+            return {
+                client: {},
+            };
+        },
+        created: function () {
+            if (localStorage.getItem("token") === null) {
+                this.$router.push({
+                    name: "login"
+                });
+            }
+
+        },
     components: {
       mynav,
       myfooter //* import components */
