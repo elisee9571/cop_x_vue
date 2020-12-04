@@ -28,7 +28,7 @@ div .row{
 
 /* scroll bar */
 ::-webkit-scrollbar{
-  width: 12px;
+  width: 0.5em;
 }
 ::-webkit-scrollbar-thumb{
   background: linear-gradient(transparent, rgba(151, 120, 255, 255), rgba(104, 68, 255, 255));

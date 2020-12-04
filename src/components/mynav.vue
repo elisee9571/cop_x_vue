@@ -1,92 +1,93 @@
 <template>
 
     <!-- navbar -->
-    <div class="container-fluid">
+    <div class="container-fluid navigation">
+        
+
         <nav class="navbar navbar-expand-lg navbar-light">
             <!-- mon logo -->
             <span class="trait">
                 <a class="navbar-brand navlogo" data-text="COP X" href="/">COP X</a>
             </span>
+
+            
+
+
+
+
             <!-- menu burger responsive icon -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                 <span class="navbar-toggler-icon"></span> 
+            </button> 
 
             <!-- menu deroulant -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto text-center navigationListe">
 
-                    <!-- menu liste sneakers -->
-                    <li class="nav-item active dropdown ">
-                        <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <span>SNEAKERS</span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/sneakers">NOUVEAUTES</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/nike1">NIKE</a>
-                            <a class="dropdown-item" href="/yeezy1">YEZZY</a>
-                            <a class="dropdown-item" href="/adidas1">ADIDAS</a>
-                            <a class="dropdown-item" href="/jordan1">JORDAN</a>
-                            <a class="dropdown-item" href="/off1">OFF-WHITE</a>
-                        </div>
-                    </li>
+                        <!-- menu liste sneakers -->
+                        <li class="nav-item active dropdown ">
+                            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span>SNEAKERS</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/sneakers">NOUVEAUTES</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/nike1">NIKE</a>
+                                <a class="dropdown-item" href="/yeezy1">YEZZY</a>
+                                <a class="dropdown-item" href="/adidas1">ADIDAS</a>
+                                <a class="dropdown-item" href="/jordan1">JORDAN</a>
+                                <!-- <a class="dropdown-item" href="/off1">OFF-WHITE</a> -->
+                            </div>
+                        </li>
 
-                    <!-- menu liste streetwear -->
-                    <li class="nav-item dropdown ">
-                        <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <span>STREETWEAR</span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/streetwear">NOUVEAUTES</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/nike2">NIKE</a>
-                            <a class="dropdown-item" href="/adidas2">ADIDAS</a>
-                            <a class="dropdown-item" href="/jordan2">JORDAN</a>
-                            <a class="dropdown-item" href="/off2">OFF-WHITE</a>
-                            <a class="dropdown-item" href="/supreme2">SUPREME</a>
-                            <a class="dropdown-item" href="/palace2">PALACE</a>
-                            <a class="dropdown-item" href="/travis2">TRAVIS SCOTT</a>
-                        </div>
-                    </li>
+                        <!-- menu liste streetwear -->
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span>STREETWEAR</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/streetwear">NOUVEAUTES</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/nike2">NIKE</a>
+                                <a class="dropdown-item" href="/adidas2">ADIDAS</a>
+                                <a class="dropdown-item" href="/jordan2">JORDAN</a>
+                                <!-- <a class="dropdown-item" href="/off2">OFF-WHITE</a> -->
+                                <a class="dropdown-item" href="/supreme2">SUPREME</a>
+                                <a class="dropdown-item" href="/palace2">PALACE</a>
+                                <a class="dropdown-item" href="/travis2">TRAVIS SCOTT</a>
+                            </div>
+                        </li>
 
-                    <!-- menu lifestyle -->
-                    <li class="nav-item dropdown ">
-                        <div>
-                            <a class="nav-link" href="lifestyle"><span>LIFESTYLE</span></a>
-                        </div>
-                    </li>
-                </ul>
+                        <!-- menu lifestyle -->
+                        <li class="nav-item dropdown ">
+                            <div>
+                                <a class="nav-link" href="lifestyle"><span>LIFESTYLE</span></a>
+                            </div>
+                        </li>
+                    </ul>
 
-                <!-- mon icon profil -->
-                <ul class="navbar-nav mr-auto text-center">
+                    <!-- mon icon profil -->
+                    <ul class="navbar-nav mr-auto text-center">
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <img class="profil_icon"
-                                src="https://img.icons8.com/ios-filled/31/000000/user-male-circle.png" />
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/profil">PROFIL</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/login">SE CONNECTER</a>
-                            <a class="dropdown-item" href="/register">S'INSCRIRE</a>
-                        </div>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profil">
+                                <img class="profil_icon"
+                                    src="https://img.icons8.com/ios-filled/31/000000/user-male-circle.png" />
+                            </a>
+                        </li>
+                        <!-- mon panier -->
+                        <li class="nav-item">
+                            <a href="/panier" class="nav-link"><img class="profil_icon"
+                                    src="https://img.icons8.com/material/30/000000/shopping-cart--v1.png" /></a>
+                        </li>
 
-                    <!-- mon panier -->
-                    <li class="nav-item">
-                        <a href="/panier" class="nav-link"><img class="profil_icon"
-                                src="https://img.icons8.com/material/30/000000/shopping-cart--v1.png" /></a>
-                    </li>
+                    </ul>
 
-                </ul>
-
-            </div>
+                </div>
+            
         </nav>
     </div>
 
@@ -102,7 +103,6 @@
 
 <style>
     @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
-
     /* css */
     * {
         margin: 0;
@@ -269,7 +269,4 @@
     .trait:hover:before {
         left: 100%;
     }
-
-
-    /* shopping cart */
 </style>

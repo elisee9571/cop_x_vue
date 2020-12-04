@@ -6,7 +6,7 @@
             <!-- card produit -->
             <div class="container container2">
                 <div class="row justify-content-center">
-                    <div v-for="produit in produits" :key="produit.id" class="col-lg-3 col-md-5 col-5 card">
+                    <div v-for="produit in produits" :key="produit.id" class="col-lg-3 col-md-5 col-sm-5 card">
                         <!-- marque produit -->
                         <h4>{{ produit.marque }}</h4>
 
@@ -21,6 +21,7 @@
                                 <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span>
                             </div>
                             <!-- voir produit -->
+                            
                             <router-link :to="`/pageproduit/${produit.id}`">
                                 Voir plus
                             </router-link>
@@ -53,6 +54,7 @@
     export default {
         name: "pagesneakers",
         props: ["produits"],
+        
     }
 </script>
 

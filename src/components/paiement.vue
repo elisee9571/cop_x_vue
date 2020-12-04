@@ -365,6 +365,7 @@
 
     export default {
         name: "paiement",
+        props: ["panier"],
 
         data() {
             return {

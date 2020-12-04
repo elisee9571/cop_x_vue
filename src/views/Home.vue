@@ -1,14 +1,17 @@
 <template>
   <div class="home" id="Home">
-    <!-- import loading -->
+    <!-- import Chargement -->
     <div class="loader">
       <svg width="200" height="250" viewBox="0 0 50 50">
         <polygon stroke-width="1" stroke="#fff" fill="none" points="20,1 40,40 1,40">
         </polygon>
-        <text fill="#fff" x="10" y="52">Loading</text>
+        <text fill="#fff" x="3" y="55">Chargement</text>
       </svg>
     </div>
 
+    <div class="btn_arrow">
+      <i class="fas fa-arrow-up icone"></i>
+    </div>
 
     <mynav /> <!-- import mynav -->
     <carousel /> <!-- import carousel -->
@@ -16,15 +19,12 @@
       <h1 class="grand_titre">Nos Nouveautés</h1>
     </div>
     <slider /> <!-- import slider -->
-    <news /> <!-- import news -->
+    <marque /> <!-- import marque -->
     <div data-aos="fade-right">
       <h1 class="grand_titre">Les plus demandés</h1>
     </div>
     <slider2 /> <!-- import slider2 -->
-    <div data-aos="fade-right">
-      <h1 class="grand_titre">Nos marques</h1>
-    </div>
-    <marque /> <!-- import marque -->
+    
     <offre /> <!-- import offre -->
     <div data-aos="fade-right">
       <h1 class="grand_titre">Devenir membre</h1>
@@ -43,7 +43,7 @@
 
   import marque from "../components/marque.vue"; /* import components marque */
 
-  import news from "../components/news.vue"; /* import components news */
+ 
 
   import slider2 from "../components/slider2.vue"; /* import components slider2 */
 
@@ -61,7 +61,6 @@
       carousel,
       slider,
       marque,
-      news,
       offre,
       slider2,
       abonnement,
@@ -72,8 +71,18 @@
       window.addEventListener('load', () => {
         loader.classList.add('fondu-out');
       })
-    }
 
+      /* arrow up */
+      const btn_arrow = document.querySelector('.btn_arrow');
+      btn_arrow.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        })
+
+      })
+    },
 
   }
 </script>
@@ -97,12 +106,10 @@
     box-sizing: border-box;
   }
 
-
-
-
+  /* chargement */
   svg text {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 5px;
+    font-size: 7px;
     letter-spacing: 1px;
     animation: text 1s ease-in-out infinite;
   }
@@ -140,5 +147,26 @@
     display: none;
     opacity: 0;
     transition: opacity 0.4s ease-out;
+  }
+
+  /* arrow up */
+  .btn_arrow {
+    height: 50px;
+    width: 50px;
+    background: crimson;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    z-index: 9999 !important;
+  }
+
+  .icone {
+    color: #fff;
+    filter: invert(0) !important;
   }
 </style>

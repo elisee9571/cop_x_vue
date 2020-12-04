@@ -11,16 +11,16 @@
         <div class="container card_box">
           <div class="row">
 
-            <div class="col-lg-6 col-md-12 col-12 img_produit_box">
+            <div class="col-lg-6 col-12 img_produit_box">
               <h4 class="marque_shadow">{{ produit.marque }}</h4>
-              <span class="arrow-left">
-                <a href="/"><i class="fas fa-arrow-left"></i></a>
+              <span @click="retour" class="arrow-left">
+                <i class="fas fa-arrow-left"></i>
               </span>
               <img v-if="produit.Images" :src="require(`@/assets/${produit.Images[0].image}.png`)"
                 class="img_produit" />
             </div>
 
-            <div class="col-lg-6 col-md-12 col-12 info1">
+            <div class="col-lg-6 col-12 info1">
               <div class="produit_nom_box">
                 <div>
                   <h2 class="nom_produit">{{ produit.nom }}</h2>
@@ -34,11 +34,35 @@
               </div>
 
               <div class="size-container">
-                <h3 class="taille_produit">Tailles</h3>
+
                 <div class="row">
-                  <div class="size1" v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</div>
+                  <div class="dropdown col-7">
+                   <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10">
+                      Tailles
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <div class="select-control">
+                        <div class="select-options">
+
+                          <ul class="list-unstyled sneakers">
+                            <li v-for="taille in produit.Tailles" :key="taille.id" class="select-option" role="menuitem" tabindex="0" aria-disabled="false">
+                              <div class="inset">
+                                <div class="taille_eu">EU {{ taille.taille }}</div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
+                    Guide des tailles
+                  </button>
                 </div>
               </div>
+              <!-- <div class="size1" v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</div> -->
 
               <div class="ref-container">
                 <h3 class="taille_produit">Référence</h3>
@@ -46,26 +70,240 @@
               </div>
 
               <div class="buy-price">
-                <a @click="ajouter(produit.id, produit.nom, produit.prix)" class="btn_ajouter">Ajouter au panier</a>
+                <button type="button" class="btn_ajouter" data-toggle="modal" data-target="#exampleModal">
+                  <a @click="ajouter(produit.id, produit.nom, produit.prix, produit.Images[0].image, produit.taille)">Ajouter
+                    au
+                    panier</a>
+                </button>
                 <div class="prix">
                   <h2 class="prix_produit">{{ produit.prix }} €</h2>
                 </div>
               </div>
+
+
+
             </div>
 
           </div>
 
         </div>
       </div>
+
+      <!-- Modal tailles-->
+      <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title description_produit" id="staticBackdropLabel">Guides des tailles</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+
+                <table class="tableau_tailles">
+                  <thead>
+                    <tr>
+                      <th class="th_tailles">EU</th>
+                      <th class="th_tailles">US</th>
+                      <th class="th_tailles">UK</th>
+                      <th class="th_tailles">CM</th>
+                    </tr>
+                  </thead>
+                  <!-- tbody -->
+                  <tbody>
+                    <tr>
+                      <td class="td_tailles">35.5</td>
+                      <td class="td_tailles">3.5</td>
+                      <td class="td_tailles">2.5</td>
+                      <td class="td_tailles">22.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">36</td>
+                      <td class="td_tailles">4</td>
+                      <td class="td_tailles">3.5</td>
+                      <td class="td_tailles">23</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">36.5</td>
+                      <td class="td_tailles">4.5</td>
+                      <td class="td_tailles">4</td>
+                      <td class="td_tailles">23.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">37.5</td>
+                      <td class="td_tailles">5</td>
+                      <td class="td_tailles">4.5</td>
+                      <td class="td_tailles">23.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">38</td>
+                      <td class="td_tailles">5.5</td>
+                      <td class="td_tailles">5</td>
+                      <td class="td_tailles">24</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">38.5</td>
+                      <td class="td_tailles">6</td>
+                      <td class="td_tailles">5.5</td>
+                      <td class="td_tailles">24</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">39</td>
+                      <td class="td_tailles">6.5</td>
+                      <td class="td_tailles">6</td>
+                      <td class="td_tailles">24.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">40</td>
+                      <td class="td_tailles">7</td>
+                      <td class="td_tailles">6</td>
+                      <td class="td_tailles">25</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">40.5</td>
+                      <td class="td_tailles">7.5</td>
+                      <td class="td_tailles">6.5</td>
+                      <td class="td_tailles">25.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">41</td>
+                      <td class="td_tailles">8</td>
+                      <td class="td_tailles">7</td>
+                      <td class="td_tailles">26.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">42</td>
+                      <td class="td_tailles">8.5</td>
+                      <td class="td_tailles">7.5</td>
+                      <td class="td_tailles">26.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">42.5</td>
+                      <td class="td_tailles">9</td>
+                      <td class="td_tailles">8</td>
+                      <td class="td_tailles">27</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">43</td>
+                      <td class="td_tailles">9.5</td>
+                      <td class="td_tailles">8.5</td>
+                      <td class="td_tailles">27.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">44</td>
+                      <td class="td_tailles">10</td>
+                      <td class="td_tailles">9</td>
+                      <td class="td_tailles">28</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">44.5</td>
+                      <td class="td_tailles">10.5</td>
+                      <td class="td_tailles">9</td>
+                      <td class="td_tailles">28.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">45</td>
+                      <td class="td_tailles">11</td>
+                      <td class="td_tailles">10</td>
+                      <td class="td_tailles">29</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">45.5</td>
+                      <td class="td_tailles">11.5</td>
+                      <td class="td_tailles">10.5</td>
+                      <td class="td_tailles">29.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">46</td>
+                      <td class="td_tailles">12</td>
+                      <td class="td_tailles">11</td>
+                      <td class="td_tailles">30</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">47</td>
+                      <td class="td_tailles">12.5</td>
+                      <td class="td_tailles">11.5</td>
+                      <td class="td_tailles">30.5</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">47.5</td>
+                      <td class="td_tailles">13</td>
+                      <td class="td_tailles">12</td>
+                      <td class="td_tailles">31</td>
+                    </tr>
+
+                    <tr>
+                      <td class="td_tailles">48</td>
+                      <td class="td_tailles">13.5</td>
+                      <td class="td_tailles">12.5</td>
+                      <td class="td_tailles">31.5</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Modal panier -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Panier</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Votre produit a bien été ajouter dans votre panier
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-<!-- information commande, paiement etc -->
-    <div class="container-fluid text-center">
+    <!-- information commande, paiement etc -->
+    <!-- <div class="container-fluid text-center">
       <div class="row ">
         <div class="col-12 card-info_box">
 
           <div class="row justify-content-center">
-            <!-- authenticité -->
+            
             <div class="col-lg-3 col-md-4 col-6 card-info">
               <div class="colmun">
                 <i class="card-icon fas fa-award"></i>
@@ -76,7 +314,7 @@
               </div>
             </div>
 
-            <!-- livraison -->
+            
             <div class="col-lg-5 col-md-4 col-6 card-info">
               <div class="column">
 
@@ -87,18 +325,18 @@
               </div>
             </div>
 
-            <!-- paiement -->
+            
             <div class="col-lg-5 col-md-4 col-6 card-info">
               <div class="column">
                 <i class="card-icon fas fa-credit-card"></i>
                 <p class="p_produit-info-t">Paiement sécurisé</p>
                 <br>
-                <p class="p_produit-info">Toutes les transactions sont sécurisées 
+                <p class="p_produit-info">Toutes les transactions sont sécurisées
                   grâce à un protocole crypté 3D Secure.</p>
               </div>
             </div>
 
-            <!-- service client -->
+            
             <div class="col-lg-3 col-md-4 col-6 card-info">
               <div class="column">
                 <i class="card-icon fas fa-comments"></i>
@@ -112,7 +350,7 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- import myfooter -->
     <myfooter />
@@ -129,14 +367,17 @@
 
     data() {
       return {
-        /* Panier: {}, */
+        client: {},
+        Panier: {},
+        /* panier */
         produit: {},
         id: this.$route.params.id,
+
       };
     },
     created() {
-      /* console.log(this.produits);
-      this.getLocalStorage(); */
+      console.log(this.produits); /* panier */
+      this.getLocalStorage(); /* panier */
       this.axios
         .get("http://localhost:3000/produit/getById/" + this.id)
         .then((res) => {
@@ -152,9 +393,12 @@
       myfooter //* import components */
     },
 
-    /* methods: {
-      ajouter: function (id, nom, prix) {
-        alert(`le produit ${nom}`);
+    methods: {
+      retour: function (){
+        this.$router.go(-1);
+      },
+      ajouter: function (id, nom, prix, image, taille) {
+        /* alert(`le produit ${nom} à été ajouter dans votre panier`); */
         this.Panier = this.Panier || [];
         localStorage.removeItem("panier");
 
@@ -166,6 +410,8 @@
             quantite: quantite,
             prix_unitaire: prix,
             soustotal: quantite * prix,
+            image: image,
+            taille: taille,
           });
         } else {
           let alreadyProduit = false;
@@ -184,6 +430,8 @@
               quantite: quantite,
               prix_unitaire: prix,
               soustotal: quantite * prix,
+              image: image,
+              taille: taille,
             });
           }
         }
@@ -196,14 +444,101 @@
           console.log(this.Panier);
         }
       },
-    }, */
-
-
-
+    },
   };
 </script>
 
 <style>
+/* btn taille */
+div.dropdown.col-7{
+  margin: 0!important;
+  padding: 0!important;
+}
+button.btn-light, .btn-danger{
+  font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+}
+  /* checkbox tailles */
+  .select-control .select-options .list-unstyled.sneakers {
+    height: auto;
+}
+  .select-control .select-options .list-unstyled {
+    display: grid !important;
+    overflow: auto !important;
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+
+  .list-unstyled {
+    padding-left: 0 !important;
+    list-style: none !important;
+  }
+
+  .select-control .select-options {
+    box-shadow: 0 4px 3px 0 hsla(0, 0%, 72.2%, .6);
+    background: #fff;
+    display: table !important;
+    height: 0;
+    padding: 2.5px !important;
+    position: absolute !important;
+    top: 135% !important;
+    width: 343px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19) !important;
+    transition: visibility .2s ease-out, opacity .2s linear !important;
+  }
+
+  .select-control .select-options .select-option {
+    background: #fff !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 6px !important;
+    text-align: center !important;
+    height: 70px !important;
+    user-select: none !important;
+  }
+
+  .select-control .select-options .select-option .inset {
+    background: #fff !important;
+    border: 1px solid #d9d9d8 !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+
+  /* guides tailles */
+  .tableau_tailles {
+    border-collapse: collapse;
+    min-width: 400px;
+    width: auto;
+    cursor: pointer;
+    margin: auto;
+  }
+
+  thead tr {
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 15px 20px;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+  }
+
+  .th_tailles {
+    font-size: 20px;
+  }
+
+  .td_tailles {
+    color: #333 !important;
+    font-size: 20px;
+  }
+
   /* css */
   * {
     margin: 0;
@@ -314,25 +649,6 @@
     font-size: 25px;
   }
 
-  .size1 {
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
-    background-color: #eee;
-    margin: 0 10px;
-    text-align: center;
-    line-height: 40px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: .3s;
-  }
-
-  .size1.active {
-    background: #6844ff;
-    color: #fff;
-  }
-
   /* prix produit */
   .buy-price {
     display: flex;
@@ -366,6 +682,7 @@
     margin-right: 30px;
     transition: 0.4s linear;
     text-decoration: none !important;
+    cursor: pointer;
   }
 
   .btn_ajouter:hover {
@@ -374,62 +691,66 @@
   }
 
   /* information commande etc */
-  .p_produit-info-t{
+  .p_produit-info-t {
     font-size: 30px !important;
     font-family: 'Bebas Neue', sans-serif;
   }
-  .p_produit-info, .p_produit-info-t{
+
+  .p_produit-info,
+  .p_produit-info-t {
     font-size: 18px;
   }
-   .card-info_box {
-        padding: 0 20px;
-        margin: 100px 0;
-    }
-    
-    .card-info {
-        width: 100%;
-        padding: 0 25px;
-        margin: 20px;
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #22abfa;
-        /* background: linear-gradient(40deg, rgba(151, 120, 255, 255), rgba(104, 68, 255, 255)); */
-    }    
-    .card-info p {
-        margin-top: 20px;
-        color: #fff;
-        max-height: 0;
-        opacity: 0;
-        transition: .3s linear;
-    }
-    
-    .card-info:hover p {
-        max-height: 45px;
-        opacity: 1;
-    }
-    
-    .card-icon {
-        filter: invert(0) !important;
-        color: #fff !important;
-        font-size: 28px !important;
-        background: #6844ff;
-        width: 60px;
-        height: 60px;
-        line-height: 60px !important;
-        border-radius: 50%;
-        transition: .3s linear;
-    }
-    
-    .card-info:hover .card-icon {
-        background: none;
-        transition: 0.5s linear;
-        color: #22abfa !important;
-        transform: scale(1.6);
-    }
+
+  .card-info_box {
+    padding: 0 20px;
+    margin: 100px 0;
+  }
+
+  .card-info {
+    width: 100%;
+    padding: 0 25px;
+    margin: 20px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #22abfa;
+    /* background: linear-gradient(40deg, rgba(151, 120, 255, 255), rgba(104, 68, 255, 255)); */
+  }
+
+  .card-info p {
+    margin-top: 20px;
+    color: #fff;
+    max-height: 0;
+    opacity: 0;
+    transition: .3s linear;
+  }
+
+  .card-info:hover p {
+    max-height: 45px;
+    opacity: 1;
+  }
+
+  .card-icon {
+    filter: invert(0) !important;
+    color: #fff !important;
+    font-size: 28px !important;
+    background: #6844ff;
+    width: 60px;
+    height: 60px;
+    line-height: 60px !important;
+    border-radius: 50%;
+    transition: .3s linear;
+  }
+
+  .card-info:hover .card-icon {
+    background: none;
+    transition: 0.5s linear;
+    color: #22abfa !important;
+    transform: scale(1.6);
+  }
 
 
   /* responsive card */

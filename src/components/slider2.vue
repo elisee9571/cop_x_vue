@@ -21,6 +21,7 @@
                                 <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span>
                             </div>
                             <!-- voir produit -->
+                            
                             <router-link :to="`/pageproduit/${produit.id}`">
                                 Voir plus
                             </router-link>
@@ -53,6 +54,7 @@
                     alert(err);
                 });
         },
+        
 
     }
 </script>

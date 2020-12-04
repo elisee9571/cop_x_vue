@@ -25,6 +25,9 @@ import travis2 from '../components/travis2.vue'; /* import du components travis2
 
 import Faq from '../views/Faq.vue'; /* import du views Faq */
 import Contact from '../views/Contact.vue'; /* import du views Contact */
+/* amdin user */
+import adminhome from '../components/admin/home.vue'; /* import du components adminhome */
+import login2 from "../components/login2.vue"; /* import du components adminlogin */
 
 /* compenents liée à l'utilisateur */
 import login from "../components/login.vue"; /* import du components login */
@@ -40,8 +43,9 @@ import Streetwear from "../views/Streetwear.vue"; /* import du views Streetwear 
 import Lifestyle from "../views/Lifestyle.vue"; /* import du views Lifestyle  */
 
 /* components liée aux produits */
-import panier from '../components/panier.vue'; /* import du components panier */
+import panier from '../views/panier.vue'; /* import du views panier */
 import paiement from '../components/paiement.vue'; /* import du components paiement */
+import paypal from '../components/paypal.vue'; /* import du components paypal */
 
 
 
@@ -79,6 +83,7 @@ const routes = [{
         component: () =>
             import ("../components/pageproduit.vue"),
     },
+    /* client */
     {
         path: '/register',
         name: 'register',
@@ -128,6 +133,22 @@ const routes = [{
         path: "/updatepassword/:forget",
         name: "updatepassword",
         component: updatepassword,
+    },
+    {
+        path: "/paypal",
+        name: "paypal",
+        component: paypal,
+    },
+    /* admin user */
+    {
+        path: "/admin/login",
+        name: "adminlogin",
+        component: login2
+    },
+    {
+        path: "/admin/home",
+        name: "adminhome",
+        component: adminhome
     },
 
     /* menu sneakers */

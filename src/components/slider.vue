@@ -1,5 +1,5 @@
 <template>
- <!-- page sneakers -->
+    <!-- page sneakers -->
     <div class="container-fluid">
         <div class="row">
             <!-- card produit -->
@@ -20,6 +20,7 @@
                                 <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span>
                             </div>
                             <!-- voir produit -->
+                            
                             <router-link :to="`/pageproduit/${produit.id}`">
                                 Voir plus
                             </router-link>
@@ -30,12 +31,11 @@
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
 <script>
- 
-
     export default {
         name: 'slider',
 
@@ -54,10 +54,10 @@
                     alert(err);
                 });
         },
+        
     }
-
 </script>
 
 <style>
-  
+
 </style>

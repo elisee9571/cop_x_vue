@@ -211,7 +211,7 @@
                         <p>Un problème de taille ? Un changement de modèle souhaité ?
                             <br>
                             Il est possible de procéder à un échange quelle qu’en soit la raison, en respectant les
-                            conditions de retours <a>disponibles juste ici.</a></p>
+                            conditions de retours <a href="#">disponibles juste ici.</a></p>
                     </div>
                 </div>
 
@@ -228,7 +228,7 @@
                             <br>
                             Il est possible de procéder à un remboursement de votre commande quelle qu’en soit la
                             raison,
-                            en respectant les conditions de retours<a>disponibles juste ici.</a></p>
+                            en respectant les conditions de retours<a href="#"> disponibles juste ici.</a></p>
                     </div>
                 </div>
 

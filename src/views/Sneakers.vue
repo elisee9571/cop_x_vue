@@ -28,7 +28,7 @@
         </div>
 
         <!-- titre Sneakers -->
-        <h1 class="order-1">Nouveautés Sneakers</h1>
+        <h1 class="order-1">Nouveautés</h1>
       </div>
     </div>
 

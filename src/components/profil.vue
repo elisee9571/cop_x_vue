@@ -1,203 +1,205 @@
 <template>
     <!-- profil client -->
+    <div class="container-fluid container_back">
 
-    <div class="container">
+        <div class="container">
 
-        <h1 class="text-center">Mon Profil</h1>
+            <!-- <h1 class="text-center">Mon Profil</h1> -->
 
-        <!-- image du profil -->
-        <div class="row">
+            <!-- image du profil -->
+            <div class="row">
 
-            <div class="col-lg-4 image_profil">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="col-lg-4 image_profil">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                    <!-- retour menu -->
-                    <a class="nav-link nav_titre_profil" href="/" aria-selected="false"><img class="icon_titre_profil"
-                            src="https://img.icons8.com/material-rounded/40/000000/circled-chevron-left.png" /></a>
+                        <!-- retour menu -->
+                        <a class="nav-link nav_titre_profil" @click="retour" aria-selected="false"><img
+                                class="icon_titre_profil"
+                                src="https://img.icons8.com/material-rounded/40/000000/circled-chevron-left.png" /></a>
 
-                    <!-- image profil -->
-                    <div class="avatar_box text-center">
-                        <img v-if="client.image !== undefined" :src="require(`@/assets/${client.image}`)" class="avatar"
-                            alt="avatar" />
-                        <img v-else :src="pic" class="avatar" alt="avatar" />
-                        <h6>{{client.nom}}</h6>
-                        <label class="ajouter_image" for="file"><img
-                                src="https://img.icons8.com/fluent-systems-filled/35/000000/add.png" /></label>
-                        <input id="file" type="file" accept="image/jpeg" @change="uploadImage" />
+                        <!-- image profil -->
+                        <div class="avatar_box text-center">
+                            <img v-if="client.image !== undefined" :src="client.image" class="avatar" alt="avatar" />
+                            <img v-else :src="pic" class="avatar" alt="avatar" />
+                            <h6>{{client.nom}}</h6>
+                            <label class="ajouter_image" for="file"><img
+                                    src="https://img.icons8.com/fluent-systems-filled/35/000000/add.png" /></label>
+                            <input id="file" type="file" accept="image/jpeg" @change="uploadImage" />
+                        </div>
+
+                        <!-- mes information -->
+                        <a class="nav-link nav_titre_profil active" id="v-pills-information-tab" data-toggle="pill"
+                            href="#v-pills-information" role="tab" aria-controls="v-pills-information"
+                            aria-selected="true"><img class="icon_titre_profil"
+                                src="https://img.icons8.com/metro/25/000000/view-details.png" /> Mes informations</a>
+
+                        <!-- mes commande -->
+                        <a class="nav-link nav_titre_profil" id="v-pills-commande-tab" data-toggle="pill"
+                            href="#v-pills-commande" role="tab" aria-controls="v-pills-commande"
+                            aria-selected="false"><img class="icon_titre_profil"
+                                src="https://img.icons8.com/android/25/000000/cardboard-box.png" /> Mes commandes</a>
+
+                        <!-- information de paiement -->
+                        <a class="nav-link nav_titre_profil" id="v-pills-paiement-tab" data-toggle="pill"
+                            href="#v-pills-paiement" role="tab" aria-controls="v-pills-paiement"
+                            aria-selected="false"><img class="icon_titre_profil"
+                                src="https://img.icons8.com/ios-filled/30/000000/card-in-use.png" /> informations de
+                            paiement</a>
+
+                        <!-- mon abonnement -->
+                        <a class="nav-link nav_titre_profil" id="v-pills-abonnement-tab" data-toggle="pill"
+                            href="#v-pills-abonnement" role="tab" aria-controls="v-pills-abonnement"
+                            aria-selected="false">
+                            <img class="icon_titre_profil"
+                                src="https://img.icons8.com/material/30/000000/ruby-gemstone.png" /> Mon Abonnement</a>
+
+                        <!-- changer le mdp -->
+                        <a class="nav-link nav_titre_profil" id="v-pills-mdp-tab" data-toggle="pill" href="#v-pills-mdp"
+                            role="tab" aria-controls="v-pills-mdp" aria-selected="false"><img class="icon_titre_profil"
+                                src="https://img.icons8.com/android/25/000000/lock.png" /> sécurité</a>
+
+                        <!-- deconnexion -->
+                        <a class="nav-link nav_titre_profil" @click="logout">
+                            <img class="icon_titre_profil" src="https://img.icons8.com/windows/30/000000/exit.png" />
+                            Déconnexion</a>
+
+
                     </div>
-
-                    <!-- mes information -->
-                    <a class="nav-link nav_titre_profil active" id="v-pills-information-tab" data-toggle="pill"
-                        href="#v-pills-information" role="tab" aria-controls="v-pills-information"
-                        aria-selected="true"><img class="icon_titre_profil"
-                            src="https://img.icons8.com/metro/25/000000/view-details.png" /> Mes informations</a>
-
-                    <!-- mes commande -->
-                    <a class="nav-link nav_titre_profil" id="v-pills-commande-tab" data-toggle="pill"
-                        href="#v-pills-commande" role="tab" aria-controls="v-pills-commande" aria-selected="false"><img
-                            class="icon_titre_profil"
-                            src="https://img.icons8.com/android/25/000000/cardboard-box.png" /> Mes commandes</a>
-
-                    <!-- information de paiement -->
-                    <a class="nav-link nav_titre_profil" id="v-pills-paiement-tab" data-toggle="pill"
-                        href="#v-pills-paiement" role="tab" aria-controls="v-pills-paiement" aria-selected="false"><img
-                            class="icon_titre_profil"
-                            src="https://img.icons8.com/ios-filled/30/000000/card-in-use.png" /> informations de
-                        paiement</a>
-
-                    <!-- mon abonnement -->
-                    <a class="nav-link nav_titre_profil" id="v-pills-abonnement-tab" data-toggle="pill"
-                        href="#v-pills-abonnement" role="tab" aria-controls="v-pills-abonnement" aria-selected="false">
-                        <img class="icon_titre_profil"
-                            src="https://img.icons8.com/material/30/000000/ruby-gemstone.png" /> Mon Abonnement</a>
-
-                    <!-- changer le mdp -->
-                    <a class="nav-link nav_titre_profil" id="v-pills-mdp-tab" data-toggle="pill" href="#v-pills-mdp"
-                        role="tab" aria-controls="v-pills-mdp" aria-selected="false"><img class="icon_titre_profil"
-                            src="https://img.icons8.com/android/25/000000/lock.png" /> sécurité</a>
-
-                    <!-- deconnexion -->
-                    <a class="nav-link nav_titre_profil" data-toggle="pill" href="#v-pills-deconnexion" role="tab"
-                        aria-controls="v-pills-deconnexion" aria-selected="false" @click="logout"><img
-                            class="icon_titre_profil" src="https://img.icons8.com/windows/30/000000/exit.png" />
-                        Déconnexion</a>
-
-
                 </div>
-            </div>
 
-            <!-- contenu du profil -->
-            <div class="contenu_profil col-lg-8">
-                <div class="tab-content" id="v-pills-tabContent">
+                <!-- contenu du profil -->
+                <div class="contenu_profil col-lg-8">
+                    <div class="tab-content" id="v-pills-tabContent">
 
-                    <!-- mes information -->
-                    <div class="tab-pane fade show active" id="v-pills-information" role="tabpanel"
-                        aria-labelledby="v-pills-information-tab">
+                        <!-- mes information -->
+                        <div class="tab-pane fade show active" id="v-pills-information" role="tabpanel"
+                            aria-labelledby="v-pills-information-tab">
 
 
-                        <div class="renseignement_box">
+                            <div class="renseignement_box">
 
-                            <!-- form -->
-                            <form action="" @submit.prevent="update">
-                                <h1 class="titre_page_nav text-center">Mes informations</h1>
+                                <!-- form -->
+                                <form action="" @submit.prevent="update">
+                                    <h1 class="titre_page_nav text-center">Mes informations</h1>
 
-                                <div class="row col-12">
-                                    <!-- nom -->
-                                    <div class="form-group col-lg-6">
-                                        <label class="col-md-12 control-label" for="nom"> Nom: </label>
+                                    <div class="row col-12">
+                                        <!-- nom -->
+                                        <div class="form-group col-lg-6">
+                                            <label class="col-md-12 control-label" for="nom"> Nom: </label>
+                                            <div class="col-lg-12">
+                                                <input class="input_profil form-control" type="text" name="nom" id="nom"
+                                                    v-model="client.nom" />
+                                            </div>
+                                        </div>
+
+                                        <!-- date de naissance -->
+                                        <div class="form-group col-lg-6">
+                                            <label class="col-md-12 control-label" for="date"> Date de naissance:
+                                            </label>
+                                            <div class="col-lg-12">
+                                                <input class="input_profil form-control" type="date" name="date"
+                                                    id="date" v-model="client.date" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- sexe -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="sexe"> Sexe: </label>
+                                        <div class="col-lg-6 sexe_renseignement">
+
+                                            <div class="row">
+                                                <input class="sexe_input" type="radio" id="Homme" name="sexe"
+                                                    value="Homme" v-model="client.sexe" />
+                                                <label class="sexe_label" for="Homme">Homme</label>
+                                            </div>
+
+                                            <div class="row">
+                                                <input class="sexe_input" type="radio" id="Femme" name="sexe"
+                                                    value="Femme" v-model="client.sexe" />
+                                                <label class="sexe_label" for="Femme">Femme</label>
+                                            </div>
+
+                                            <div class="row">
+                                                <input class="sexe_input" type="radio" id="Autre" name="sexe"
+                                                    value="Autre" v-model="client.sexe" />
+                                                <label class="sexe_label" for="Autre">Autre</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- pointure -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="pointure"> pointure: </label>
+                                        <div class="col-lg-6">
+                                            <b-form-select v-model="client.pointure" :options="options" name="pointure"
+                                                id="pointure"></b-form-select>
+                                        </div>
+                                    </div>
+
+                                    <!-- email -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="email"> Email: </label>
+                                        <div class="col-lg-6">
+                                            <input class="input_profil form-control" type="email" name="email"
+                                                id="email" v-model="client.email" />
+                                        </div>
+                                    </div>
+
+                                    <!-- adresse -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="email"> adresse: </label>
                                         <div class="col-lg-12">
-                                            <input class="input_profil form-control" type="text" name="nom" id="nom"
-                                                v-model="client.nom" />
+                                            <input class="input_profil form-control" type="text" name="adresse"
+                                                id="adresse" v-model="client.adresse" />
                                         </div>
                                     </div>
 
-                                    <!-- date de naissance -->
-                                    <div class="form-group col-lg-6">
-                                        <label class="col-md-12 control-label" for="date"> Date de naissance: </label>
-                                        <div class="col-lg-12">
-                                            <input class="input_profil form-control" type="date" name="date" id="date"
-                                                v-model="client.date" />
-                                        </div>
-                                    </div>
-                                </div>
 
-
-
-                                <!-- sexe -->
-                                <div class="form-group">
-                                    <label class="col-md-12 control-label" for="sexe"> Sexe: </label>
-                                    <div class="col-lg-6 sexe_renseignement">
-
-                                        <div class="row">
-                                            <input class="sexe_input" type="radio" id="Homme" name="sexe" value="Homme"
-                                                v-model="client.sexe" />
-                                            <label class="sexe_label" for="Homme">Homme</label>
-                                        </div>
-
-                                        <div class="row">
-                                            <input class="sexe_input" type="radio" id="Femme" name="sexe" value="Femme"
-                                                v-model="client.sexe" />
-                                            <label class="sexe_label" for="Femme">Femme</label>
-                                        </div>
-
-                                        <div class="row">
-                                            <input class="sexe_input" type="radio" id="Autre" name="sexe" value="Autre"
-                                                v-model="client.sexe" />
-                                            <label class="sexe_label" for="Autre">Autre</label>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!-- pointure -->
-                                <div class="form-group">
-                                    <label class="col-md-12 control-label" for="pointure"> pointure: </label>
-                                    <div class="col-lg-6">
-                                        <b-form-select v-model="client.pointure" :options="options" name="pointure"
-                                            id="pointure"></b-form-select>
-                                    </div>
-                                </div>
-
-                                <!-- email -->
-                                <div class="form-group">
-                                    <label class="col-md-12 control-label" for="email"> Email: </label>
-                                    <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="email" name="email" id="email"
-                                            v-model="client.email" />
-                                    </div>
-                                </div>
-
-                                <!-- adresse -->
-                                <div class="form-group">
-                                    <label class="col-md-12 control-label" for="email"> adresse: </label>
-                                    <div class="col-lg-12">
-                                        <input class="input_profil form-control" type="text" name="adresse" id="adresse"
-                                            v-model="client.adresse" />
-                                    </div>
-                                </div>
-
-
-                                <!-- ville -->
-                                <div class="form-group">
-                                    <label class="col-md-12 control-label" for="ville"> ville: </label>
-                                    <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="text" name="ville" id="ville"
-                                            v-model="client.ville" />
-                                    </div>
-                                </div>
-
-
-                                <div class="row col-12">
-                                    <!-- cp -->
-                                    <div class="form-group col-lg-6">
-                                        <label class="col-md-12 control-label" for="cp">cp: </label>
-                                        <div class="col-lg-12">
-                                            <input class="input_profil form-control" type="tel" name="cp" id="cp"
-                                                v-model="client.cp" />
+                                    <!-- ville -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="ville"> ville: </label>
+                                        <div class="col-lg-6">
+                                            <input class="input_profil form-control" type="text" name="ville" id="ville"
+                                                v-model="client.ville" />
                                         </div>
                                     </div>
 
-                                    <!-- pays -->
-                                    <div class="form-group col-lg-6">
-                                        <label class="col-md-12 control-label" for="pays"> pays: </label>
-                                        <div class="col-lg-12">
-                                            <input class="input_profil form-control" type="text" name="pays" id="pays"
-                                                v-model="client.pays" />
+
+                                    <div class="row col-12">
+                                        <!-- cp -->
+                                        <div class="form-group col-lg-6">
+                                            <label class="col-md-12 control-label" for="cp">cp: </label>
+                                            <div class="col-lg-12">
+                                                <input class="input_profil form-control" type="tel" name="cp" id="cp"
+                                                    v-model="client.cp" />
+                                            </div>
+                                        </div>
+
+                                        <!-- pays -->
+                                        <div class="form-group col-lg-6">
+                                            <label class="col-md-12 control-label" for="pays"> pays: </label>
+                                            <div class="col-lg-12">
+                                                <input class="input_profil form-control" type="text" name="pays"
+                                                    id="pays" v-model="client.pays" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- tel -->
-                                <div class="form-group">
-                                    <label class="col-md-12 control-label" for="tel"> téléphone: </label>
-                                    <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="tel" name="tel" id="tel"
-                                            v-model="client.tel" />
+                                    <!-- tel -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="tel"> téléphone: </label>
+                                        <div class="col-lg-6">
+                                            <input class="input_profil form-control" type="tel" name="tel" id="tel"
+                                                v-model="client.tel" />
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- mot de passe -->
-                                <!-- <div class="form-group">
+                                    <!-- mot de passe -->
+                                    <!-- <div class="form-group">
                                     <label class="col-md-4 control-label" for="password"> Mot de passe:</label>
 
                                     <div class="col-lg-6">
@@ -206,151 +208,8 @@
                                     </div>
                                 </div> -->
 
-                                <div class="form-group">
-                                    <input type="submit" class="btn_jour" value="Sauvegarder les modifications" />
-                                </div>
-
-                            </form>
-
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="v-pills-commande" role="tabpanel"
-                        aria-labelledby="v-pills-commande-tab">
-                        <!-- mes commandes -->
-                        <div class="row">
-                            <div class="mes_commandes">
-                                <h1 class="titre_page_nav text-center">Mes commandes</h1>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="tab-pane fade" id="v-pills-paiement" role="tabpanel"
-                        aria-labelledby="v-pills-paiement-tab">
-                        <!-- information de paiement -->
-                        <div class="row">
-                            <div class="information_de_paiement">
-                                <h1 class="titre_page_nav text-center">Informations de paiement</h1>
-
-                                <div class="text-center col-12">
-
-                                    <a class="btn_ajout_paiement" id="v-pills-information_paiement-tab"
-                                        data-toggle="pill" href="#v-pills-information_paiement" role="tab"
-                                        aria-controls="v-pills-information_paiement" aria-selected="false">
-                                        Ajouter un nouveau mode de paiement</a>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="tab-pane fade" id="v-pills-information_paiement" role="tabpanel"
-                        aria-labelledby="v-pills-information_paiement-tab">
-                        <!-- information paiement -->
-
-                        <div class="row information_de_paiement">
-                            <div class="col-12">
-                                <div class="card_paiement">
-
-                                    <div class="card-header header_paiement">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p>Carte de crédit / débit<br>ou<br> <a href="#" class="paypal">PAYPAL
-                                                        <img class="icon_paiement" src="../assets/icon_paypal.png"
-                                                            alt=""></a></p>
-
-
-                                            </div>
-                                            <div class="col-md-6 text-right" style="margin-top: -5px;">
-                                                <img class="icon_paiement" src="../assets/icon_visa.png" alt="">
-                                                <img class="icon_paiement" src="../assets/icon_mastercard.png" alt="">
-                                                <img class="icon_paiement" src="../assets/icon_amex.png" alt="">
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="cc-number" class="control-label label_card">Numéro de
-                                                carte</label>
-                                            <input type="tel" id="cc-number" class="input-lg form-control cc-number"
-                                                autocomplete="cc-number" placeholder="•••• •••• •••• ••••" name="">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cc-exp" class="control-label label_card">Date
-                                                        d'expiration</label>
-                                                    <input type="tel" id="cc-exp" class="input-lg form-control cc-exp"
-                                                        autocomplete="cc-exp" placeholder="•• / ••" name="">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cc-cvc" class="control-label label_card">Numéro
-                                                        de
-                                                        carte</label>
-                                                    <input type="tel" id="cc-cvc" class="input-lg form-control cc-cvc"
-                                                        autocomplete="off" placeholder="•••" name="">
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label for="numeric" class="control-label label_card">Nom du
-                                                titulaire</label>
-                                            <input type="text" class="input-lg form-control">
-                                        </div>
-
-                                        <div class="form-group text-center">
-                                            <input type="submit" class="btn_jour" value="Ajouter" />
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="tab-pane fade" id="v-pills-abonnement" role="tabpanel"
-                        aria-labelledby="v-pills-abonnement-tab">
-                        <!-- mon abonnement -->
-                        <div class="row">
-                            <div class="mon_abonnement">
-                                <h1 class="titre_page_nav text-center">mon Abonnement</h1>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="tab-pane fade" id="v-pills-mdp" role="tabpanel" aria-labelledby="v-pills-mdp-tab">
-                        <!-- changer le mdp -->
-                        <div class="row text-center">
-                            <div class="securite col-12">
-                                <form action="#">
-                                    <h1 class="mpo_titre" for="mpou">Réinitialiser le mot de passe</h1>
-
-                                    <input class="email_mpo" type="email" name="mpou" placeholder="Email"
-                                        v-model="email" id="mpou">
-                                    <span><img class="icon_mpo"
-                                            src="https://img.icons8.com/ios-glyphs/24/000000/box-important.png" />Nous
-                                        vous
-                                        enverrons un
-                                        e-mail pour réinitialiser votre mot de passe.</span>
                                     <div class="form-group">
-                                        <input @click="oublier" type="submit" class="btn_jour" value="envoyer" />
+                                        <input type="submit" class="btn_jour" value="Sauvegarder les modifications" />
                                     </div>
 
                                 </form>
@@ -358,9 +217,156 @@
                             </div>
                         </div>
 
-                    </div>
+                        <div class="tab-pane fade" id="v-pills-commande" role="tabpanel"
+                            aria-labelledby="v-pills-commande-tab">
+                            <!-- mes commandes -->
+                            <div class="row">
+                                <div class="mes_commandes">
+                                    <h1 class="titre_page_nav text-center">Mes commandes</h1>
 
-                    <!-- <div class="tab-pane fade" id="v-pills-mdp_oublié" role="tabpanel"
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-paiement" role="tabpanel"
+                            aria-labelledby="v-pills-paiement-tab">
+                            <!-- information de paiement -->
+                            <div class="row">
+                                <div class="information_de_paiement">
+                                    <h1 class="titre_page_nav text-center">Informations de paiement</h1>
+
+                                    <div class="text-center col-12">
+
+                                        <a class="btn_ajout_paiement" id="v-pills-information_paiement-tab"
+                                            data-toggle="pill" href="#v-pills-information_paiement" role="tab"
+                                            aria-controls="v-pills-information_paiement" aria-selected="false">
+                                            Ajouter un nouveau mode de paiement</a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-information_paiement" role="tabpanel"
+                            aria-labelledby="v-pills-information_paiement-tab">
+                            <!-- information paiement -->
+
+                            <div class="row information_de_paiement">
+                                <div class="col-12">
+                                    <div class="card_paiement">
+
+                                        <div class="card-header header_paiement">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p>Carte de crédit / débit<br>ou<br> <a href="#"
+                                                            class="paypal">PAYPAL
+                                                            <img class="icon_paiement" src="../assets/icon_paypal.png"
+                                                                alt=""></a></p>
+
+
+                                                </div>
+                                                <div class="col-md-6 text-right" style="margin-top: -5px;">
+                                                    <img class="icon_paiement" src="../assets/icon_visa.png" alt="">
+                                                    <img class="icon_paiement" src="../assets/icon_mastercard.png"
+                                                        alt="">
+                                                    <img class="icon_paiement" src="../assets/icon_amex.png" alt="">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="cc-number" class="control-label label_card">Numéro de
+                                                    carte</label>
+                                                <input type="tel" id="cc-number" class="input-lg form-control cc-number"
+                                                    autocomplete="cc-number" placeholder="•••• •••• •••• ••••" name="">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label label_card">Date
+                                                            d'expiration</label>
+                                                        <input type="tel" id="cc-exp"
+                                                            class="input-lg form-control cc-exp" autocomplete="cc-exp"
+                                                            placeholder="•• / ••" name="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-cvc" class="control-label label_card">Numéro
+                                                            de
+                                                            carte</label>
+                                                        <input type="tel" id="cc-cvc"
+                                                            class="input-lg form-control cc-cvc" autocomplete="off"
+                                                            placeholder="•••" name="">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="numeric" class="control-label label_card">Nom du
+                                                    titulaire</label>
+                                                <input type="text" class="input-lg form-control">
+                                            </div>
+
+                                            <div class="form-group text-center">
+                                                <input type="submit" class="btn_jour" value="Ajouter" />
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-abonnement" role="tabpanel"
+                            aria-labelledby="v-pills-abonnement-tab">
+                            <!-- mon abonnement -->
+                            <div class="row">
+                                <div class="mon_abonnement">
+                                    <h1 class="titre_page_nav text-center">mon Abonnement</h1>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-mdp" role="tabpanel" aria-labelledby="v-pills-mdp-tab">
+                            <!-- changer le mdp -->
+                            <div class="row text-center">
+                                <div class="securite col-12">
+                                    <form action="#">
+                                        <h1 class="mpo_titre" for="mpou">Réinitialiser le mot de passe</h1>
+
+                                        <input class="email_mpo" type="email" name="mpou" placeholder="Email"
+                                            v-model="email" id="mpou">
+                                        <span><img class="icon_mpo"
+                                                src="https://img.icons8.com/ios-glyphs/24/000000/box-important.png" />Nous
+                                            vous
+                                            enverrons un
+                                            e-mail pour réinitialiser votre mot de passe.</span>
+                                        <div class="form-group">
+                                            <input @click="oublier" type="submit" class="btn_jour" value="envoyer" />
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- <div class="tab-pane fade" id="v-pills-mdp_oublié" role="tabpanel"
                         aria-labelledby="v-pills-mdp_oublié-tab">
                        
                         <div class="row">
@@ -385,20 +391,11 @@
 
                     </div>
  -->
+                    </div>
                 </div>
+
             </div>
-
-
-
-
-
-
-
-
-
-
         </div>
-
     </div>
 </template>
 <script>
@@ -410,7 +407,6 @@
                 password: "",
                 email: "",
                 client: {},
-                message: null,
                 pic: null,
                 options: [{
                         value: '35',
@@ -557,6 +553,9 @@
 
         },
         methods: {
+            retour: function () {
+                this.$router.go(-1);
+            },
             uploadImage(e) {
                 const image = e.target.files[0];
                 const reader = new FileReader();
@@ -583,7 +582,7 @@
 
                         } else {
 
-                            this.message = "error: votre profil n'est pas mis à jour";
+                            this.message = "error: votre profil  n'a pas été mis à jour";
                             alert(`erreur: votre profil n'a pas été mis à jour`);
                         }
                     })
@@ -595,7 +594,6 @@
 
             /* deconnexion */
             logout: function () {
-                alert(`Déconnecté`);
                 localStorage.removeItem("token");
                 this.$router.push({
                     name: "login",
@@ -605,7 +603,7 @@
                 });
             },
             /* forget password */
-             oublier: function () {
+            oublier: function () {
                 this.axios.post("http://localhost:3000/client/forgetpassword", {
                         email: this.email,
                     })
@@ -623,6 +621,10 @@
 
 <style>
     @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
+
+    .container_back {
+        background: #fff !important;
+    }
 
     /* css */
     .row {
@@ -668,6 +670,7 @@
         border-radius: 100%;
         box-shadow: 0 0 20px #6844ff;
         overflow: hidden;
+        margin-bottom: 20px;
     }
 
 
@@ -785,14 +788,14 @@
     /* mes commande */
     .mes_commandes {
         background: #fff;
-        height: 700px;
+        height: 100vh;
         width: 100%;
     }
 
     /* information de paiement */
     .information_de_paiement {
         background: #fff;
-        height: 700px;
+        height: 100vh;
         width: 100%;
     }
 
@@ -819,14 +822,14 @@
     /* mon abonnement */
     .mon_abonnement {
         background: #fff;
-        height: 700px;
+        height: 100vh;
         width: 100%;
     }
 
     /* securité */
     .securite {
         background: #fff;
-        height: 700px;
+        height: 100vh;
         width: 100%;
     }
 
