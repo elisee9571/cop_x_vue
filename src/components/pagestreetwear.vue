@@ -32,14 +32,6 @@
                 </div>
             </div>
 
-            <div class="container voirplus_box">
-                <div class="row">
-                    <div class="col"></div>
-                    <button class="btn_voirplus">Voir plus</button>
-                    <div class="col"></div>
-                </div>
-            </div>
-
         </div>
     </div>
 

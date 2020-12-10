@@ -13,8 +13,10 @@
                                 src="https://img.icons8.com/ios/26/000000/google-plus.png" /></a>
                     </div>
                     <span class="sous_titre">ou utiliser votre email pour vous inscrire</span>
-                    <input class="input_login" type="text" name="nom" id="nom" placeholder="Nom Prénom" v-model="nom" required>
-                    <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email" required>
+                    <input class="input_login" type="text" name="nom" id="nom" placeholder="Nom Prénom" v-model="nom"
+                        required>
+                    <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email"
+                        required>
                     <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe"
                         v-model="password" required>
                     <button class="btn_sign">S'inscrire</button>
@@ -22,7 +24,7 @@
             </div>
 
             <div class="form-container sign-in-container" @submit.prevent="dologin">
-                <form action="">
+                <form>
                     <h1 class="titre_sign">Se connecter</h1>
                     <div class="social-container">
                         <a href="#" class="social"><img class="connection_icon"
@@ -39,7 +41,7 @@
 
                     <button class="btn_sign">Se connecter</button>
                     <a class="a_rejoindre" href="/register">
-                        <p class="p_rejoindre">Vous n'avez pas encore de compte? Rejoignez-nous.</p>
+                        <p class="p_rejoindre">Vous n'avez pas encore de compte?<br>Rejoignez-nous.</p>
                     </a>
                 </form>
             </div>
@@ -162,6 +164,30 @@
 
     /* responsive */
     @media (min-width: 0px) {
+        .container_login {
+            background-color: #fff;
+            border-radius: 0 !important;
+            box-shadow: unset;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            max-width: 100%;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+        }
+
+        form {
+            background-color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 !important;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
 
         .sign-up-container,
         .overlay-container {
@@ -189,12 +215,35 @@
 
         .p_rejoindre {
             color: #333;
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 600;
         }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 960px) {
+
+        .container_login {
+            border-radius: 10px !important;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0, 0, 0, 0.22);
+            overflow: hidden;
+            width: 768px;
+            max-width: 100%;
+            height: 480px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        form {
+            background-color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 50px !important;
+            height: 100%;
+            text-align: center;
+        }
 
         .sign-up-container,
         .overlay-container {
@@ -270,7 +319,7 @@
         border-color: #FFFFFF;
     }
 
-    form {
+    /* form {
         background-color: #FFFFFF;
         display: flex;
         align-items: center;
@@ -279,7 +328,7 @@
         padding: 0 50px;
         height: 100%;
         text-align: center;
-    }
+    } */
 
     .input_login {
         background-color: #eee;
@@ -289,7 +338,7 @@
         width: 100%;
     }
 
-    .container_login {
+    /* .container_login {
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 40px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0, 0, 0, 0.22);
@@ -300,7 +349,7 @@
         position: relative;
         top: 50%;
         transform: translate(-50%, -50%);
-    }
+    } */
 
     .form-container {
         position: absolute;

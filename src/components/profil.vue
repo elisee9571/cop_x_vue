@@ -9,13 +9,13 @@
             <!-- image du profil -->
             <div class="row">
 
-                <div class="col-lg-4 image_profil">
+                <div class="col-lg-4 image_profil container_profil">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                         <!-- retour menu -->
-                        <a class="nav-link nav_titre_profil" @click="retour" aria-selected="false"><img
+                        <a class="nav-link nav_titre_profil" href="/" aria-selected="false"><img
                                 class="icon_titre_profil"
-                                src="https://img.icons8.com/material-rounded/40/000000/circled-chevron-left.png" /></a>
+                                src="https://img.icons8.com/material-rounded/40/000000/circled-chevron-left.png" />Menu</a>
 
                         <!-- image profil -->
                         <div class="avatar_box text-center">
@@ -68,7 +68,7 @@
                 </div>
 
                 <!-- contenu du profil -->
-                <div class="contenu_profil col-lg-8">
+                <div class="contenu_profil col-lg-8 container_profil">
                     <div class="tab-content" id="v-pills-tabContent">
 
                         <!-- mes information -->
@@ -79,7 +79,7 @@
                             <div class="renseignement_box">
 
                                 <!-- form -->
-                                <form action="" @submit.prevent="update">
+                                <form action="">
                                     <h1 class="titre_page_nav text-center">Mes informations</h1>
 
                                     <div class="row col-12">
@@ -200,18 +200,42 @@
 
                                     <!-- mot de passe -->
                                     <!-- <div class="form-group">
-                                    <label class="col-md-4 control-label" for="password"> Mot de passe:</label>
+                                        <label class="col-md-4 control-label" for="password"> Mot de passe:</label>
 
-                                    <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="password" name="password"
-                                            id="password" v-model="client.password" />
+                                        <div class="col-lg-6">
+                                            <input class="input_profil form-control" type="password" name="password"
+                                                id="password" v-model="client.password" />
+                                        </div>
+                                    </div> -->
+
+                                    <!-- btn profil a jour -->
+                                    <button @click="update" type="button" class="btn_jour" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                        Sauvegarder les
+                                            modifications
+                                    </button>
+                                    <!-- Modal profil a jour-->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Mise à jour du profil</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body text-left">
+                                                    Votre profil a été mis à jour.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Fermer</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div> -->
-
-                                    <div class="form-group">
-                                        <input type="submit" class="btn_jour" value="Sauvegarder les modifications" />
-                                    </div>
-
                                 </form>
 
                             </div>
@@ -553,9 +577,6 @@
 
         },
         methods: {
-            retour: function () {
-                this.$router.go(-1);
-            },
             uploadImage(e) {
                 const image = e.target.files[0];
                 const reader = new FileReader();
@@ -578,7 +599,6 @@
                         if (res.status === 200) {
                             localStorage.setItem("token", JSON.stringify(res.data.token));
                             this.message = "votre profil est à jour";
-                            alert(`votre profil est à jour`);
 
                         } else {
 
@@ -622,8 +642,12 @@
 <style>
     @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
 
+    .container_profil {
+        margin-top: 50px;
+    }
+
     .container_back {
-        background: #fff !important;
+        background: #fff;
     }
 
     /* css */
@@ -765,6 +789,7 @@
 
     .nav-pills .nav-link:hover {
         color: #444;
+        cursor: pointer;
     }
 
     /*  */

@@ -23,7 +23,8 @@
             <div class="col-lg-4 col-md-12 reseaux text-center">
                 <h6>nos réseaux sociaux</h6>
                 <a href="" target="_blank"><img src="https://img.icons8.com/android/45/000000/facebook.png" /></a>
-                <a href="https://www.instagram.com/_copx_/" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" /></a>
+                <a href="https://www.instagram.com/_copx_/" target="_blank"><img
+                        src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" /></a>
                 <a href="" target="_blank"><img src="https://img.icons8.com/android/50/000000/twitter.png" /></a>
             </div>
 
@@ -56,40 +57,42 @@
     @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
 
     /* css */
-    *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-div .row{
-  padding: 0 !important;
-  margin: 0 !important;
-  box-sizing: border-box;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-    .infooter { 
+    div .row {
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+
+    .infooter {
         width: 100%;
     }
 
     h6 {
         font-family: 'Bebas Neue', sans-serif;
         font-size: 30px !important;
-        color: #808080;
+        color: #cdcdcd;
     }
 
     p {
         font-family: 'Oswald', sans-serif;
         font-size: 20px;
-        color: #808080;
+        color: #cdcdcd;
     }
 
     .info_info a {
         font-size: 25px;
         font-family: 'Bebas Neue', sans-serif;
-        color: #808080;
+        color: #cdcdcd;
     }
+
     .info_info a:hover {
-        color: #808080 !important;
+        color: #cdcdcd !important;
     }
 
     .info_info,
@@ -99,7 +102,7 @@ div .row{
     }
 
     .reseaux a {
-        filter: invert(0.5);
+        filter: invert(0.8);
         margin: 5px;
     }
 
@@ -129,6 +132,7 @@ div .row{
         background-color: #6844ff !important;
         border: 2px solid #6844ff !important;
     }
+
     button:active {
         transform: scale(0.95);
     }

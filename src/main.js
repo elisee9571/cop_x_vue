@@ -32,5 +32,8 @@ Vue.config.productionTip = false
 
 new Vue({
     router,
+    // h un alias createElement
     render: h => h(App)
+        // “mount” signifie le moment où votre composant est inséré dans le DOM.
+        // Ce code crée une nouvelle instance de Vue et la monte sur l'élément HTML avec l'ID d'application. 
 }).$mount('#app')

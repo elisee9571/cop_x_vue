@@ -1,22 +1,15 @@
 <template>
-    <div class="container">
-        <div class="col-12">
-            <div class="row justify-content-center">
-                <div class="col-12 mpo-container_box">
-                    <form action="#" @submit.prevent="oublier">
-                        <h1 class="mpo_titre" for="mpou">Réinitialiser le mot de passe</h1>
+    <div class="container_mpo">
+        <form action="#" @submit.prevent="oublier">
+            <h1 class="mpo_titre" for="mpou">Réinitialiser le mot de passe</h1>
 
-                        <input class="email_mpo" type="email" name="mpou" placeholder="Email" v-model="email" id="mpou">
-                        <span><img class="icon_mpo"
-                                src="https://img.icons8.com/ios-glyphs/24/000000/box-important.png" />Nous vous
-                            enverrons un
-                            e-mail pour réinitialiser votre mot de passe.</span>
-                        <button class="envoyer_" type="submit"  >Envoyer</button>
-                        <span><a class="a_mpo" href="/login">retour</a></span>
-                    </form>
-                </div>
-            </div>
-        </div>
+            <input class="email_mpo" type="email" name="mpou" placeholder="Email" v-model="email" id="mpou">
+            <span><img class="icon_mpo" src="https://img.icons8.com/ios-glyphs/24/000000/box-important.png" />Nous vous
+                enverrons un
+                e-mail pour réinitialiser votre mot de passe.</span>
+            <button class="envoyer_" type="submit">Envoyer</button>
+            <span><a class="a_mpo" href="/login">retour</a></span>
+        </form>
     </div>
 </template>
 
@@ -35,7 +28,9 @@
                     })
                     .then(() => {
                         alert('un mail va vous être envoyé');
-                        this.$router.push({ name: 'login'})
+                        this.$router.push({
+                            name: 'login'
+                        })
                     })
                     .catch(() => {
                         alert("erreur: le mail n'est pas reconnu");
@@ -46,6 +41,34 @@
 </script>
 
 <style>
+    /* responsive */
+    @media (min-width: 0px) {
+        .container_mpo {
+            background-color: #fff;
+            border-radius: 0 !important;
+            width: 100%;
+            height: 100vh;
+            margin: 0 !important;
+            padding: 0 50px;
+            position: absolute;
+        }
+
+    }
+
+    @media (min-width: 960px) {
+
+        .container_mpo {
+            background-color: #fff;
+            border-radius: 10px !important;
+            width: 768px;
+            max-width: 100%;
+            height: 480px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
     .mpo_titre {
         color: #333;
         font-weight: bold;
@@ -74,12 +97,14 @@
     .envoyer_:focus {
         outline: none;
     }
-    .a_mpo{
+
+    .a_mpo {
         color: #333;
         outline: none;
         text-decoration: none;
     }
-    .a_mpo:hover{
+
+    .a_mpo:hover {
         color: #333;
         outline: none;
         text-decoration: none;
@@ -94,7 +119,7 @@
         width: 100%;
     }
 
-    .mpo-container_box {
+    /* .mpo-container_box {
         background-color: #fff;
         border-radius: 10px;
         padding: 0 50px;
@@ -102,7 +127,7 @@
         max-width: 90%;
         min-height: 500px;
         transform: translateY(30%);
-    }
+    } */
 
     .icon_mpo {
         filter: invert(0.5) !important;
@@ -112,12 +137,22 @@
         margin: 0 5px;
     }
 
-     @media (min-width: 992px) {
+    @media (min-width: 0px) {
 
         .email_mpo {
-        width: 70%;
+            width: 100%;
+        }
     }
-    }
+    @media (min-width: 576px) {
 
-    
+        .email_mpo {
+            width: 80%;
+        }
+    }
+    @media (min-width: 768px) {
+
+        .email_mpo {
+            width: 70%;
+        }
+    }
 </style>

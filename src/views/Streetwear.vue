@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="btn_arrow">
+      <i class="fas fa-chevron-up"></i>
+    </div>
     <mynav /> <!-- import mynav -->
 
     <!-- input search -->
@@ -33,6 +36,15 @@
     </div>
 
     <pagestreetwear :produits="produits" /> <!-- import components pagestreetwear -->
+
+    <div class="container voirplus_box">
+      <div class="row">
+        <div class="col"></div>
+        <button class="btn_voirplus" @click="voirplus">Voir plus</button>
+        <div class="col"></div>
+      </div>
+    </div>
+
     <myfooter /> <!-- import myfooter -->
   </div>
 
@@ -56,7 +68,7 @@
     },
     created() {
       this.axios
-        .get("http://localhost:3000/produit/categorie/streetwear")
+        .get("http://localhost:3000/produit/categorie/streetwear/9")
         .then((res) => {
           this.produits = res.data.produits;
         })
@@ -64,9 +76,18 @@
           alert(err);
         });
     },
-
+    mounted() {
+      /* arrow up */
+      const btn_arrow = document.querySelector('.btn_arrow');
+      btn_arrow.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        })
+      })
+    },
     methods: {
-
       //input rechercher 
       search: function () {
         this.axios
@@ -106,6 +127,16 @@
       prix1: function () {
         this.axios
           .get("http://localhost:3000/produit/prix1/streetwear")
+          .then((res) => {
+            this.produits = res.data.produits;
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      },
+      voirplus: function () {
+        this.axios
+          .get("http://localhost:3000/produit/categorie/streetwear")
           .then((res) => {
             this.produits = res.data.produits;
           })

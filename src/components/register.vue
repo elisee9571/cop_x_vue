@@ -15,12 +15,12 @@
                     <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email" required>
                     <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe" v-model="password" required>
                     <button class="btn_sign">S'inscrire</button>
-                    <a class="a_rejoindre" href="/login"><p class="p_rejoindre">Vous avez déja un compte? Cliquez-ici.</p></a>
+                    <a class="a_rejoindre" href="/login"><p class="p_rejoindre">Vous avez déja un compte?<br>Cliquez-ici.</p></a>
                 </form>
             </div>
 
             <div class="form-container sign-up-container" @submit.prevent="dologin">
-                <form action="">
+                <form>
                     <h1 class="titre_sign">Se connecter</h1>
                     <div class="social-container">
                         <a href="#" class="social"><img class="connection_icon" src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png"/></a>
@@ -200,7 +200,7 @@ export default {
         border-color: #FFFFFF;
     }
 
-    form {
+    /* form {
         background-color: #FFFFFF;
         display: flex;
         align-items: center;
@@ -209,7 +209,7 @@ export default {
         padding: 0 50px;
         height: 100%;
         text-align: center;
-    }
+    } */
 
     .input_login {
         background-color: #eee;
@@ -219,7 +219,7 @@ export default {
         width: 100%;
     }
 
-    .container_login {
+    /* .container_login {
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 40px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0, 0, 0, 0.22);
@@ -229,7 +229,7 @@ export default {
         max-width: 100%;
         min-height: 480px;
         transform: translate(0%, 45%);
-    }
+    } */
 
     .form-container {
         position: absolute;

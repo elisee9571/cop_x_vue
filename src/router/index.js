@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+/* import Home from '../views/Home.vue' */
 
 /* loading */
 /* import loading from '../components/loading.vue'; */
@@ -8,45 +8,40 @@ import Home from '../views/Home.vue'
 
 /* components liée à la page menu */
 /* menu sneakers */
-import nike1 from '../components/nike1.vue'; /* import du components nike1 */
-import yeezy1 from '../components/yeezy1.vue'; /* import du components yeezy1 */
-import adidas1 from '../components/adidas1.vue'; /* import du components adidas1 */
-import jordan1 from '../components/jordan1.vue'; /* import du components jordan1 */
-import off1 from '../components/off1.vue'; /* import du components off1 */
+/* import nike1 from '../components/nike1.vue'; 
+import yeezy1 from '../components/yeezy1.vue'; 
+import adidas1 from '../components/adidas1.vue'; 
+import jordan1 from '../components/jordan1.vue'; 
 
-/* menu streetwear */
-import nike2 from '../components/nike2.vue'; /* import du components nike2 */
-import adidas2 from '../components/adidas2.vue'; /* import du components adidas2 */
-import jordan2 from '../components/jordan2.vue'; /* import du components jordan2 */
-import off2 from '../components/off2.vue'; /* import du components off2 */
-import supreme2 from '../components/supreme2.vue'; /* import du components supreme2 */
-import palace2 from '../components/palace2.vue'; /* import du components palace2 */
-import travis2 from '../components/travis2.vue'; /* import du components travis2 */
 
-import Faq from '../views/Faq.vue'; /* import du views Faq */
-import Contact from '../views/Contact.vue'; /* import du views Contact */
-/* amdin user */
-import adminhome from '../components/admin/home.vue'; /* import du components adminhome */
-import login2 from "../components/login2.vue"; /* import du components adminlogin */
+import nike2 from '../components/nike2.vue'; 
+import jordan2 from '../components/jordan2.vue'; 
+import supreme2 from '../components/supreme2.vue'; 
 
-/* compenents liée à l'utilisateur */
-import login from "../components/login.vue"; /* import du components login */
-import register from "../components/register.vue"; /* import du components register */
-import profil from '../components/profil.vue'; /* import du components profil */
-import mpo from '../components/mpo.vue'; /* import du components mpo */
-import validemail from '../components/validemail.vue'; /* import du components validemail */
-import updatepassword from '../components/updatepassword.vue'; /* import du components updatepassword */
+import Faq from '../views/Faq.vue';
+import Contact from '../views/Contact.vue'; 
 
-/* components liée aux pages produits */
-import Sneakers from "../views/Sneakers.vue"; /* import du views Sneakers  */
-import Streetwear from "../views/Streetwear.vue"; /* import du views Streetwear  */
-import Lifestyle from "../views/Lifestyle.vue"; /* import du views Lifestyle  */
+import adminhome from '../components/admin/home.vue'; 
+import login2 from "../components/login2.vue"; 
+ */
 
-/* components liée aux produits */
-import panier from '../views/panier.vue'; /* import du views panier */
-import paiement from '../components/paiement.vue'; /* import du components paiement */
-import paypal from '../components/paypal.vue'; /* import du components paypal */
+import login from "../components/login.vue";
+import register from "../components/register.vue";
+/* import profil from '../components/profil.vue'; 
+import mpo from '../components/mpo.vue'; 
+import validemail from '../components/validemail.vue'; 
+import updatepassword from '../components/updatepassword.vue'; 
 
+
+import Sneakers from "../views/Sneakers.vue"; 
+import Streetwear from "../views/Streetwear.vue"; 
+import Lifestyle from "../views/Lifestyle.vue"; 
+
+
+import panier from '../views/panier.vue'; 
+import paiement from '../components/paiement.vue'; 
+import paypal from '../components/paypal.vue'; 
+ */
 
 
 
@@ -54,35 +49,36 @@ import paypal from '../components/paypal.vue'; /* import du components paypal */
 
 Vue.use(VueRouter)
 
-const routes = [{
-        path: '/',
-        name: 'Home',
-        component: Home,
-    },
-    {
-        path: "/sneakers",
-        name: "Sneakers",
-        component: Sneakers,
-        /* on déclare le views Sneakers */
-    },
-    {
-        path: "/streetwear",
-        name: "Streetwear",
-        component: Streetwear,
-        /* on déclare le views streetwear */
-    },
-    {
-        path: "/lifestyle",
-        name: "Lifestyle",
-        component: Lifestyle,
-        /* on déclare le views lifestyle */
-    },
-    {
-        path: "/pageproduit/:id",
-        name: "pageproduit",
-        component: () =>
-            import ("../components/pageproduit.vue"),
-    },
+const routes = [
+    /* {
+            path: '/',
+            name: 'Home',
+            component: Home,
+        },
+        {
+            path: "/sneakers",
+            name: "Sneakers",
+            component: Sneakers,
+           
+        },
+        {
+            path: "/streetwear",
+            name: "Streetwear",
+            component: Streetwear,
+            
+        },
+        {
+            path: "/lifestyle",
+            name: "Lifestyle",
+            component: Lifestyle,
+            
+        },
+        {
+            path: "/pageproduit/:id",
+            name: "pageproduit",
+            component: () =>
+                import ("../components/pageproduit.vue"),
+        }, */
     /* client */
     {
         path: '/register',
@@ -94,7 +90,7 @@ const routes = [{
         name: 'login',
         component: login,
     },
-    {
+    /* {
         path: '/mpo',
         name: 'mpo',
         component: mpo,
@@ -139,7 +135,7 @@ const routes = [{
         name: "paypal",
         component: paypal,
     },
-    /* admin user */
+    
     {
         path: "/admin/login",
         name: "adminlogin",
@@ -151,7 +147,7 @@ const routes = [{
         component: adminhome
     },
 
-    /* menu sneakers */
+    
     {
         path: '/nike1',
         name: 'nike1',
@@ -172,42 +168,21 @@ const routes = [{
         name: 'jordan1',
         component: jordan1,
     },
-    {
-        path: '/off1',
-        name: 'off1',
-        component: off1,
-    },
 
-    /* menu streetwear */
+    
     {
         path: '/nike2',
         name: 'nike2',
         component: nike2,
     }, {
-        path: '/adidas2',
-        name: 'adidas2',
-        component: adidas2,
-    }, {
         path: '/jordan2',
         name: 'jordan2',
         component: jordan2,
     }, {
-        path: '/off2',
-        name: 'off2',
-        component: off2,
-    }, {
         path: '/supreme2',
         name: 'supreme2',
         component: supreme2,
-    }, {
-        path: '/palace2',
-        name: 'palace2',
-        component: palace2,
-    }, {
-        path: '/travis2',
-        name: 'travis2',
-        component: travis2,
-    },
+    }, */
 ]
 
 const router = new VueRouter({

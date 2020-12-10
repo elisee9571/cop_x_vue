@@ -32,13 +32,7 @@
                 </div>
             </div>
 
-            <div class="container voirplus_box">
-                <div class="row">
-                    <div class="col"></div>
-                    <button class="btn_voirplus">Voir plus</button>
-                    <div class="col"></div>
-                </div>
-            </div>
+            
 
         </div>
 
@@ -131,7 +125,7 @@
     }
 
     .container1 .searchbox .searchbox__input:focus-within {
-        background-color: #262626;
+        background-color: #0f111a;
         padding-right: 50px;
         box-shadow: inset 0 0 10px rgba(104, 68, 255, 255);
     }
@@ -164,10 +158,6 @@
         margin-left: 5%;
     }
 
-    .card {
-        margin: 20px;
-    }
-
     .container2 {
         width: 100%;
         margin: 0 auto;
@@ -177,10 +167,11 @@
         display: grid;
         width: 100%;
         height: 450px;
-        background: #232323;
+        background: #292D3E;
         border-radius: 20px;
+        margin: 20px;
         overflow: hidden;
-        box-shadow: 0px 0px 40px black;
+        box-shadow: 0px 0px 30px black;
     }
 
     .container2 .card:before {
@@ -215,7 +206,7 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 10000;
+        z-index: 9900;
         width: 100%;
         transition: 0.5s;
     }
@@ -260,6 +251,7 @@
         font-size: 30px;
         font-family: 'Bebas Neue', sans-serif;
         width: 100%;
+        cursor: default;
     }
 
     /* size produit */
@@ -271,6 +263,7 @@
         transition: 0.5s;
         opacity: 0;
         visibility: hidden;
+        cursor: default;
     }
 
     .container2 .card:hover .contentBx .size {
@@ -382,7 +375,7 @@
         /* col- */
         .container2 .card {
             height: 350px;
-            width: 60%;
+            width: 50%;
         }
     }
 
@@ -390,7 +383,7 @@
 
         /* col-sm */
         .container2 .card {
-            height: 360px;
+            height: 350px;
             width: 100%;
         }
     }
@@ -404,7 +397,7 @@
         }
     }
 
-    @media (min-width: 960px) {
+    @media (min-width: 992px) {
 
         /* col-lg */
         .container2 .card {
@@ -417,7 +410,7 @@
 
         /* col-xl */
         .container2 .card {
-            height: 420px;
+            height: 400px;
             width: 100%;
         }
     }

@@ -1,40 +1,47 @@
 <template>
     <div class="container-fluid">
+        <div class="btn_arrow">
+      <i class="fas fa-arrow-up icone"></i>
+    </div>
+        <div class="accordion" id="accordionExample">
+            <h1 class="titre_faq">authenticité</h1>
 
-        <div class="accordion_box">
-            <div class="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
 
-                <h1 class="titre_faq">authenticité</h1>
+                    <button class="btn btn-block text-left" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="false" aria-controls="collapseOne">
+                        <a class="accordion-link">Les articles sont-ils authentiques et neufs ?</a>
+                    </button>
 
-                <div class="accordion-item" id="neuf">
-                    <a class="accordion-link" href="#neuf">
-                        Les articles sont-ils authentiques et neufs ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i> 
-                    </a>
-                    <div class="answer">
-                        <p>Oui, tous les articles vendus sur Cop X sont neufs et authentiques. Avant d'arriver entre
-                            vos mains,
-                            ils sont contrôlés pour assurer leur authenticité. Tous les produits
-                            sont neufs,
-                            et proviennent directement de notre réseau de revendeurs particuliers et professionnels
-                            sélectionnés individuellement pour leur expérience.
-                            Ils vous seront livrés dans leur boite d'origine avec l'ensemble des accessoires.
-                            <br>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>Oui, tous les articles vendus sur Cop X sont neufs et authentiques. Avant d'arriver entre vos
+                            mains, ils sont contrôlés pour assurer leur authenticité. Tous les produits sont neufs, et
+                            proviennent directement de notre réseau de revendeurs particuliers et professionnels
+                            sélectionnés individuellement pour leur expérience. Ils vous seront livrés dans leur boite
+                            d'origine avec l'ensemble des accessoires.
                             Nous condamnons fermement la vente de contrefaçons qui tendent à ressembler de plus en plus
                             aux originaux.</p>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
 
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <a class="accordion-link">Comment se fait-il que vous ayez des produits qui sont en rupture de
+                            stock partout ?</a>
+                    </button>
 
-                <div class="accordion-item" id="rupture">
-                    <a class="accordion-link" href="#rupture">
-                        Comment se fait-il que vous ayez des produits qui sont en rupture de stock partout ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
-                    <div class="answer">
-                        <p>Bonne question ! On vous explique tout : ces produits sortent en quantités extrêmement
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>Bonne question ! Ces produits sortent en quantités extrêmement
                             limitées
                             et sont en rupture de stock sur tous les sites internet et dans toutes les boutiques en
                             quelques heures,
@@ -47,17 +54,18 @@
                             limités les plus récents.</p>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
 
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <a class="accordion-link">Comment authentifiez-vous les produits ?</a>
+                    </button>
 
-                <div class="accordion-item" id="produit">
-
-                    <a class="accordion-link" href="#produit">
-                        Comment authentifiez-vous les produits ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
-
-                    <div class="answer">
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Tous les produits sont examinés, de la boîte
                             aux semelles pour s'assurer de leur authenticité. Ils sont ensuite comparés à des modèles
                             authentiques que nous gardons en stock spécialement pour le processus d'authentification.
@@ -66,72 +74,82 @@
                             authentiques.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- taille produit -->
-                <h1 class="titre_faq">Disponibilité</h1>
-                <div class="accordion-item" id="taille">
+            <!-- taille produit -->
+            <h1 class="titre_faq">Disponibilité</h1>
+            <div class="card">
+                <div class="card-header" id="heading4">
 
-                    <a class="accordion-link" href="#taille">
-                        Quelles sont les tailles maximales et minimales ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        <a class="accordion-link">Quelles sont les tailles maximales et minimales ?</a>
+                    </button>
 
-                    <div class="answer">
+                </div>
+                <div id="collapse4" class="collapse" aria-labelledby="heading4e" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Pour les produits que nous avons en stock, les tailles minimales et maximales dépendent des
                             modèles.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- prix des produits -->
+            <!-- prix des produits -->
                 <h1 class="titre_faq">Prix et réductions</h1>
-                <div class="accordion-item" id="prix_produit">
+            <div class="card">
+                <div class="card-header" id="heading5">
 
-                    <a class="accordion-link" href="#prix_produit">
-                        Comment déterminez-vous le prix des produits ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        <a class="accordion-link">Comment déterminez-vous le prix des produits ?</a>
+                    </button>
 
-                    <div class="answer">
+                </div>
+                <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>On vous explique tout : ces produits sortent en quantités extrêmement limitées
                             et sont en rupture de stock sur tous les sites internet et dans toutes les boutiques
                             ‘traditionnelles’.
                             <br>
                             Sur Cop X, notre mission est de vous permettre de retrouver et d’obtenir ces articles,
                             bien sûr 100% neufs et authentiques, même après leur sortie.
-                            Les prix sont donc quotidiennement déterminés en fonction des cours du marché de revente.
-                        </p>
+                            Les prix sont donc quotidiennement déterminés en fonction des cours du marché de revente.</p>
                     </div>
                 </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header" id="heading6">
 
-                <div class="accordion-item" id="reduc_produit">
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                        <a class="accordion-link">Y'a-t'il une réduction sur notre première commande ?</a>
+                    </button>
 
-                    <a class="accordion-link" href="#reduc_produit">
-                        Y'a-t'il une réduction sur notre première commande ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
-
-                    <div class="answer">
+                </div>
+                <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Bien sûr, vous pouvez bénéficier de 15€ de réduction immédiate sur votre première commande en
                             vous inscrivant à notre newsletter en bas de la page d’accueil ou sur ce lien. Vous recevrez
-                            par e-mail le code de réduction.
-                        </p>
+                            par e-mail le code de réduction.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- livraison -->
+            <!-- livraison -->
                 <h1 class="titre_faq">Envoi et livraison</h1>
-                <div class="accordion-item" id="livraison">
+            <div class="card">
+                <div class="card-header" id="heading7">
 
-                    <a class="accordion-link" href="#livraison">
-                        Comment se passe la livraison ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                        <a class="accordion-link">Comment se passe la livraison ?</a>
+                    </button>
 
-                    <div class="answer">
+                </div>
+                <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>La livraison s'effectue en France comme pour le reste de l'Europe via DHL à votre domicile,
                             remis contre signature et assuré. Une fois votre colis récupéré par le transporteur,
                             un mail comportant le numéro de tracking vous sera envoyé, afin que vous puissiez suivre
@@ -141,16 +159,19 @@
                             jours ouvrés pour l'Europe.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="accordion-item" id="prix_liv">
+            <div class="card">
+                <div class="card-header" id="heading8">
 
-                    <a class="accordion-link" href="#prix_liv">
-                        Combien coûte la livraison ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                        <a class="accordion-link">Combien coûte la livraison ?</a>
+                    </button>
 
-                    <div class="answer">
+                </div>
+                <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>En France, la livraison standard est à 5€ et s’effectue en général en 7 à 10 jours ouvrés,
                             la livraison express est à 15€ et s'éffectue en général en 24h.
                             <br>
@@ -160,16 +181,19 @@
                             que vous pourrez retrouver dans votre email de confirmation de commande.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="accordion-item" id="recu">
+            <div class="card">
+                <div class="card-header" id="heading9">
 
-                    <a class="accordion-link" href="#recu">
-                        Je n'est toujours pas reçu mon numéro de suivi ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                        <a class="accordion-link">Je n'est toujours pas reçu mon numéro de suivi ?</a>
+                    </button>
 
-                    <div class="answer">
+                </div>
+                <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>En France, la livraison standard est à 5€ et s’effectue en général en 7 à 10 jours ouvrés,
                             la livraison express est à 15€ et s'éffectue en général en 24h.
                             <br>
@@ -179,18 +203,21 @@
                             que vous pourrez retrouver dans votre email de confirmation de commande.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- politique de retours -->
+            <!-- politique de retours -->
                 <h1 class="titre_faq">échanges et retours</h1>
-                <div class="accordion-item" id="modifier">
+            <div class="card">
+                <div class="card-header" id="heading10">
 
-                    <a class="accordion-link" href="#modifier">
-                        Puis-je modifier ou annuler ma commande ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                        <a class="accordion-link"> Puis-je modifier ou annuler ma commande ?</a>
+                    </button>
 
-                    <div class="answer">
+                </div>
+                <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Un problème dans votre commande avant qu’elle soit expédiée ?
                             <br>
                             Veuillez-vous munir de votre numéro de commande précédés d’un hashtag, que vous pourrez
@@ -198,32 +225,36 @@
                             puis contactez-nous par mail à l'adresse ...@...com.</p>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="heading11">
 
-                <div class="accordion-item" id="echange">
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                        <a class="accordion-link">Puis-je échanger mes produits ?</a>
+                    </button>
 
-                    <a class="accordion-link" href="#echange">
-                        Puis-je échanger mes produits ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
-
-                    <div class="answer">
+                </div>
+                <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Un problème de taille ? Un changement de modèle souhaité ?
                             <br>
                             Il est possible de procéder à un échange quelle qu’en soit la raison, en respectant les
                             conditions de retours <a href="#">disponibles juste ici.</a></p>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="heading12">
 
-                <div class="accordion-item" id="rembourser">
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                        <a class="accordion-link">Puis-je me faire rembourser ?</a>
+                    </button>
 
-                    <a class="accordion-link" href="#rembourser">
-                        Puis-je me faire rembourser ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
-
-                    <div class="answer">
+                </div>
+                <div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Un changement d'avis ?
                             <br>
                             Il est possible de procéder à un remboursement de votre commande quelle qu’en soit la
@@ -231,70 +262,76 @@
                             en respectant les conditions de retours<a href="#"> disponibles juste ici.</a></p>
                     </div>
                 </div>
+            </div>
 
-
-                <!-- information de paiement -->
+            <!-- information de paiement -->
                 <h1 class="titre_faq">Modes de paiement</h1>
-                <div class="accordion-item" id="paiement">
+            <div class="card">
+                <div class="card-header" id="heading13">
 
-                    <a class="accordion-link" href="#paiement">
-                        Quelles sont les modes de paiement ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                        <a class="accordion-link">Quelles sont les modes de paiement ?</a>
+                    </button>
 
-                    <div class="answer">
+                </div>
+                <div id="collapse13" class="collapse" aria-labelledby="heading13" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Les méthodes de paiement acceptées sont les cartes de crédit (Visa, MasterCard – ou cartes de
                             débit pour les paiements étrangers)
                             ou le paiement via PayPal.</p>
                     </div>
                 </div>
+            </div>
 
-
-                <!-- à propos de nous -->
+            <!-- à propos de nous -->
                 <h1 class="titre_faq">à propos de nous</h1>
-                <div class="accordion-item" id="contact">
+            <div class="card">
+                <div class="card-header" id="heading14">
 
-                    <a class="accordion-link" href="#contact">
-                        Comment nous contacter ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
+                        <a class="accordion-link">Comment nous contacter ?</a>
+                    </button>
 
-                    <div class="answer">
+                </div>
+                <div id="collapse14" class="collapse" aria-labelledby="heading14" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Rien de plus facile : il suffit de nous écrire sur l'adresse mail ...@...com.</p>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="heading15">
 
-                <div class="accordion-item" id="boutique">
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
+                        <a class="accordion-link">Avez-vous une boutique ?</a>
+                    </button>
 
-                    <a class="accordion-link" href="#boutique">
-                        Avez-vous une boutique ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
-
-                    <div class="answer">
+                </div>
+                <div id="collapse15" class="collapse" aria-labelledby="heading15" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Pas encore !</p>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="heading16">
 
-                <div class="accordion-item" id="ou êtes-vous">
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
+                        <a class="accordion-link">Ou êtes-vous ?</a>
+                    </button>
 
-                    <a class="accordion-link" href="#ou êtes-vous">
-                        Ou êtes-vous ?
-                        <i class="icon-faq fas fa-plus"></i>
-                        <i class="icon-faq fas fa-minus"></i>
-                    </a>
-
-                    <div class="answer">
+                </div>
+                <div id="collapse16" class="collapse" aria-labelledby="heading16" data-parent="#accordionExample">
+                    <div class="card-body">
                         <p>Nos locaux sont situés à Paris.</p>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 
 </template>
@@ -303,80 +340,69 @@
     export default {
         name: "information",
 
-        /* mounted(){
-            const accordion = document.getElementsByClassName('accordion-item1');
-
-            for (i = 0; i<accordion.length; i++ ){
-                accordion[i].addEventListener('click', function(){
-                    this.classList.toggle('active')
-                })
-            }
-        } */
+        mounted() {
+      /* arrow up */
+      const btn_arrow = document.querySelector('.btn_arrow');
+      btn_arrow.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        })
+      })
+    },
 
     }
 </script>
 
 <style>
-/* .accordion{
-    max-width: 800px;
-}
-.accordion .accordion-item1{
-    position: relative;
-    margin: 10px 20px;
-}
-.accordion .accordion-link1{
-    position: relative;
-    padding: 10px;
-    background: #262626;
-    color: #fff;
-    cursor: pointer;
-}
-.accordion .accordion-link1::before{
-    content: '+';
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    font-size: 1.5em;
-}
-.accordion .accordion-item1 .answer1{
-    position: relative;
-    padding: 10px;
-    background: #fff;
-    height: 0;
-    overflow: hidden;
-    transition: 0.5s;
-    overflow-y: auto;
-} */
-
-
-
-
-
-    /* css */
-    /* icon */
-    .icon-faq {
-        filter: unset !important;
-    }
-    .titre_faq{
-        margin-top: 75px;
-    }
-
-    /* box */
-    .accordion_box {
+    .accordion {
         width: 100%;
         max-width: 60rem;
-        margin: 0 auto;
+        margin: 100px auto;
         padding: 0 1.5rem;
-    } 
+    }
 
-    /* div question */
-    .accordion-item {
-        background: #262626;
-        border-radius: 8px;
+    .accordion .card {
+        background: #292d3e ;
+        border-radius: 8px !important;
         margin-bottom: 1rem;
         padding: 1rem;
-    } 
+    }
+
+    .accordion .card .card-header {
+        font-size: 20px;
+        color: #fff;
+        text-decoration: none !important;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+    }
+
+    .accordion .card .card-body {
+        overflow: hidden;
+        position: relative;
+        background: #292d3e;
+    }
+
+    .accordion .card .card-body::before {
+        content: '';
+        position: absolute;
+        width: .6rem;
+        height: 100%;
+        background: #6844ff;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .accordion .card .card-body p {
+        font-size: 18px;
+        padding-left: 5px;
+        color: #cdcdcd;
+    }
 
     /* titre question */
     .accordion-link {
@@ -388,57 +414,14 @@
         align-items: center;
         justify-content: space-between;
         padding: 5px 10px;
+        font-family: 'Oswald', sans-serif;
     }
-
     .accordion-link:hover {
-        color: #fff;
-
+        color: #6844ff;
     }
 
-    .accordion-link i {
-        padding: 10px;
-        font-size: 15px !important;
+    .titre_faq{
+        margin-top: 50px;
     }
-
-    .accordion-link .fa-minus {
-        display: none;
-    } 
-
-    /* rep question */
-    .answer {
-        max-height: 0;
-        overflow: hidden;
-        position: relative;
-        background: #202020;
-        transition: max-height 650ms;
-
-    }
-
-    .answer::before {
-        content: '';
-        position: absolute;
-        width: .6rem;
-        height: 100%;
-        background: #6844ff;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-    }
-
-    .answer p {
-        font-size: 18px;
-        padding: 20px;
-    }
-
-    .accordion-item:target .answer {
-        max-height: 100%;
-    }
-
-    .accordion-item:target .accordion-link .fa-plus {
-        display: none;
-    }
-
-    .accordion-item:target .accordion-link .fa-minus {
-        display: block;
-    } 
+    
 </style>

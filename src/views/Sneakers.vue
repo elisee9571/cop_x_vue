@@ -1,11 +1,14 @@
 <template>
   <div>
+    <div class="btn_arrow">
+      <i class="fas fa-chevron-up"></i>
+    </div>
     <mynav /> <!-- import mynav -->
 
     <!-- input search -->
     <div class="container container1">
       <div class="row">
-        <div class="searchbox" @search.prevent="search"> 
+        <div class="searchbox" @search.prevent="search">
           <input type="search" v-model="nom" class="searchbox__input" placeholder="Recherche...">
           <img class="searchbox__icon" src="https://img.icons8.com/ios-filled/50/000000/search.png" />
         </div>
@@ -33,6 +36,16 @@
     </div>
 
     <pagesneakers :produits="produits" /> <!-- import components pagesneakers -->
+
+    <div class="container voirplus_box">
+      <div class="row">
+        <div class="col"></div>
+        <button class="btn_voirplus" @click="voirplus">Voir plus</button>
+        <div class="col"></div>
+      </div>
+    </div>
+
+
     <myfooter /> <!-- import myfooter -->
   </div>
 
@@ -56,7 +69,7 @@
     },
     created() {
       this.axios
-        .get("http://localhost:3000/produit/categorie/sneakers")
+        .get("http://localhost:3000/produit/categorie/sneakers/9")
         .then((res) => {
           this.produits = res.data.produits;
         })
@@ -64,12 +77,22 @@
           alert(err);
         });
     },
-
+    mounted() {
+      /* arrow up */
+      const btn_arrow = document.querySelector('.btn_arrow');
+      btn_arrow.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        })
+      })
+    },
     methods: {
       //input rechercher 
       search: function () {
         this.axios
-          .get("http://localhost:3000/produit/findBy/"+this.nom)
+          .get("http://localhost:3000/produit/findBy/" + this.nom)
           .then((res) => {
             this.produits = res.data.produits;
           })
@@ -105,6 +128,16 @@
       prix1: function () {
         this.axios
           .get("http://localhost:3000/produit/prix1/sneakers")
+          .then((res) => {
+            this.produits = res.data.produits;
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      },
+      voirplus: function (){
+        this.axios
+          .get("http://localhost:3000/produit/categorie/sneakers")
           .then((res) => {
             this.produits = res.data.produits;
           })

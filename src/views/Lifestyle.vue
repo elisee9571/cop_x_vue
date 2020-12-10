@@ -33,6 +33,15 @@
     </div>
 
     <pagelifestyle :produits="produits" /> <!-- import components pagelifestyle -->
+
+    <div class="container voirplus_box">
+      <div class="row">
+        <div class="col"></div>
+        <button class="btn_voirplus">Voir plus</button>
+        <div class="col"></div>
+      </div>
+    </div>
+    
     <myfooter /> <!-- import myfooter -->
   </div>
 
@@ -105,7 +114,17 @@
       // filtrer prix decroissant
       prix1: function () {
         this.axios
-          .get("http://localhost:3000/produit/prix1/lifestyle")
+          .get("http://localhost:3000/produit/prix1/lifestyle/9")
+          .then((res) => {
+            this.produits = res.data.produits;
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      },
+      voirplus: function () {
+        this.axios
+          .get("http://localhost:3000/produit/categorie/streetwear")
           .then((res) => {
             this.produits = res.data.produits;
           })

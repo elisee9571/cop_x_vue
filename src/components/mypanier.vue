@@ -1,7 +1,6 @@
 <template>
   <div>
     <mynav /> <!-- import mynav -->
-
     <div class="container-fluid">
       <div class="columun">
         <h1 class="titre_panier">Panier</h1>
@@ -17,7 +16,6 @@
                   <td class="img_Bxpanier">
                     <img class="img_panier" :src="require(`@/assets/${item.image}.png`)">
                   </td>
-
                   <td>{{item.nom}}
                     <!-- <br>{{item.produitId}} -->
                     <br>Taille : {{item.taille}}
@@ -29,15 +27,13 @@
               </tbody>
             </table>
           </div>
-
           <div class="col-lg-4 col-12 table_achat">
             <table class="col-lg-8 col-12">
-              <div class="form-group partie_achat ">
-
+              <div class="partie_achat">
                 <button class="btn_voirplus" @click="valide(index)">
                   Acheter maintenant</button>
                 <br><br>
-                <a class="continuer_achat "  @click="retour">
+                <a class="continuer_achat" @click="retour">
                   <p>continuer mes achats</p>
                 </a>
                 <div class="row">
@@ -174,16 +170,14 @@
     font-size: 30px;
     letter-spacing: 1px;
   }
-
   .table_produit,
   .table_achat {
-    background: #262626;
+    background: #292D3E;
     margin: 0 !important;
 
   }
-
   tr {
-    border-top: 3px solid #262626 !important;
+    border-top: 3px solid transparent !important;
   }
 
   .text_info {
@@ -201,8 +195,8 @@
   }
 
   .icontext_info {
-    filter: invert(0.4) !important;
-    vertical-align: auto;
+    filter: invert(0.8) !important;
+    vertical-align: sub;
   }
 
   .minus {
@@ -219,12 +213,11 @@
     width: 30%;
   }
 
-
   /* panier vide */
   .panier_box {
     margin-top: 50px;
-    border-top: 2px solid #808080;
-    border-bottom: 3px solid #808080;
+    border-top: 2px solid #cdcdcd;
+    border-bottom: 3px solid #cdcdcd;
     width: 100%;
   }
 
@@ -232,20 +225,16 @@
   .titre_panier {
     margin-top: 50px;
   }
-
-
   /* lien continuez achat */
   .continuer_achat p {
-    border-top: 1px solid #808080 !important;
-    border-bottom: 1px solid #808080 !important;
+    border-top: 1px solid #cdcdcd !important;
+    border-bottom: 1px solid #cdcdcd !important;
     font-size: 20px;
     line-height: 50px;
     text-align: center;
-
   }
-
   .continuer_achat:hover p {
-    color: #505050;
+    color: #808080;
   }
 
   .continuer_achat:hover {
@@ -255,13 +244,15 @@
 
   @media (min-width: 0px) {
     .table_achat {
+      padding-top: 75px;
+      height: 280px;
       background: none;
       width: 100%;
       text-align: center;
       align-items: center;
       border: none;
     }
-
+    
     tr td,
     td {
       color: #fff !important;
@@ -276,16 +267,23 @@
       cursor: pointer;
       width: 25px;
     }
-
-
-
   }
 
   @media (min-width: 992px) {
     .table_achat {
-      background: #262626;
-      border-left: 2px solid #808080;
-      padding-left: 20px;
+      background: #292D3E;
+      padding-left: 25px;
+      height: unset;
+    }
+    .table_achat::before {
+      content: '';
+      position: absolute;
+        width: 2px;
+        height: 90%;
+        background: #cdcdcd;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
     }
 
     tr td,
