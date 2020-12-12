@@ -8,18 +8,24 @@
                 <div v-for="abonnement in abonnements" :key="abonnement.id" class="carde">
                     <div class="face front">
                         <h3 class="pricing-card-header">{{ abonnement.nom }}</h3>
+                        <hr><hr>
+                        <h1>Pour seulement</h1>
                         <div class="price">{{ abonnement.prix }}<sup>€</sup><span>/mois</span></div>
-                        <h1 class="tirage">{{ abonnement.description }}</h1>
+                        <hr>
+                        <h1 class="tirage">Bénéficiez d'offres spéciales en tant que Membre.</h1>
                     </div>
                    <div class="face back">
+                       
+                       <h1 class="tirage">{{ abonnement.description }}</h1>
                         <ul> 
                             <li>{{ abonnement.avantage1 }}</li>
                             <li>{{ abonnement.avantage2 }}</li>
                             <li>{{ abonnement.avantage3 }}</li>
                             <li>{{ abonnement.avantage4 }}</li>
                             <li>{{ abonnement.avantage5 }}</li>
+                            <li>{{ abonnement.avantage6 }}</li>
                         </ul>
-                        <a href="/profil" class="order-btn">s'abonner</a>
+                        <a href="/Membre" class="order-btn">Découvrir</a>
                     </div>
                 </div>
             </section>
@@ -93,6 +99,12 @@
         height: 500px;
     }
     }
+    @media (min-width: 768px){
+        .carde{
+        width: 500px;
+        height: 550px;
+    }
+    }
     .carde .face {
         position: absolute;
         top: 0;
@@ -112,6 +124,7 @@
         transform: rotateY(180deg);
     }
     .carde .face.back{
+        padding: 25px 25px;
         transform: rotateY(180deg);
     }
     .carde:hover .face.back{

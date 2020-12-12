@@ -5,91 +5,71 @@
             <div class="contactinfo_box col-lg-4 col-md-12 order-lg-1 order-2">
                 <!-- info contact -->
                 <div class="contactinfo">
+                    <!-- retour menu -->
+                    <a class="a_retour" href="/" aria-selected="false">
+                        <img class="i_retour"
+                            src="https://img.icons8.com/material-rounded/40/000000/circled-chevron-left.png" />Menu</a>
                     <div class="row">
                         <div class="col text-lg-left text-center">
-                            <h2 class="titre_contact"><a href="/">Contactez-nous</a></h2>
-
-                            <div class="row justify-content-center">
-                                <div class="info">
-
-                                    <img class="icon_contact1"
-                                        src="https://img.icons8.com/ios-filled/50/000000/email-open.png" />
-                                    <span class="p_email">eltestnode@gmail.com</span>
-                                </div>
-
-                            </div>
+                            <h2 class="titre_contact">Contactez-nous</h2>
+                            <p style="color:#fff;">Nous sommes disponibles (du lundi au vendredi - de 10h à 19h)</p>
                         </div>
                     </div>
-
+                    <!-- reseaux -->
                     <div class="sci">
                         <div class="row">
-
                             <div class="col text-lg-center text-right">
                                 <div class="h-100"></div>
                                 <div class="h-100"></div>
                                 <div class="h-100"></div>
                                 <div class="h-100"></div>
                                 <div class="h-100"></div>
-                                <div class="h-100"></div>
-                                <div class="h-100"></div>
-                                <div class="h-50"></div>
                                 <a href="" target="_blank"><img class="icon_contact"
                                         src="https://img.icons8.com/android/45/000000/facebook.png" /></a>
-
-
                                 <a href="https://www.instagram.com/_copx_/" target="_blank"><img class="icon_contact"
                                         src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" /></a>
-
-
                                 <a href="" target="_blank"><img class="icon_contact"
                                         src="https://img.icons8.com/android/50/000000/twitter.png" /></a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+
 
             <!-- form contact -->
             <div class="contactForm_box col-lg-8 col-md-12 order-lg-2 order-1 ">
                 <div class="contactForm">
                     <h2>Envoyer un message</h2>
-
-                    <form @submit.prevent="send" class="text-left" style="padding:0;">
+                    <form class="text-left" style="padding:0;">
                         <div class="formBox">
                             <div class="inputBox w50">
                                 <input type="text" name="" required v-model="nom">
                                 <span>Nom</span>
                             </div>
                             <div class="inputBox w50">
-                                <input type="text" name="" required v-model="prenom">
-                                <span>Prenom</span>
-                            </div>
-                            <div class="inputBox w50">
-                                <input type="text" name="" required v-model="email">
-                                <span>Email</span>
-                            </div>
-                            <div class="inputBox w50">
                                 <input type="text" name="" required v-model="subject">
                                 <span>Objet</span>
+                            </div>
+                            <div class="inputBox w100">
+                                <input type="text" name="" required v-model="email">
+                                <span>Email</span>
                             </div>
                             <div class="inputBox w100">
                                 <textarea name="" required v-model="text"></textarea>
                                 <span>Ecrire votre message ici</span>
                             </div>
                             <div class="inputBox w100">
-                                <input type="submit" value="Envoyer">
+                                <input @click="send" type="submit" value="Envoyer">
                             </div>
-
                         </div>
                     </form>
-
                 </div>
             </div>
 
+
         </div>
     </div>
-
 </template>
 
 <script>
@@ -106,31 +86,40 @@
         },
         methods: {
             send: function () {
-
-                this.axios.post("http://localhost:3000/sendmail", {
+                this.$router.push({
+                    name: 'Home',
+                    /* remplacer Home par Dashboard une fois le dashboard reconfigurer */
+                    params: {
                         email: this.email,
                         nom: this.nom,
                         subject: this.subject,
-                        text: this.text,
+                        text: this.text
+                    }
+                })
+                window.location.reload();
+            }
 
-                    })
-                    .then(() => {
-                        alert('Votre mail à été envoyé')
-                        this.$router.push({ name: 'Home'})
-                        window.location.reload();
-                    })
-                    .catch(() => {
-                        alert("erreur: Votre mail n'à pas été envoyé");
-                    });
-
-
-
-            },
         },
     }
 </script>
 
 <style>
+.a_retour{
+    color: #fff !important;
+    font-size: 20px;
+    font-family: 'Bebas Neue',sans-serif;
+    text-decoration: none;
+    outline: none;
+}
+.a_retour:hover{
+    color: #fff !important;
+    text-decoration: none;
+    outline: none;
+}
+.i_retour{
+    filter: invert(1);
+    margin-right: 5px;
+}
     @media (min-width: 992px) {
 
         .contactinfo_box,
@@ -154,22 +143,13 @@
         padding: 40px;
     }
 
-    .titre_contact a {
+    .titre_contact {
         color: #fff !important;
         font-size: 30px;
         font-weight: 500;
         font-family: 'Bebas Neue', sans-serif;
-        margin-bottom: 20px;
-        outline: none;
-        text-decoration: none;
+        margin: 20px 0;
     }
-
-    .titre_contact a:hover {
-        color: #fff;
-        outline: none;
-        text-decoration: none;
-    }
-
     .icon_contact {
         opacity: 0.7;
         filter: invert(1);

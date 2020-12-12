@@ -46,12 +46,10 @@
                         alt="The north face">
                 </vue-glide-slide>
                 <vue-glide-slide class="col" style="height: 100px; width:100px; ">
-                    <img src="../assets/icon_fragment.png" class="img_marque marque_fragment"
-                        alt="fragment">
+                    <img src="../assets/icon_fragment.png" class="img_marque marque_fragment" alt="fragment">
                 </vue-glide-slide>
             </vue-glide>
         </div>
-
     </div>
 </template>
 
@@ -92,7 +90,8 @@
         margin: 0;
         box-sizing: border-box;
     }
-    .glide__slide{
+
+    .glide__slide {
         margin: 0 !important;
         padding: 0 !important;
     }
@@ -106,10 +105,12 @@
         height: 85px;
         margin: auto !important;
     }
+
     .marque_nike {
         height: 100px;
         width: 100px;
     }
+
     .marque_yeezy {
         transform: translateY(70%);
         width: 150px;
@@ -126,6 +127,7 @@
         width: 140px;
         height: 140px;
     }
+
     .marque_palace {
         width: 100px;
         height: 90px;
@@ -178,6 +180,7 @@
         width: 125px;
         height: 150px;
     }
+
     .marque_fragment {
         transform: translateY(10%);
     }

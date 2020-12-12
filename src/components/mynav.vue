@@ -135,7 +135,6 @@
         width: 100% !important;
         font-size: 20px;
         background-color: transparent !important;
-        padding: 0px 75px;
         /* position: fixed !important;
         z-index: 10000; */
     }

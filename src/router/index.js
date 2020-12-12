@@ -2,11 +2,26 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-/* loading */
-/* import loading from '../components/loading.vue'; */
-/* import du components loading */
+/* amdin user */
+import adminhome from '../components/admin/home.vue'; /* import du components adminhome */
+import login2 from "../components/login2.vue"; /* import du components adminlogin */
 
-/* components liée à la page menu */
+
+/* compenents liée à l'utilisateur */
+import login from "../components/login.vue"; /* import du components login */
+import register from "../components/register.vue"; /* import du components register */
+import profil from '../components/profil.vue'; /* import du components profil */
+import mpo from '../components/mpo.vue'; /* import du components mpo */
+import validemail from '../components/validemail.vue'; /* import du components validemail */
+import updatepassword from '../components/updatepassword.vue'; /* import du components updatepassword */
+
+
+/* information */
+import Faq from '../views/Faq.vue'; /* import du views Faq */
+import Contact from '../views/Contact.vue'; /* import du views Contact */
+import Membre from '../views/Membre.vue'; /* import du views Membre */
+
+
 /* menu sneakers */
 import nike1 from '../components/nike1.vue'; /* import du components nike1 */
 import yeezy1 from '../components/yeezy1.vue'; /* import du components yeezy1 */
@@ -19,26 +34,13 @@ import jordan2 from '../components/jordan2.vue'; /* import du components jordan2
 import supreme2 from '../components/supreme2.vue'; /* import du components supreme2 */
 
 
-import Faq from '../views/Faq.vue'; /* import du views Faq */
-import Contact from '../views/Contact.vue'; /* import du views Contact */
-/* amdin user */
-import adminhome from '../components/admin/home.vue'; /* import du components adminhome */
-import login2 from "../components/login2.vue"; /* import du components adminlogin */
-
-/* compenents liée à l'utilisateur */
-import login from "../components/login.vue"; /* import du components login */
-import register from "../components/register.vue"; /* import du components register */
-import profil from '../components/profil.vue'; /* import du components profil */
-import mpo from '../components/mpo.vue'; /* import du components mpo */
-import validemail from '../components/validemail.vue'; /* import du components validemail */
-import updatepassword from '../components/updatepassword.vue'; /* import du components updatepassword */
-
-/* components liée aux pages produits */
+/* components liée aux pages nouveauté */
 import Sneakers from "../views/Sneakers.vue"; /* import du views Sneakers  */
 import Streetwear from "../views/Streetwear.vue"; /* import du views Streetwear  */
 import Lifestyle from "../views/Lifestyle.vue"; /* import du views Lifestyle  */
 
-/* components liée aux produits */
+
+/* components liée à la finalisation et au paiement */
 import panier from '../views/panier.vue'; /* import du views panier */
 import paiement from '../components/paiement.vue'; /* import du components paiement */
 import paypal from '../components/paypal.vue'; /* import du components paypal */
@@ -55,31 +57,23 @@ const routes = [{
         name: 'Home',
         component: Home,
     },
+
+
+    /* admin user */
     {
-        path: "/sneakers",
-        name: "Sneakers",
-        component: Sneakers,
-        /* on déclare le views Sneakers */
+        path: "/admin/login",
+        name: "adminlogin",
+        component: login2
     },
     {
-        path: "/streetwear",
-        name: "Streetwear",
-        component: Streetwear,
-        /* on déclare le views streetwear */
+        path: "/admin/home",
+        name: "adminhome",
+        component: adminhome
     },
-    {
-        path: "/lifestyle",
-        name: "Lifestyle",
-        component: Lifestyle,
-        /* on déclare le views lifestyle */
-    },
-    {
-        path: "/pageproduit/:id",
-        name: "pageproduit",
-        component: () =>
-            import ("../components/pageproduit.vue"),
-    },
-    /* client */
+    /* fin admin user */
+
+
+    /* client / utilisateur */
     {
         path: '/register',
         name: 'register',
@@ -101,15 +95,19 @@ const routes = [{
         component: profil,
     },
     {
-        path: "/panier",
-        name: "panier",
-        component: panier,
+        path: "/validemail/:email",
+        name: "validemail",
+        component: validemail,
     },
     {
-        path: "/paiement",
-        name: "paiement",
-        component: paiement,
+        path: "/updatepassword/:forget",
+        name: "updatepassword",
+        component: updatepassword,
     },
+    /* fin client / utilisateur */
+
+
+    /* information */
     {
         path: "/faq",
         name: "Faq",
@@ -121,31 +119,56 @@ const routes = [{
         component: Contact,
     },
     {
-        path: "/validemail/:email",
-        name: "validemail",
-        component: validemail,
+        path: "/membre",
+        name: "Membre",
+        component: Membre,
     },
-    {
-        path: "/updatepassword/:forget",
-        name: "updatepassword",
-        component: updatepassword,
-    },
+    /* fin information */
+
+
+    /* finalisation paiement */
     {
         path: "/paypal",
         name: "paypal",
         component: paypal,
     },
-    /* admin user */
     {
-        path: "/admin/login",
-        name: "adminlogin",
-        component: login2
+        path: "/panier",
+        name: "panier",
+        component: panier,
     },
     {
-        path: "/admin/home",
-        name: "adminhome",
-        component: adminhome
+        path: "/paiement",
+        name: "paiement",
+        component: paiement,
     },
+    /* fin finalisation paiement */
+
+
+    /* page principale nouveauté */
+    {
+        path: "/sneakers",
+        name: "Sneakers",
+        component: Sneakers,
+    },
+    {
+        path: "/streetwear",
+        name: "Streetwear",
+        component: Streetwear,
+    },
+    {
+        path: "/lifestyle",
+        name: "Lifestyle",
+        component: Lifestyle,
+    },
+    {
+        path: "/pageproduit/:id",
+        name: "pageproduit",
+        component: () =>
+            import ("../components/pageproduit.vue"),
+    },
+    /* fin page principale nouveauté */
+
 
     /* menu sneakers */
     {
@@ -168,6 +191,8 @@ const routes = [{
         name: 'jordan1',
         component: jordan1,
     },
+    /* menu sneakers*/
+
 
     /* menu streetwear */
     {
@@ -183,6 +208,7 @@ const routes = [{
         name: 'supreme2',
         component: supreme2,
     },
+    /* menu streetwear */
 ]
 
 const router = new VueRouter({

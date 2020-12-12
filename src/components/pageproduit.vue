@@ -80,6 +80,10 @@
           </div>
         </div>
       </div>
+
+
+      <offre /><!-- import myfooter -->
+
     </div>
     <!-- Modal guides tailles-->
     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
@@ -94,7 +98,14 @@
           </div>
           <div class="modal-body">
             <div class="container-fluid">
-
+              <div class="text-center">
+                <p style="color:#333; padding:0 30px;">
+                  Pour les paires de type <strong>YEEZY</strong> la paire <strong>taille une demi-taile plus petit</strong>, nous vous recommandons de
+                  prendre <strong>une demi-taille plus
+                  grand que votre taille habituelle</strong>.</p>
+                <p style="color:#333; padding:0 30px;">Sinon pour une paire de marque <strong>NIKE</strong> aucun soucis ça <strong>taille
+                  normalement</strong>.</p>
+              </div>
               <table class="tableau_tailles">
                 <thead>
                   <tr>
@@ -286,6 +297,7 @@
 
 <script>
   import mynav from "../components/mynav.vue"; /* import components mynav */
+  import offre from "../components/offre.vue"; /* import components offre */
   import myfooter from "../components/myfooter.vue"; /* import components myfooter */
 
   export default {
@@ -316,6 +328,7 @@
     },
     components: {
       mynav,
+      offre,
       myfooter,
     },
 

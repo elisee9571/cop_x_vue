@@ -136,7 +136,7 @@
             .then((res) => {
               console.log(res.data);
               this.$router.push({
-                name: 'paypal',
+                name: 'paiement',
                 params: {
                   total: this.total
                 },

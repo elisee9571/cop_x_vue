@@ -7,7 +7,7 @@
             <div class="col-lg-6 col-12 container_panier_box">
                 <div class="row">
                     <div class="panier review-block">
-                        
+
 
                     </div>
 
@@ -15,7 +15,8 @@
                         <div class="form-group col-6">
                             <label style="color: #fff;" class="col-md-6 control-label" for="code"> code promo: </label>
                             <div class="col-md-12">
-                                <input class="input_profil form-control" type="text" id="send" oninput="result.value = send.value"/>
+                                <input class="input_profil form-control" type="text" id="send"
+                                    oninput="result.value = send.value" />
                             </div>
                         </div>
 
@@ -47,7 +48,7 @@
             </div>
 
 
-<!-- container pour l'achat -->
+            <!-- container pour l'achat -->
             <div class="container_paiement_box col-lg-5 col-11">
                 <h1 class="titre_paiement">Paiement</h1>
                 <div class="row col-12">
@@ -114,11 +115,11 @@
                                 </div>
                                 <div class="field col-12">
                                     <input class="input_paiement col-lg-6" type="text" placeholder="Ville *"
-                                        v-model="client.ville" required/>
+                                        v-model="client.ville" required />
                                 </div>
                                 <div class="field col-lg-6 col-12">
                                     <input class="input_paiement col-12" type="tel" placeholder="Code postale *"
-                                        v-model="client.cp" required/>
+                                        v-model="client.cp" required />
                                 </div>
                                 <div class="field col-lg-6 col-12">
                                     <input class="input_paiement col-12" type="text" placeholder="Pays"
@@ -126,11 +127,11 @@
                                 </div>
                                 <div class="field col-lg-6 col-12">
                                     <input class="input_paiement col-12" type="email" placeholder="Adresse mail *"
-                                        v-model="client.email" required/>
+                                        v-model="client.email" required />
                                 </div>
                                 <div class="field col-lg-6 col-12">
                                     <input class="input_paiement col-12" type="tel" placeholder="Téléphone *"
-                                        v-model="client.tel" required/>
+                                        v-model="client.tel" required />
                                 </div>
                             </div>
 
@@ -184,11 +185,12 @@
 
 
                             <div class="form-group col-12">
-                            <label style="color: #fff;" class="col-md-12 control-label" for="code"> code promo: </label>
-                            <div class="col-md-12">
-                                <input class="input_profil form-control" type="text" id="result"/>
+                                <label style="color: #fff;" class="col-md-12 control-label" for="code"> code promo:
+                                </label>
+                                <div class="col-md-12">
+                                    <input class="input_profil form-control" type="text" id="result" />
+                                </div>
                             </div>
-                        </div>
 
                             <div class="field btns">
                                 <button class="btn_paiement prev-1 prev">Précédent</button>
@@ -201,77 +203,58 @@
                         <div class="page">
                             <div class="titre_page">Mode de paiement :</div>
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card_paiement">
-
-                                        <div class="card-header header_paiement">
-                                            <div class="row">
-
-                                                <div class="col-md-6">
-                                                    <p>Carte de crédit / débit<br>ou<br> <a href="#"
-                                                            class="paypal">PAYPAL <img class="icon_paiement"
-                                                                src="../assets/icon_paypal.png" alt=""></a></p>
-
-
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class=""></div>
+                                    <div class="">
+                                        <div class="card bg-light">
+                                            <div class="card-header">Mode de paiement :</div>
+                                            <div class="card-body">
+                                                <div class="alert alert-success" v-if="nonce">
+                                                    Votre paiement a bien été accepté.
                                                 </div>
-
-                                                <div class="col-md-6 text-right" style="margin-top: -5px;">
-                                                    <img class="icon_paiement" src="../assets/icon_visa.png" alt="">
-                                                    <img class="icon_paiement" src="../assets/icon_mastercard.png"
-                                                        alt="">
-                                                    <img class="icon_paiement" src="../assets/icon_amex.png" alt="">
-
+                                                <div class="alert alert-danger" v-if="error">
+                                                    {{ error }}
                                                 </div>
-
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="amount">Montant</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">$</span>
+                                                            </div>
+                                                            <input type="number" id="amount" v-model="amount"
+                                                                class="form-control" placeholder="Enter Amount" />
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="form-group">
+                                                        <label class="label_paypal">Numéro de carte</label>
+                                                        <div id="creditCardNumber" class="form-control"></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-7">
+                                                                <label class="label_paypal">Date d'expiration</label>
+                                                                <div id="expireDate" class="form-control"></div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label class="label_paypal">CVV</label>
+                                                                <div id="cvv" class="form-control"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-primary btn-block"
+                                                        @click.prevent="payWithCreditCard">
+                                                        Pay with Credit Card
+                                                    </button>
+                                                    <hr />
+                                                    <div id="paypalButton"></div>
+                                                </form>
                                             </div>
                                         </div>
-
-
-                                        <div class="card-body">
-                                            <div class="form-group">
-                                                <label for="cc-number" class="label_text control-label">Numéro de
-                                                    carte</label>
-                                                <input type="tel" id="cc-number" class="input-lg form-control cc-number"
-                                                    autocomplete="cc-number" placeholder="•••• •••• •••• ••••" name=""
-                                                    v-model="client.information_paiement">
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="cc-exp" class="label_text control-label">Date
-                                                            d'expiration</label>
-                                                        <input type="tel" id="cc-exp"
-                                                            class="input-lg form-control cc-exp" autocomplete="cc-exp"
-                                                            placeholder="•• / ••" name=""
-                                                            v-model="client.information_paiement">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="cc-cvc" class="label_text control-label">Numéro de
-                                                            carte</label>
-                                                        <input type="tel" id="cc-cvc"
-                                                            class="input-lg form-control cc-cvc" autocomplete="off"
-                                                            placeholder="•••" name=""
-                                                            v-model="client.information_paiement">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label for="numeric" class="label_text control-label">Nom du
-                                                    titulaire</label>
-                                                <input type="text" class="input-lg form-control"
-                                                    v-model="client.information_paiement">
-                                            </div>
-
-                                        </div>
-
                                     </div>
+                                    <div class="col-lg-3 col-md-2 col-12"></div>
                                 </div>
                             </div>
 
@@ -341,8 +324,8 @@
                                 <button class="btn_paiement submit">Valider</button>
                             </div>
                             <p class="petite_ligne">En confirmant votre commande vous acceptez <a href="/faq">nos
-                                    conditions générales</a>, <a href="/faq">notre politique de confidentialité</a> et <a
-                                    href="/faq">nos modalités concernant les retours</a>
+                                    conditions générales</a>, <a href="/faq">notre politique de confidentialité</a> et
+                                <a href="/faq">nos modalités concernant les retours</a>
                                 et donnez votre autorisation pour que COP X conserve certaines de vos donnés dans le but
                                 d'améliorer vos prochaines expériences de shopping.</p>
                         </div>
@@ -361,15 +344,19 @@
 </template>
 
 <script type="text/javascript">
-    /* import $ from 'jquery' */
+    import braintree from "braintree-web";
+    import paypal from "paypal-checkout";
 
     export default {
         name: "paiement",
-        props: ["panier"],
 
         data() {
             return {
                 client: {},
+                hostedFieldInstance: false,
+                nonce: "",
+                error: "",
+                amount: "",
             };
         },
         created: function () {
@@ -378,9 +365,124 @@
                     name: "login"
                 });
             }
-
+            // eslint-disable-next-line no-console
+            console.log("this.$route.params.total", this.$route.params.total);
+            if (this.$route.params.total !== undefined) {
+                this.amount = this.$route.params.total;
+            } else {
+                this.$router.push("/panier");
+            }
+        },
+        methods: {
+            payWithCreditCard() {
+                if (this.hostedFieldInstance) {
+                    this.error = "";
+                    this.nonce = "";
+                    this.hostedFieldInstance
+                        .tokenize()
+                        .then((payload) => {
+                            // eslint-disable-next-line no-console
+                            console.log(payload);
+                            this.nonce = payload.nonce;
+                        })
+                        .catch((err) => {
+                            // eslint-disable-next-line no-console
+                            console.error(err);
+                            this.error = err.message;
+                        });
+                }
+            },
         },
         mounted() {
+            braintree.client
+                .create({
+                    authorization: "sandbox_38gr7jbp_vb92jb8h3pz9h522",
+                })
+                .then((clientInstance) => {
+                    let options = {
+                        client: clientInstance,
+                        styles: {
+                            input: {
+                                "font-size": "20px",
+                                "font-family": "Open Sans",
+                            },
+                        },
+                        fields: {
+                            number: {
+                                selector: "#creditCardNumber",
+                                placeholder: "•••• •••• •••• ••••",
+                            },
+                            cvv: {
+                                selector: "#cvv",
+                                placeholder: "•••",
+                            },
+                            expirationDate: {
+                                selector: "#expireDate",
+                                placeholder: "•• / ••",
+                            },
+                        },
+                    };
+                    return Promise.all([
+                        braintree.hostedFields.create(options),
+                        braintree.paypalCheckout.create({
+                            client: clientInstance
+                        }),
+                    ]);
+                })
+                .then((instances) => {
+                    const hostedFieldInstance = instances[0];
+                    const paypalCheckoutInstance = instances[1];
+                    // Use hostedFieldInstance to send data to Braintree
+                    this.hostedFieldInstance = hostedFieldInstance;
+
+                    // Setup PayPal Button
+                    return paypal.Button.render({
+                            env: "sandbox",
+                            style: {
+                                label: "paypal",
+                                size: "responsive",
+                                shape: "rect",
+                            },
+                            payment: () => {
+                                return paypalCheckoutInstance.createPayment({
+                                    flow: "checkout",
+                                    intent: "sale",
+                                    amount: parseFloat(this.amount) > 0 ? this.amount : 10,
+                                    displayName: "Braintree Testing",
+                                    currency: "USD",
+                                });
+                            },
+                            // eslint-disable-next-line no-unused-vars
+                            onAuthorize: (data, options) => {
+                                return paypalCheckoutInstance
+                                    .tokenizePayment(data)
+                                    .then((payload) => {
+                                        // eslint-disable-next-line no-console
+                                        console.log(payload);
+                                        this.error = "";
+                                        this.nonce = payload.nonce;
+                                    });
+                            },
+                            onCancel: (data) => {
+                                // eslint-disable-next-line no-console
+                                console.log(data);
+                                // eslint-disable-next-line no-console
+                                console.log("Payment Cancelled");
+                            },
+                            onError: (err) => {
+                                // eslint-disable-next-line no-console
+                                console.error(err);
+                                this.error =
+                                    "An error occurred while processing the paypal payment.";
+                            },
+                        },
+                        "#paypalButton"
+                    );
+                })
+                // eslint-disable-next-line no-unused-vars
+                .catch((err) => {});
+
+
             /* Created By CodingNepal */
             const slidePage = document.querySelector(".slide-page");
             const nextBtnFirst = document.querySelector(".firstNext");
@@ -451,38 +553,17 @@
             });
 
 
-            /* window.onload = function () {
-
-                var $ = require('jquery') 
-
-                $('.cc-number').payment('formatCardNumber');
-                $('.cc-exp').payment('formatCardExpiry');
-                $('.cc-cvc').payment('formatCardCVC');
-                $('form').submit(function (e) {
-
-                    e.preventDefault();
-
-                    var $payement = $.payment.cardType($('.cc-number').val());
-                    $('.cc-number').toggleInputErreur(!$payement.validateCardNumber($('.cc-number')
-                        .val()));
-                    $('.cc-exp').toggleInputErreur(!$payement.validateCardExpiry($('.cc-exp').payment(
-                        'cardExpiryVal')));
-                    $('.cc-cvc').toggleInputErreur(!$payement.validateCardCVC($('.cc-cvc').val(),
-                        'cardType'));
-
-                    $('.validation').removeClass('text-danger text-success');
-                    $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
-                });
-            } */
         }
     }
 </script>
 
 <style>
-   /*  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); */
+    .label_paypal {
+        font-size: 20px;
+    }
 
     /* css */
-    
+
     .body {
         background: #262626;
     }
@@ -491,7 +572,8 @@
         background: #202020;
         height: 100vh;
     }
-    .panier{
+
+    .panier {
         margin-top: 100px;
         height: 100px !important;
         width: 100%;
@@ -572,12 +654,14 @@
     }
 
     .form_box_all .form_box {
+
         display: flex;
         width: 400%;
     }
 
     /* page */
     .form_box_all .form_box .page {
+        padding: 0 50px !important;
         width: 25%;
         transition: margin-left 0.5s ease-in-out;
     }
@@ -613,7 +697,7 @@
         top: -30px;
         font-size: 20px;
         font-weight: 500;
-    } 
+    }
 
     /* input */
     .form_box_all .form_box .page .field .input_paiement {

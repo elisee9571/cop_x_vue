@@ -175,8 +175,7 @@
                         <p>En France, la livraison standard est à 5€ et s’effectue en général en 7 à 10 jours ouvrés,
                             la livraison express est à 15€ et s'éffectue en général en 24h.
                             <br>
-                            Si les délais de livraison ont été dépassés, n’hésitez pas à nous contactez sur notre mail
-                            ...@....com .
+                            Si les délais de livraison ont été dépassés, n’hésitez pas à nous contactez sur notre page contact.
                             En cas de demande, veuillez vous munir de votre numéro de commande précédé d'un hashtag,
                             que vous pourrez retrouver dans votre email de confirmation de commande.</p>
                     </div>
@@ -197,8 +196,7 @@
                         <p>En France, la livraison standard est à 5€ et s’effectue en général en 7 à 10 jours ouvrés,
                             la livraison express est à 15€ et s'éffectue en général en 24h.
                             <br>
-                            Si les délais de livraison ont été dépassés, n’hésitez pas à nous contactez sur notre mail
-                            ...@....com .
+                            Si les délais de livraison ont été dépassés, n’hésitez pas à nous contactez sur notre page contact.
                             En cas de demande, veuillez vous munir de votre numéro de commande précédé d'un hashtag,
                             que vous pourrez retrouver dans votre email de confirmation de commande.</p>
                     </div>
@@ -222,7 +220,7 @@
                             <br>
                             Veuillez-vous munir de votre numéro de commande précédés d’un hashtag, que vous pourrez
                             retrouver dans votre email de confirmation de commande,
-                            puis contactez-nous par mail à l'adresse ...@...com.</p>
+                            puis contactez-nous sur notre page contact.</p>
                     </div>
                 </div>
             </div>
@@ -297,7 +295,9 @@
                 </div>
                 <div id="collapse14" class="collapse" aria-labelledby="heading14" data-parent="#accordionExample">
                     <div class="card-body">
-                        <p>Rien de plus facile : il suffit de nous écrire sur l'adresse mail ...@...com.</p>
+                        <p>Rien de plus facile : il suffit de nous écrire sur notre page contact, 
+                            nous sommes disponibles du lundi au vendredi de 10h à 19h !
+                        </p>
                     </div>
                 </div>
             </div>
