@@ -33,8 +33,9 @@
               <!-- fin description produit -->
               <div class="size-container">
                 <div class="row">
-                  <div class="dropdown col-7">
-                    <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
+                  <div style="padding:0; margin:0;" class="dropdown col-6">
+                    <!-- btn tailles -->
+                    <button style="padding:10px; margin:0;letter-spacing:1px;" class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10">
                       Tailles
                     </button>
@@ -42,7 +43,7 @@
                       <div class="select-control">
                         <div class="select-options">
                           <ul class="list-unstyled sneakers">
-                            <li v-for="taille in produit.Tailles" :key="taille.id" class="select-option" role="menuitem"
+                            <li style="color:#111;" v-for="taille in produit.Tailles" :key="taille.id" class="select-option" role="menuitem"
                               tabindex="0" aria-disabled="false">
                               <div class="inset">
                                 <div class="taille_eu">EU {{ taille.taille }}</div>
@@ -53,7 +54,8 @@
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
+                  <!-- btn guides des tailles -->
+                  <button style="padding:10px; margin:0;letter-spacing:1px;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
                     Guide des tailles
                   </button>
                 </div>
@@ -66,8 +68,8 @@
                 </div>
               </div>
               <div class="buy-price">
-                <button type="button" class="btn_ajouter" data-toggle="modal" data-target="#exampleModal">
-                  <a @click="ajouter(produit.id, produit.nom, produit.prix, produit.Images[0].image, produit.taille)">Ajouter
+                <button @click="ajouter(produit.id, produit.nom, produit.prix, produit.Images[0].image, produit.taille)" type="button" class="btn_ajouter" data-toggle="modal" data-target="#exampleModal">
+                  <a>Ajouter
                     au
                     panier</a>
                 </button>
@@ -83,17 +85,19 @@
 
 
       <offre /><!-- import myfooter -->
+      <h1 class="grand_titre">Vous aimerez aussi</h1>
+      <Aimer/><!-- import aimer -->
 
     </div>
     <!-- Modal guides tailles-->
-    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+    <div style="z-index:10000;" class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title description_produit" id="staticBackdropLabel">Guides des tailles</h3>
+            <h2 class="modal-title description_produit" id="staticBackdropLabel">Guides des tailles</h2>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <span style="color:black;font-size:30px;" aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
@@ -103,7 +107,7 @@
                   Pour les paires de type <strong>YEEZY</strong> la paire <strong>taille une demi-taile plus petit</strong>, nous vous recommandons de
                   prendre <strong>une demi-taille plus
                   grand que votre taille habituelle</strong>.</p>
-                <p style="color:#333; padding:0 30px;">Sinon pour une paire de marque <strong>NIKE</strong> aucun soucis ça <strong>taille
+                <p style="color:#333; padding:0 30px;">Sinon pour les autres <strong>Marques</strong> aucun soucis ça <strong>taille
                   normalement</strong>.</p>
               </div>
               <table class="tableau_tailles">
@@ -272,13 +276,13 @@
     </div>
     <!-- fin Modal guides tailles-->
     <!-- Modal panier -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div style="z-index:10000;" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Panier</h5>
+            <h2 class="modal-title description_produit" id="exampleModalLabel">Panier</h2>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <span style="color:black;font-size:30px;" aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
@@ -298,6 +302,7 @@
 <script>
   import mynav from "../components/mynav.vue"; /* import components mynav */
   import offre from "../components/offre.vue"; /* import components offre */
+  import Aimer from "../components/Aimer.vue"; /* import components Aimer */
   import myfooter from "../components/myfooter.vue"; /* import components myfooter */
 
   export default {
@@ -329,6 +334,7 @@
     components: {
       mynav,
       offre,
+      Aimer,
       myfooter,
     },
 
@@ -387,6 +393,10 @@
 </script>
 
 <style>
+.card_box h2, h3{
+  color: #333;
+}
+
   /* btn taille */
   div.dropdown.col-7 {
     margin: 0 !important;
@@ -463,24 +473,24 @@
     margin: auto;
   }
 
-  thead tr {
+  .tableau_tailles thead tr {
     text-align: left;
   }
 
-  th,
+  .tableau_tailles th,
   td {
     padding: 15px 20px;
   }
 
-  tbody tr:nth-child(even) {
+  .tableau_tailles tbody tr:nth-child(even) {
     background-color: #f3f3f3;
   }
 
-  .th_tailles {
+  .tableau_tailles .th_tailles {
     font-size: 20px;
   }
 
-  .td_tailles {
+  .tableau_tailles .td_tailles {
     color: #333 !important;
     font-size: 20px;
   }
@@ -526,13 +536,18 @@
 
   .img_produit {
     width: 100%;
-    transform: translateY(25%) rotate(-10deg);
+    transform: translateY(25%) rotate(-10deg) !important;
   }
 
-  .marque_shadow {
-    top: 20%;
+  h4.marque_shadow {
+    font-family: 'Bebas Neue',sans-serif;
+    position: absolute;
+    color: rgba(255, 255, 250, 0.04);
+    top: 8%;
     left: -15%;
-    font-size: 18em;
+    font-size: 30em !important;
+    font-weight: bolder !important;
+    font-style: italic !important;
   }
 
   /* fin box image produit */
@@ -557,6 +572,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
     font-weight: 600;
+    margin: 0;
   }
 
   /* hr */
@@ -576,6 +592,7 @@
     font-size: 25px;
     display: flex;
     align-items: flex-start;
+    margin-bottom: 10px;
   }
 
   .description_produit_text {
@@ -598,6 +615,7 @@
     align-items: flex-start;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 25px;
+    margin: 0;
   }
 
   /* fin taille produit */

@@ -20,7 +20,7 @@
                     <!-- <br>{{item.produitId}} -->
                     <br>Taille : {{item.taille}}
                     <br>{{ item.prix_unitaire }}€ </td>
-                  <!--<td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td>-->
+                  <!-- <td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td> -->
                   <td><input type="button" class="btn btn-dark" @click="updateqtn(index)" value="-"> {{item.quantite}}
                     <input type="button" class="btn btn-dark" @click="update(index)" value="+"></td>
                 </tr>
@@ -163,12 +163,18 @@
 </script>
 
 <style>
-  tr td,
-  td {
+  .table_produit tr td{
     color: #fff !important;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 30px;
     letter-spacing: 1px;
+  }
+  td.total_panier{
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+
   }
   .table_produit,
   .table_achat {
@@ -176,7 +182,7 @@
     margin: 0 !important;
 
   }
-  tr {
+  .table_produit tr {
     border-top: 3px solid transparent !important;
   }
 
@@ -185,9 +191,13 @@
     margin: 10px 10%;
 
   }
+  .btn-dark{
+    padding: 10px !important;
+  }
 
   .btn-dark:hover {
-    background: #6844ff;
+    background: #6844ff !important;
+    
   }
 
   .text_expedition {
@@ -253,8 +263,7 @@
       border: none;
     }
     
-    tr td,
-    td {
+    .table_produit, tr td{
       color: #fff !important;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 20px;
@@ -286,8 +295,7 @@
         transform: translateY(-50%);
     }
 
-    tr td,
-    td {
+    .table_produit tr td{
       color: #fff !important;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 30px;

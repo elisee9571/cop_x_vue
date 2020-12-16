@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-lg navbar-light barnav">
           <!-- mon logo -->
           <span class="trait">
-            <a class="navbar-brand navlogo" data-text="COP X" href="/">COP X</a>
+            <a style="font-weight:bolder;letter-spacing:-6px !important;" class="navbar-brand navlogo" data-text="COP X" href="/">COP X</a>
           </span>
           <!-- menu burger responsive icon -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -109,17 +109,17 @@
     </div>
     <!-- fin img home -->
     <div data-aos="fade-right">
-      <h1 class="grand_titre">Nos Nouveautés</h1>
+      <h1 class="grand_titre" style="font-size: 40px;">Nos Nouveautés</h1>
     </div>
     <slider /> <!-- import slider -->
     <marque /> <!-- import marque -->
     <div data-aos="fade-right">
-      <h1 class="grand_titre">Les plus demandés</h1>
+      <h1 class="grand_titre" style="font-size: 40px;">Les plus demandés</h1>
     </div>
     <slider2 /> <!-- import slider2 -->
     <offre /> <!-- import offre -->
     <div data-aos="fade-right">
-      <h1 class="grand_titre">Devenir membre</h1>
+      <h1 class="grand_titre" style="font-size: 40px;">Devenir membre</h1>
     </div>
     <abonnement /> <!-- import abonnement -->
     <myfooter /> <!-- import myfooter -->
@@ -260,6 +260,10 @@
       position: relative;
       z-index: 1;
     }
+    #hero .hero h1 {
+      font-family: 'Bebas Neue',sans-serif;
+      font-size: 100px !important;
+    }
 
     #hero::after {
       content: '';
@@ -393,11 +397,7 @@
     cursor: pointer;
     z-index: 9999 !important;
     box-shadow: 0 0 10px #fff;
-  }
-
-  .icone {
     color: #fff;
-    filter: invert(0) !important;
   }
 
   /* fin arrow up */

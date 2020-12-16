@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header" id="headingOne">
 
-                    <button class="btn btn-block text-left" data-toggle="collapse" data-target="#collapseOne"
+                    <button class="btn btn-block collapsed" data-toggle="collapse" data-target="#collapseOne"
                         aria-expanded="false" aria-controls="collapseOne">
                         <a class="accordion-link">Les articles sont-ils authentiques et neufs ?</a>
                     </button>
@@ -32,10 +32,9 @@
             <div class="card">
                 <div class="card-header" id="headingTwo">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <a class="accordion-link">Comment se fait-il que vous ayez des produits qui sont en rupture de
-                            stock partout ?</a>
+                        <a class="accordion-link">Pourquoi vos produit sont dure à trouver ?</a>
                     </button>
 
                 </div>
@@ -58,7 +57,7 @@
             <div class="card">
                 <div class="card-header" id="headingThree">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <a class="accordion-link">Comment authentifiez-vous les produits ?</a>
                     </button>
@@ -81,7 +80,7 @@
             <div class="card">
                 <div class="card-header" id="heading4">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
                         <a class="accordion-link">Quelles sont les tailles maximales et minimales ?</a>
                     </button>
@@ -100,7 +99,7 @@
             <div class="card">
                 <div class="card-header" id="heading5">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
                         <a class="accordion-link">Comment déterminez-vous le prix des produits ?</a>
                     </button>
@@ -122,9 +121,9 @@
             <div class="card">
                 <div class="card-header" id="heading6">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                        <a class="accordion-link">Y'a-t'il une réduction sur notre première commande ?</a>
+                        <a class="accordion-link">Y'a-t'il des réductions ?</a>
                     </button>
 
                 </div>
@@ -142,7 +141,7 @@
             <div class="card">
                 <div class="card-header" id="heading7">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
                         <a class="accordion-link">Comment se passe la livraison ?</a>
                     </button>
@@ -164,7 +163,7 @@
             <div class="card">
                 <div class="card-header" id="heading8">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
                         <a class="accordion-link">Combien coûte la livraison ?</a>
                     </button>
@@ -185,7 +184,7 @@
             <div class="card">
                 <div class="card-header" id="heading9">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
                         <a class="accordion-link">Je n'est toujours pas reçu mon numéro de suivi ?</a>
                     </button>
@@ -208,7 +207,7 @@
             <div class="card">
                 <div class="card-header" id="heading10">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
                         <a class="accordion-link"> Puis-je modifier ou annuler ma commande ?</a>
                     </button>
@@ -227,7 +226,7 @@
             <div class="card">
                 <div class="card-header" id="heading11">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
                         <a class="accordion-link">Puis-je échanger mes produits ?</a>
                     </button>
@@ -245,7 +244,7 @@
             <div class="card">
                 <div class="card-header" id="heading12">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
                         <a class="accordion-link">Puis-je me faire rembourser ?</a>
                     </button>
@@ -267,7 +266,7 @@
             <div class="card">
                 <div class="card-header" id="heading13">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
                         <a class="accordion-link">Quelles sont les modes de paiement ?</a>
                     </button>
@@ -287,7 +286,7 @@
             <div class="card">
                 <div class="card-header" id="heading14">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
                         <a class="accordion-link">Comment nous contacter ?</a>
                     </button>
@@ -304,7 +303,7 @@
             <div class="card">
                 <div class="card-header" id="heading15">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
                         <a class="accordion-link">Avez-vous une boutique ?</a>
                     </button>
@@ -319,7 +318,7 @@
             <div class="card">
                 <div class="card-header" id="heading16">
 
-                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
                         data-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
                         <a class="accordion-link">Ou êtes-vous ?</a>
                     </button>
@@ -356,6 +355,10 @@
 </script>
 
 <style>
+.card .card-header .btn, .navbar .navbar-nav > a.btn {
+    margin: 0 !important;
+    padding: 10px 0 !important;
+}
     .accordion {
         width: 100%;
         max-width: 60rem;

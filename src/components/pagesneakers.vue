@@ -21,21 +21,14 @@
                                 <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span>
                             </div>
                             <!-- voir produit -->
-                            
                             <router-link :to="`/pageproduit/${produit.id}`">
                                 Voir plus
                             </router-link>
-
                         </div>
-
                     </div>
                 </div>
             </div>
-
-            
-
         </div>
-
     </div>
 
 
@@ -149,12 +142,11 @@
         color: #fff;
     }
 
-
     /* titre sneakers */
     h1 {
         color: #fff;
-        font-size: 40px;
-        font-family: 'Bebas Neue', sans-serif;
+        font-size: 40px !important;
+        font-family: 'Bebas Neue', sans-serif !important;
         margin-left: 5%;
     }
 
@@ -191,14 +183,15 @@
     }
 
     /* marque */
-    h4 {
-        position: absolute;
-        top: 30%;
-        left: -20%;
-        font-size: 12em;
-        font-weight: 800;
-        font-style: italic;
-        color: rgba(255, 255, 250, 0.04);
+    .container2 h4 {
+        position: absolute !important;
+        top: 15% !important;
+        left: -20% !important;
+        font-size: 15em !important;
+        font-weight: bolder !important;
+        font-style: italic !important;
+        color: rgba(255, 255, 250, 0.08) !important;
+        font-family: 'Bebas Neue',sans-serif;
     }
 
     /* img produit */
@@ -290,18 +283,13 @@
         display: inline-block;
         color: #111 !important;
         background: #fff;
-        margin: 0 5px;
+        /* margin: 0 5px; */
         transition: 0.5s;
         color: #111;
         border-radius: 4px;
         cursor: pointer;
         transition: 0.4s linear;
     }
-
-    /* .container2 .card .contentBx .size span:hover {
-        background: #6844ff;
-        color: #fff !important;
-    } */
 
     /* btn voir plus card */
     .container2 .card .contentBx a {

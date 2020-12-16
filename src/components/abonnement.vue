@@ -8,11 +8,11 @@
                 <div v-for="abonnement in abonnements" :key="abonnement.id" class="carde">
                     <div class="face front">
                         <h3 class="pricing-card-header">{{ abonnement.nom }}</h3>
-                        <hr><hr>
-                        <h1>Pour seulement</h1>
+                        
+                        <h1 style="margin-top:35px;">Pour seulement</h1>
                         <div class="price">{{ abonnement.prix }}<sup>€</sup><span>/mois</span></div>
-                        <hr>
-                        <h1 class="tirage">Bénéficiez d'offres spéciales en tant que Membre.</h1>
+                        
+                        <h1 class="tirage" style="margin-top:35px;margin-left:0;padding:20px;">Bénéficiez d'offres spéciales en tant que Membre.</h1>
                     </div>
                    <div class="face back">
                        

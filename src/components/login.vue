@@ -169,9 +169,9 @@
             border-radius: 0 !important;
             box-shadow: unset;
             overflow: hidden;
-            width: 100%;
+            width: 100% !important;
             height: 100vh;
-            max-width: 100%;
+            max-width: 100% !important;
             position: absolute;
             padding: 0;
             margin: 0;
@@ -226,7 +226,7 @@
             border-radius: 10px !important;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0, 0, 0, 0.22);
             overflow: hidden;
-            width: 768px;
+            width: 768px !important;
             max-width: 100%;
             height: 480px;
             top: 50%;

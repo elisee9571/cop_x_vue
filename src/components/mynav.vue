@@ -1,5 +1,4 @@
 <template>
-
     <!-- navbar -->
     <div class="container-fluid navigation">
 
@@ -7,7 +6,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <!-- mon logo -->
             <span class="trait">
-                <a class="navbar-brand navlogo" data-text="COP X" href="/">COP X</a>
+                <a style="font-weight:bolder;letter-spacing:-6px !important;" class="navbar-brand navlogo" data-text="COP X" href="/">COP X</a>
             </span>
 
             <!-- menu burger responsive icon -->
@@ -21,7 +20,7 @@
                 <ul class="navbar-nav ml-auto text-center navigationListe">
 
                     <!-- menu liste sneakers -->
-                    <li class="nav-item active dropdown ">
+                    <li class="nav-item active dropdown">
                         <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <span>SNEAKERS</span>
@@ -54,7 +53,7 @@
                     <!-- menu lifestyle -->
                     <li class="nav-item dropdown ">
                         <div>
-                            <a class="nav-link" href="lifestyle"><span>LIFESTYLE</span></a>
+                            <a class="nav-link" href="/lifestyle"><span>LIFESTYLE</span></a>
                         </div>
                     </li>
                 </ul>
@@ -116,10 +115,6 @@
         box-sizing: border-box !important;
     }
     /* icon de ma page */
-    i {
-        font-size: 30px !important;
-        filter: invert(0.7) !important;
-    }
     .profil_icon {
         filter: invert(1);
         vertical-align: middle;
@@ -185,7 +180,7 @@
 
     /*logo navbar */
     .navbar .navlogo {
-        position: relative;
+        position: relative !important;
         display: block;
         text-align: center;
         margin: 0;

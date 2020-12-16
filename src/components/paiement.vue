@@ -6,9 +6,29 @@
             <!-- container suite du panier pour commande achat -->
             <div class="col-lg-6 col-12 container_panier_box">
                 <div class="row">
-                    <div class="panier review-block">
-
-
+                    <div class="col-lg-8 col-12 col table_produit">
+                        <table class="table ">
+                            <tbody>
+                                <tr v-for="(item,index) in panier" :key="index">
+                                    <td>
+                                        <img class="profil_icon minus"
+                                            src="https://img.icons8.com/ios/45/000000/minus.png"
+                                            @click="supprimer(index)" />
+                                    </td>
+                                    <td class="img_Bxpanier">
+                                        <img class="img_panier" :src="require(`@/assets/${item.image}.png`)">
+                                    </td>
+                                    <td>{{item.nom}}
+                                        <!-- <br>{{item.produitId}} -->
+                                        <br>Taille : {{item.taille}}
+                                        <br>{{ item.prix_unitaire }}€ </td>
+                                    <!--<td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td>-->
+                                    <td><input type="button" class="btn btn-dark" @click="updateqtn(index)" value="-">
+                                        {{item.quantite}}
+                                        <input type="button" class="btn btn-dark" @click="update(index)" value="+"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="code col-12 review-block">
@@ -293,7 +313,7 @@
                                 </div>
                             </div>
 
-                            <div class="content-box">
+                            <div class="content-box" v-for="(item,index) in paiemet" :key="index">
                                 <div class="content-box__row">
                                     <div class="row review-block">
                                         <div class="review-block__inner">
@@ -308,6 +328,7 @@
                                     <div class="row review-block">
                                         <div class="review-block__inner">
                                             <p>Total</p>
+                                            <p>Total: {{ total }}€</p>
                                         </div>
                                     </div>
                                 </div>
@@ -346,9 +367,11 @@
 <script type="text/javascript">
     import braintree from "braintree-web";
     import paypal from "paypal-checkout";
+    import VueJwtDecode from "vue-jwt-decode"; /* import du vuejwtdecode */
 
     export default {
         name: "paiement",
+        props: ["panier"],
 
         data() {
             return {
@@ -359,12 +382,21 @@
                 amount: "",
             };
         },
+        computed: {
+            total: function () {
+                let total = 0;
+                for (let element of this.panier) {
+                    total += element.prix_unitaire * element.quantite;
+                }
+                return total.toFixed(2);
+            },
+        },
         created: function () {
             if (localStorage.getItem("token") === null) {
                 this.$router.push({
                     name: "login"
                 });
-            }
+            } 
             // eslint-disable-next-line no-console
             console.log("this.$route.params.total", this.$route.params.total);
             if (this.$route.params.total !== undefined) {
@@ -373,7 +405,79 @@
                 this.$router.push("/panier");
             }
         },
+
         methods: {
+            retour: function () {
+                this.$router.go(-1);
+            },
+            update: function (index) {
+                this.panier[index].quantite++;
+                this.panier[index].soustotal =
+                    this.panier[index].quantite * this.panier[index].prix_unitaire;
+                console.log(this.panier);
+                localStorage.removeItem("panier");
+                localStorage.setItem("panier", JSON.stringify(this.panier));
+            },
+            /*  */
+            updateqtn: function (index) {
+                if (this.panier[index].quantite > 1) {
+                    this.panier[index].quantite--;
+                    console.log(this.panier);
+                    localStorage.removeItem("panier");
+                    localStorage.setItem("panier", JSON.stringify(this.panier));
+                } else {
+                    this.supprimer(index);
+                }
+            },
+            /*  */
+            supprimer: function (index) {
+                this.panier.splice(index, 1);
+                localStorage.removeItem("panier");
+                if (this.panier.lengh > 0) {
+                    localStorage.setItem("panier", JSON.stringify(this.panier));
+                }
+            },
+            /*  */
+            valide: function () {
+                if (localStorage.getItem("token")) {
+                    var client = VueJwtDecode.decode(localStorage.getItem("token"));
+                    var produitId = [];
+                    var prix = [];
+                    var quantite = [];
+                    this.panier.forEach((item) => {
+                        produitId.push(item.produitId);
+                        prix.push(item.prix_unitaire);
+                        quantite.push(item.quantite);
+                    });
+                    this.axios.post("http://localhost:3000/commande/new", {
+                            clientId: client.id,
+                            panier: this.panier,
+                            produitId: produitId,
+                            prix: prix,
+                            quantite: quantite,
+                        })
+                        .then((res) => {
+                            console.log(res.data);
+                            this.$router.push({
+                                name: 'paiement',
+                                params: {
+                                    total: this.total
+                                },
+                            });
+                        })
+                        .catch((err) => {
+                            alert("error");
+                            console.log(err);
+                        });
+                } else {
+                    this.$router.push({
+                        name: "login"
+                    });
+                }
+            },
+
+
+
             payWithCreditCard() {
                 if (this.hostedFieldInstance) {
                     this.error = "";

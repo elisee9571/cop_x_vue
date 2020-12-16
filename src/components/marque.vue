@@ -48,6 +48,7 @@
                 <vue-glide-slide class="col" style="height: 100px; width:100px; ">
                     <img src="../assets/icon_fragment.png" class="img_marque marque_fragment" alt="fragment">
                 </vue-glide-slide>
+
             </vue-glide>
         </div>
     </div>

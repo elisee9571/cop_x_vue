@@ -1,13 +1,26 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
-import router from './router'
+import VueRouter from "vue-router";
+import router from './router/index'
+
+/* import dashboard */
+import RouterPrefetch from 'vue-router-prefetch'
+import BlackDashboard from "./plugins/blackDashboard";
+import i18n from "./i18n"
+Vue.use(BlackDashboard);
+Vue.use(VueRouter);
+Vue.use(RouterPrefetch);
+
+
+
+
+
 
 /* import axios pour liée mon node et vue */
 import axios from 'axios';
 import Vuesaxios from 'vue-axios';
 Vue.use(Vuesaxios, axios);
-
 
 /* import des liens bootstrap */
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
@@ -18,7 +31,6 @@ Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 
-
 /* glide pour mon slide produit*/
 import VueGlide from 'vue-glide-js'
 import 'vue-glide-js/dist/vue-glide.css'
@@ -27,11 +39,11 @@ Vue.use(VueGlide)
 /* effet d'apparition AOS */
 import 'aos/dist/aos.css'; // You can also use  for styles
 
-
 Vue.config.productionTip = false
 
 new Vue({
     router,
+    i18n,
     // h un alias createElement
     render: h => h(App)
         // “mount” signifie le moment où votre composant est inséré dans le DOM.

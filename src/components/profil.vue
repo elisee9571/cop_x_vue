@@ -4,8 +4,6 @@
 
         <div class="container">
 
-            <!-- <h1 class="text-center">Mon Profil</h1> -->
-
             <!-- image du profil -->
             <div class="row">
 
@@ -19,12 +17,15 @@
 
                         <!-- image profil -->
                         <div class="avatar_box text-center">
-                            <img v-if="client.image !== undefined" :src="client.image" class="avatar" alt="avatar" />
+                            <img v-if="client.image !== undefined" :src="client.image" class="avatar"
+                                alt="avatar" />
                             <img v-else :src="pic" class="avatar" alt="avatar" />
-                            <h6>{{client.nom}}</h6>
                             <label class="ajouter_image" for="file"><img
                                     src="https://img.icons8.com/fluent-systems-filled/35/000000/add.png" /></label>
-                            <input id="file" type="file" accept="image/jpeg" @change="uploadImage" />
+                            <input class="input_ajouter-img" id="file" type="file" accept="image/jpeg"
+                                @change="uploadImage" />
+                            <h6 class="nom_profil">{{client.nom}}</h6>
+
                         </div>
 
                         <!-- mes information -->
@@ -86,7 +87,7 @@
                                         <!-- nom -->
                                         <div class="form-group col-lg-6">
                                             <label class="col-md-12 control-label" for="nom"> Nom: </label>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-12" style="padding:0;">
                                                 <input class="input_profil form-control" type="text" name="nom" id="nom"
                                                     v-model="client.nom" />
                                             </div>
@@ -96,14 +97,12 @@
                                         <div class="form-group col-lg-6">
                                             <label class="col-md-12 control-label" for="date"> Date de naissance:
                                             </label>
-                                            <div class="col-lg-12">
-                                                <input class="input_profil form-control" type="date" name="date"
+                                            <div class="col-lg-12" style="padding:0;">
+                                                <input class="input_profil form-control" style="padding: 0 0.75rem !important;" type="date" name="date"
                                                     id="date" v-model="client.date" />
                                             </div>
                                         </div>
                                     </div>
-
-
 
                                     <!-- sexe -->
                                     <div class="form-group">
@@ -127,16 +126,16 @@
                                                     value="Autre" v-model="client.sexe" />
                                                 <label class="sexe_label" for="Autre">Autre</label>
                                             </div>
-
                                         </div>
                                     </div>
 
                                     <!-- pointure -->
                                     <div class="form-group">
-                                        <label class="col-md-12 control-label" for="pointure"> pointure: </label>
+                                        <label style="color:#333 !important;" class="col-md-12 control-label"
+                                            for="pointure"> pointure: </label>
                                         <div class="col-lg-6">
-                                            <b-form-select v-model="client.pointure" :options="options" name="pointure"
-                                                id="pointure"></b-form-select>
+                                            <b-form-select style="color:#333 !important;" v-model="client.pointure"
+                                                :options="options" name="pointure" id="pointure"></b-form-select>
                                         </div>
                                     </div>
 
@@ -173,7 +172,7 @@
                                         <!-- cp -->
                                         <div class="form-group col-lg-6">
                                             <label class="col-md-12 control-label" for="cp">cp: </label>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-12" style="padding:0;">
                                                 <input class="input_profil form-control" type="tel" name="cp" id="cp"
                                                     v-model="client.cp" />
                                             </div>
@@ -182,7 +181,7 @@
                                         <!-- pays -->
                                         <div class="form-group col-lg-6">
                                             <label class="col-md-12 control-label" for="pays"> pays: </label>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-12" style="padding:0;">
                                                 <input class="input_profil form-control" type="text" name="pays"
                                                     id="pays" v-model="client.pays" />
                                             </div>
@@ -209,18 +208,22 @@
                                     </div> -->
 
                                     <!-- btn profil a jour -->
-                                    <button @click="update" type="button" class="btn_jour" data-toggle="modal"
-                                        data-target="#exampleModal">
-                                        Sauvegarder les
+                                    <div class="">
+                                        <button @click="update" type="button" class="btn_jour" data-toggle="modal"
+                                            data-target="#exampleModal">
+                                            Sauvegarder les
                                             modifications
-                                    </button>
+                                        </button>
+                                    </div>
+
                                     <!-- Modal profil a jour-->
                                     <div class="modal fade" id="exampleModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Mise à jour du profil</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Mise à jour du profil
+                                                    </h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -237,7 +240,6 @@
                                         </div>
                                     </div>
                                 </form>
-
                             </div>
                         </div>
 
@@ -247,10 +249,8 @@
                             <div class="row">
                                 <div class="mes_commandes">
                                     <h1 class="titre_page_nav text-center">Mes commandes</h1>
-
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-paiement" role="tabpanel"
@@ -266,14 +266,12 @@
                                             data-toggle="pill" href="#v-pills-information_paiement" role="tab"
                                             aria-controls="v-pills-information_paiement" aria-selected="false">
                                             Ajouter un nouveau mode de paiement</a>
-
                                     </div>
-
                                 </div>
                             </div>
-
                         </div>
 
+                        <!-- information paiement -->
                         <div class="tab-pane fade" id="v-pills-information_paiement" role="tabpanel"
                             aria-labelledby="v-pills-information_paiement-tab">
                             <!-- information paiement -->
@@ -289,19 +287,15 @@
                                                             class="paypal">PAYPAL
                                                             <img class="icon_paiement" src="../assets/icon_paypal.png"
                                                                 alt=""></a></p>
-
-
                                                 </div>
                                                 <div class="col-md-6 text-right" style="margin-top: -5px;">
                                                     <img class="icon_paiement" src="../assets/icon_visa.png" alt="">
                                                     <img class="icon_paiement" src="../assets/icon_mastercard.png"
                                                         alt="">
                                                     <img class="icon_paiement" src="../assets/icon_amex.png" alt="">
-
                                                 </div>
                                             </div>
                                         </div>
-
 
                                         <div class="card-body">
                                             <div class="form-group">
@@ -331,9 +325,7 @@
                                                             placeholder="•••" name="">
                                                     </div>
                                                 </div>
-
                                             </div>
-
 
                                             <div class="form-group">
                                                 <label for="numeric" class="control-label label_card">Nom du
@@ -344,27 +336,26 @@
                                             <div class="form-group text-center">
                                                 <input type="submit" class="btn_jour" value="Ajouter" />
                                             </div>
-
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                        <!-- fin information paiement -->
 
+                        <!-- abonnement -->
                         <div class="tab-pane fade" id="v-pills-abonnement" role="tabpanel"
                             aria-labelledby="v-pills-abonnement-tab">
                             <!-- mon abonnement -->
                             <div class="row">
                                 <div class="mon_abonnement">
                                     <h1 class="titre_page_nav text-center">mon Abonnement</h1>
-
                                 </div>
                             </div>
-
                         </div>
+                        <!-- fin abonnement -->
 
+                        <!-- securité -->
                         <div class="tab-pane fade" id="v-pills-mdp" role="tabpanel" aria-labelledby="v-pills-mdp-tab">
                             <!-- changer le mdp -->
                             <div class="row text-center">
@@ -382,39 +373,13 @@
                                         <div class="form-group">
                                             <input @click="oublier" type="submit" class="btn_jour" value="envoyer" />
                                         </div>
-
                                     </form>
-
                                 </div>
                             </div>
-
                         </div>
-
-                        <!-- <div class="tab-pane fade" id="v-pills-mdp_oublié" role="tabpanel"
-                        aria-labelledby="v-pills-mdp_oublié-tab">
-                       
-                        <div class="row">
-                            <div class="securite col-12 text-center">
-                                <h1 class="titre_page_nav text-center">Réinitialiser Mot De Passe:</h1>
-                                <div class="form-group" @submit.prevent="oublier2">
-                                    
-
-                                    <label class="col-md-12 control-label" for="forgetpassword"> Email: </label>
-                                    <div class="col-lg-6">
-                                        <input class="input_profil form-control" type="email" name="forgetpassword" id="forgetpassword" />
-                                    </div>
+                        <!-- fin sécurité -->
 
 
-                                    <div class="form-group">
-                                        <input type="submit" class="btn_jour" value="Envoyer" />
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
- -->
                     </div>
                 </div>
 
@@ -432,10 +397,11 @@
                 email: "",
                 client: {},
                 pic: null,
-                options: [{
-                        value: '35',
-                        text: 'EU 35'
-                    },
+                options: [
+                    /* {
+                                            value: '35',
+                                            text: 'EU 35'
+                                        }, */
                     {
                         value: '35,5',
                         text: 'EU 35,5'
@@ -542,26 +508,26 @@
                         value: '48',
                         text: 'EU 48'
                     },
-                    {
-                        value: '48,5',
-                        text: 'EU 48,5',
+                    /*  {
+                         value: '48,5',
+                         text: 'EU 48,5',
 
-                    },
-                    {
-                        value: '49',
-                        text: 'EU 49',
+                     },
+                     {
+                         value: '49',
+                         text: 'EU 49',
 
-                    },
-                    {
-                        value: '49,5',
-                        text: 'EU 49,5',
+                     },
+                     {
+                         value: '49,5',
+                         text: 'EU 49,5',
 
-                    },
-                    {
-                        value: '50',
-                        text: 'EU 50',
+                     },
+                     {
+                         value: '50',
+                         text: 'EU 50',
 
-                    },
+                     }, */
                 ]
             };
         },
@@ -670,6 +636,24 @@
         margin: 20px 0;
     }
 
+    .input_profil {
+        color: #333 !important;
+        font-family: 'Oswald', sans-serif !important;
+        height: 100%;
+        border: 1px solid #cad1d7 !important;
+        box-shadow: inset 0 1px 2px rgba(34, 42, 66, 0.075);
+        border-radius: 4px !important;
+        font-size: 18px !important;
+        padding-left: 15px;
+    }
+
+    h6.nom_profil {
+        color: #808080;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 30px;
+        font-weight: unset;
+    }
+
     @media (min-width: 0px) {
 
         .col-lg-8 {
@@ -712,10 +696,17 @@
     .ajouter_image {
         display: unset;
         cursor: pointer;
+        display: flex;
+        position: absolute;
+        left: 47%;
+        bottom: 15%;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #6844ff;
     }
 
     /* titre input */
-    label {
+    .container_back label {
         font-size: 25px;
         color: #333;
         font-family: 'Bebas Neue', sans-serif;
@@ -759,6 +750,7 @@
     }
 
     .avatar_box {
+        position: relative;
         margin-bottom: 35px !important;
         padding: 0;
 
@@ -767,7 +759,7 @@
     .nav_titre_profil {
         font-size: 23px;
         font-family: 'Bebas Neue', sans-serif;
-        color: #333;
+        color: #333 !important;
         margin-left: 5px;
         padding-left: 10px;
     }

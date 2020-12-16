@@ -31,12 +31,12 @@
             <!-- newletter -->
             <div class="col-lg-4 col-md-12 newletter text-center">
                 <h6>Inscription à la newletter</h6>
-                <p>Abonne toi à la newletter pour ne pas rater notre actualité</p>
+                <p style="padding: 20px 50px;">Abonne toi à la newletter pour ne pas rater notre actualité.</p>
 
-                <div class="input-group">
-                    <input type="email" class="form-control input_email" placeholder="Email" required>
+                <div class="input-group input-group_email">
+                    <input id="newsletter" type="email" class="form-control input_email" placeholder="Email" required>
                     <div class="input">
-                        <button class="btn_email" type="submit">Envoyer</button>
+                        <button for="newsletter" class="btn_email" type="submit">Envoyer</button>
                     </div>
                 </div>
             </div>
@@ -73,14 +73,15 @@
         width: 100%;
     }
 
-    h6 {
-        font-family: 'Bebas Neue', sans-serif;
+    .reseaux h6, .newletter h6 {
+        font-family: 'Bebas Neue', sans-serif !important;
         font-size: 30px !important;
         color: #cdcdcd;
+        font-weight: unset;
     }
 
     p {
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Oswald', sans-serif !important;
         font-size: 20px;
         color: #cdcdcd;
     }
@@ -109,6 +110,11 @@
     /* input email/ btn email */
     .input_email {
         border-radius: 8px !important;
+        background: #fff !important;
+        color: #333 !important;
+        font-size: 18px !important;
+        padding: 5px 0 !important;
+        padding-left: 10px !important;
     }
 
     .input_email:focus {
@@ -119,7 +125,7 @@
     .btn_email {
         border: 2px solid rgba(104, 68, 255, 255);
         color: rgba(104, 68, 255, 255);
-        padding: 5px 20px !important;
+        padding: 7px 20px !important;
         border-radius: 8px !important;
         text-transform: uppercase;
         font-weight: 500 !important;
@@ -135,5 +141,21 @@
 
     button:active {
         transform: scale(0.95);
+    }
+
+    @media (min-width: 0) {
+        .input-group_email{
+            padding: 0 50px;
+        }
+    }
+    @media (min-width: 576px) {
+        .input-group_email{
+            padding: 0 100px;
+        }
+    }
+    @media (min-width: 992px) {
+        .input-group_email{
+            padding: 0px;
+        }
     }
 </style>
