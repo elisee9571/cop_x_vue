@@ -17,14 +17,25 @@
 
                         <!-- image profil -->
                         <div class="avatar_box text-center">
-                            <img v-if="client.image !== undefined" :src="client.image" class="avatar"
-                                alt="avatar" />
+                            <img v-if="client.image !== undefined" src="../assets/image_profil.jpg" class="avatar" alt="avatar" /><!-- :src="client.image" -->
                             <img v-else :src="pic" class="avatar" alt="avatar" />
                             <label class="ajouter_image" for="file"><img
                                     src="https://img.icons8.com/fluent-systems-filled/35/000000/add.png" /></label>
-                            <input class="input_ajouter-img" id="file" type="file" accept="image/jpeg"
-                                @change="uploadImage" />
+                            <input class="input_ajouter-img" id="file" type="file" accept="image/jpeg" @change="uploadImage"/>
                             <h6 class="nom_profil">{{client.nom}}</h6>
+
+                            <!--  <div class="file-upload">
+                                <label for="file" class="file">choisir une image</label>
+                                <input type="file" class="none" id="file" @change="onFileChange" />
+                                <div class="valider">
+                                    <div v-if="progress" class="progess-bar" :style="{ width: progress }">
+                                        {{ progress }}
+                                    </div>
+                                    <button @click="onUploadFile" class="upload-button" :disabled="!this.selectedFile">
+                                        valider
+                                    </button>
+                                </div>
+                            </div> -->
 
                         </div>
 
@@ -98,7 +109,8 @@
                                             <label class="col-md-12 control-label" for="date"> Date de naissance:
                                             </label>
                                             <div class="col-lg-12" style="padding:0;">
-                                                <input class="input_profil form-control" style="padding: 0 0.75rem !important;" type="date" name="date"
+                                                <input class="input_profil form-control"
+                                                    style="padding: 0 0.75rem !important;" type="date" name="date"
                                                     id="date" v-model="client.date" />
                                             </div>
                                         </div>
@@ -209,8 +221,8 @@
 
                                     <!-- btn profil a jour -->
                                     <div class="">
-                                        <button @click="update" type="button" class="btn_jour" data-toggle="modal"
-                                            data-target="#exampleModal">
+                                        <button @click="update" type="button" class="btn_jour"
+                                            data-toggle="modal" data-target="#exampleModal">
                                             Sauvegarder les
                                             modifications
                                         </button>
@@ -396,13 +408,8 @@
                 password: "",
                 email: "",
                 client: {},
-                pic: null,
-                options: [
-                    /* {
-                                            value: '35',
-                                            text: 'EU 35'
-                                        }, */
-                    {
+                pic: {},
+                options: [{
                         value: '35,5',
                         text: 'EU 35,5'
                     },
@@ -508,26 +515,6 @@
                         value: '48',
                         text: 'EU 48'
                     },
-                    /*  {
-                         value: '48,5',
-                         text: 'EU 48,5',
-
-                     },
-                     {
-                         value: '49',
-                         text: 'EU 49',
-
-                     },
-                     {
-                         value: '49,5',
-                         text: 'EU 49,5',
-
-                     },
-                     {
-                         value: '50',
-                         text: 'EU 50',
-
-                     }, */
                 ]
             };
         },

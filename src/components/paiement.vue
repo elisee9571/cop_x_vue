@@ -1,20 +1,252 @@
 <template>
-    <!-- page paiement -->
-    <div class="container-fluid body">
-        <div class="row">
+    <div class="container">
+        <!-- header -->
+        <div class="nav_paiement">
+            <div class="row" style="padding-top:20px !important;">
+                <span class="trait">
+                    <a style="font-weight:bolder;
+                    letter-spacing:-6px !important;" 
+                    class="navbar-brand navlogo"
+                        data-text="COP X" href="/">COP X</a>
+                </span>
+                <div class="col-8 text-center">
+                    <h1 class="titre_paiement" style="padding-top:20px;">paiement</h1>
+                </div>
+            </div>
+        </div>
+        <!-- fin header -->
+        <!-- section all -->
+        <div class="container-fluid">
+            <div class="row col-12 justify-content-center">
+                <!-- Section 1 -->
+                <div class="row col-lg-7 col-12">
+                    <form class="text-left" 
+                    style="padding:0!important;
+                    margin:0px!important;
+                    background:unset;"
+                        action="">
+                        <!-- pays livraison -->
 
-            <!-- container suite du panier pour commande achat -->
-            <div class="col-lg-6 col-12 container_panier_box">
-                <div class="row">
-                    <div class="col-lg-8 col-12 col table_produit">
-                        <table class="table ">
+                        <div class="form-group">
+                            <label class="col-12" for="pays"> PAYS DE LIVRAISON:
+                            </label>
+                            <div class="col-lg-6">
+                                <b-form-select style="color:#808080;" v-model="client.pays" :options="pays" name="pays"
+                                    id="pays"></b-form-select>
+                            </div>
+                        </div>
+
+                        <!-- fin pays livraison -->
+                        <!-- code reduction -->
+
+                        <div class="form-group">
+                            <label class="col-12" for="codes">CODE PROMO:</label>
+                            <div style="padding:0 15px;">
+                                <input class="col-lg-5 col-9 " type="text">
+                                <button class="btn_jour" 
+                                style="font-size:15px;
+                            padding:5px 15px;
+                            border-radius:5px;" type="submit">Appliquer</button>
+                            </div>
+                        </div>
+
+                        <!-- fin code reduc -->
+                        <!-- email -->
+                        <div class="form-group">
+                            <label class="col-md-12 " for="email"> ADRESSE EMAIL : </label>
+                            <p style="padding:0 15px;" id="email">{{ client.email }}</p>
+                        </div>
+                        <!-- fin email -->
+                        <!-- adresse -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-9" for="adresse"> ADRESSE DE LIVRAISON: </label>
+                                <a class="col-2" href="/profil">modifier</a>
+                            </div>
+
+                            <p style="padding:0 15px;" id="adresse">{{ client.nom }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.adresse }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.ville }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.cp }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.pays }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.tel }}</p>
+                        </div>
+                        <!-- fin adresse -->
+                        <!-- option livraion -->
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" for="livraison"> OPTION LIVRAISON: </label>
+                            <div class="sexe_renseignement">
+                                <table>
+                                    <tr>
+                                        <div class="column col-12">
+                                            <div class="row col-12">
+                                                <td class="col-10" for="Livraison_Standard">
+                                                    <input class="sexe_input align-bottom" type="radio"
+                                                        id="Livraison_Standard" name="livraison" value="10€"
+                                                        v-model="client.livraison" required />
+                                                    <label class="sexe_label" for="Livraison_Standard">Livraison
+                                                        Standard</label>
+                                                        <p style="font-size:17px;
+                                                    padding-left:55px;
+                                                    display:flex;
+                                                    jutify-content:center;
+                                                    align-items:center;">
+                                                        <img class="icontext_info" 
+                                                        style="width:18px;
+                                                        height:18px;
+                                                        margin-right:5px;" src="https://img.icons8.com/material/20/000000/info--v1.png" />
+                                                    10 jours ouvrés</p>
+                                                </td>
+                                                <td class="col-2">
+                                                    <label for="Livraison_Standard">10€</label>
+                                                </td>
+                                            </div>
+                                            <hr style="border:1px solid #6844ff;">
+
+                                            <div class="row col-12">
+                                                <td class="col-10">
+                                                    <input class="sexe_input align-bottom" type="radio" id="Livraison_24"
+                                                        name="livraison" value="15€" v-model="client.livraison"
+                                                        required />
+                                                    <label class="sexe_label" for="Livraison_24">Livraison 24h</label>
+                                                    <p style="font-size:17px;
+                                                    padding-left:55px;
+                                                    display:flex;
+                                                    jutify-content:center;
+                                                    align-items:center;">
+                                                        <img class="icontext_info" 
+                                                        style="width:18px;
+                                                        height:18px;
+                                                        margin-right:5px;" src="https://img.icons8.com/material/20/000000/info--v1.png" />
+                                                    Livraison entre 7h et 22h</p>
+                                                </td>
+                                                <td class="col-2">
+                                                    <label for="Livraison_24">15€</label>
+                                                </td>
+                                            </div>
+                                        </div>
+
+                                    </tr>
+                                </table>
+
+
+
+                            </div>
+                        </div>
+                        <!-- fin option livraison -->
+                        <!-- adresse de facturation -->
+                        <div class="form-group">
+                            <h1 style="margin:10px 15px 20px;
+                            font-size:30px !important;">paiement</h1>
+                            <div class="row">
+                                <label class="col-9" for="adresse"> ADRESSE DE FACTURATION: </label>
+                                <a class="col-2" href="/profil">modifier</a>
+                            </div>
+
+                            <p style="padding:0 15px;" id="adresse">{{ client.nom }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.adresse }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.ville }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.cp }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.pays }}</p>
+                            <p style="padding:0 15px;" id="adresse">{{ client.tel }}</p>
+                            <!-- fin facturation -->
+                            <hr style="border:1px solid #6844ff;">
+                            <div class="row">
+                                <label class="col-9" for="paiement"> TYPE DE PAIEMENT: </label>
+                                <a class="col-2" href="/profil">modifier</a>
+
+
+
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="card-body">
+                                                <div class="alert alert-success" v-if="nonce">
+                                                    Votre paiement a bien été accepté.
+                                                </div>
+                                                <div style="background:crimson;" class="alert" v-if="error">
+                                                    {{ error }}
+                                                </div>
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="amount">Montant</label>
+                                                        <div class="input-group">
+
+                                                            <input type="number" id="amount" v-model="amount"
+                                                                class="form-control" placeholder="Enter Amount" />
+                                                            <div class="">
+                                                                <span class="input-group-text">€</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="label_paypal">Numéro de carte</label>
+                                                        <div id="creditCardNumber" class="form-control" required></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-7">
+                                                                <label class="label_paypal">Date d'expiration</label>
+                                                                <div id="expireDate" class="form-control" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label class="label_paypal">CVV</label>
+                                                                <div id="cvv" class="form-control" required></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-block"
+                                                        @click.prevent="payWithCreditCard">
+                                                        Pay with Credit Card
+                                                    </button>
+
+                                                    <div class="col-12" style="padding:0;" id="paypalButton"></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <input style="padding:10px 30px;
+                                    border-radius:10px;" class="btn-success btn-block" type="submit" value="Commander">
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </form>
+                    <div style="padding:10px 15px;">
+                        <p style="font-size:15px;letter-spacing:1px;">Vous acceptez nos <a href="/faq"
+                                target="_blank">Modalités</a> ,
+                            ainsi que <a href="/faq" target="_blank">nos politiques de
+                                confidentialité</a> et <a href="/faq" target="_blank">de retour</a> .
+                            Vous consentez à ce que certaines de vos données,
+                            soient utilisées pour améliorer le processus d'achats et enregistrées par
+                            COPX.</p>
+                    </div>
+
+
+
+                </div>
+                <!-- fin section 1 -->
+                <!-- section 2 -->
+                <div class="col-lg-5 col-12 ">
+                    <div class="form-group">
+                        <!-- style="position:fixed;" -->
+                         <div class="row">
+                            <h1 class="col-8" style="padding:0;margin:0 10px;"> Articles</h1>
+                            <a class="col-2" href="/panier">modifier</a>
+                        </div> 
+                        <hr style="border:1px solid #6844ff;">
+                        <div class="form-group" >
+                        <table class="table">
                             <tbody>
                                 <tr v-for="(item,index) in panier" :key="index">
-                                    <td>
-                                        <img class="profil_icon minus"
-                                            src="https://img.icons8.com/ios/45/000000/minus.png"
-                                            @click="supprimer(index)" />
-                                    </td>
+                                    <h1>{{ quantite}}</h1>
                                     <td class="img_Bxpanier">
                                         <img class="img_panier" :src="require(`@/assets/${item.image}.png`)">
                                     </td>
@@ -22,366 +254,176 @@
                                         <!-- <br>{{item.produitId}} -->
                                         <br>Taille : {{item.taille}}
                                         <br>{{ item.prix_unitaire }}€ </td>
-                                    <!--<td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td>-->
-                                    <td><input type="button" class="btn btn-dark" @click="updateqtn(index)" value="-">
-                                        {{item.quantite}}
-                                        <input type="button" class="btn btn-dark" @click="update(index)" value="+"></td>
+                                    <!-- <td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td> -->
+                                    <td>{{item.quantite}}</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
 
-                    <div class="code col-12 review-block">
-                        <div class="form-group col-6">
-                            <label style="color: #fff;" class="col-md-6 control-label" for="code"> code promo: </label>
-                            <div class="col-md-12">
-                                <input class="input_profil form-control" type="text" id="send"
-                                    oninput="result.value = send.value" />
-                            </div>
+                        <hr style="border:1px solid #6844ff;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="col-10"> Sous-Total :</td>
+                                    <td class="col-2">{{ total }}€</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-10"> Livraison :</td>
+                                    <td class="col-2">{{ client.livraison }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-10"> Total:</td>
+                                    <td class="col-2">{{ total }}€</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
                         </div>
 
-                    </div>
 
-                    <div class="tt col-12">
-                        <div class="content-box">
-                            <div class="content-box__row">
-                                <div class="row review-block">
-                                    <div class="review-block__inner">
-                                        <p>Sous-total</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                    <div class="review-block__inner">
-                                        <p>Livraison</p>
-                                    </div>
-                                </div>
-                                <div class="row review-block">
-                                    <div class="review-block__inner">
-                                        <p>Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <!-- container pour l'achat -->
-            <div class="container_paiement_box col-lg-5 col-11">
-                <h1 class="titre_paiement">Paiement</h1>
-                <div class="row col-12">
-                    <!-- bar progress -->
-                    <div class="progress-bar col-12">
-
-                        <div class="step">
-                            <p class="titre_step">Adresse</p>
-                            <div class="bullet">
-                                <span class="number_step">1</span>
-                            </div>
-                            <div class="check fas fa-check">
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <p class="titre_step">Option</p>
-                            <div class="bullet">
-                                <span class="number_step">2</span>
-                            </div>
-                            <div class="check fas fa-check">
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <p class="titre_step">Paiement</p>
-                            <div class="bullet">
-                                <span class="number_step">3</span>
-                            </div>
-                            <div class="check fas fa-check">
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <p class="titre_step">Valider</p>
-                            <div class="bullet">
-                                <span class="number_step">4</span>
-                            </div>
-                            <div class="check fas fa-check">
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-                <!-- form -->
-                <div class="form-outer form_box_all">
-
-                    <form class="form_box" action="#" onsubmit="return checkReqFields()">
-                        <!-- adresse -->
-                        <div class="page slide-page">
-                            <div class="titre_page">Renseignement :</div>
-                            <div class="row">
-                                <div class="field col-12">
-                                    <input class="input_paiement col-lg-6 " type="text" placeholder="Nom Prénom *"
-                                        v-model="client.nom" required />
-                                </div>
-                                <div class="field col-12">
-                                    <input class="input_paiement col-12" type="text"
-                                        placeholder="Adresse de livraison *" v-model="client.adresse" required>
-                                </div>
-                                <div class="field col-12">
-                                    <input class="input_paiement col-12" type="text"
-                                        placeholder="Adresse de livraison" />
-                                </div>
-                                <div class="field col-12">
-                                    <input class="input_paiement col-lg-6" type="text" placeholder="Ville *"
-                                        v-model="client.ville" required />
-                                </div>
-                                <div class="field col-lg-6 col-12">
-                                    <input class="input_paiement col-12" type="tel" placeholder="Code postale *"
-                                        v-model="client.cp" required />
-                                </div>
-                                <div class="field col-lg-6 col-12">
-                                    <input class="input_paiement col-12" type="text" placeholder="Pays"
-                                        v-model="client.pays" />
-                                </div>
-                                <div class="field col-lg-6 col-12">
-                                    <input class="input_paiement col-12" type="email" placeholder="Adresse mail *"
-                                        v-model="client.email" required />
-                                </div>
-                                <div class="field col-lg-6 col-12">
-                                    <input class="input_paiement col-12" type="tel" placeholder="Téléphone *"
-                                        v-model="client.tel" required />
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <button class="btn_paiement firstNext next">Suivant</button>
-                                <!-- <input class="btn_paiement firstNext next" type="submit" value="Submit"> -->
-                            </div>
-                        </div>
-
-
-
-
-
-                        <!-- option -->
-                        <div class="page">
-                            <div class="titre_page">Option :</div>
-
-                            <div class="content-box">
-                                <div class="content-box_row">
-                                    <div class="row" style="padding: 16px !important;">
-                                        <div class="radio_input">
-                                            <input class="input-radios" type="radio" id="standard" name="livraison"
-                                                v-model="client.livraison">
-                                        </div>
-                                        <div class="col" for="standard">
-                                            <p style="display: flex;" class="p_livraison">Livraison Standard</p>
-                                            <p style="display: flex;"><small>10 jours ouvrés</small></p>
-                                        </div>
-                                        <p class="col-1 p_livraison">5€</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="content-box">
-                                <div class="content-box_row">
-                                    <div class="row" style="padding: 16px !important;">
-                                        <div class="radio_input">
-                                            <input class="input-radios" type="radio" id="express" name="livraison"
-                                                v-model="client.livraison">
-                                        </div>
-                                        <div class="col" for="express">
-                                            <p style="display: flex;" class="p_livraison">Livraison Expresss</p>
-                                            <p style="display: flex;"><small>Livraison en 24h entre 7h et 22h</small>
-                                            </p>
-                                        </div>
-                                        <p class="col-1 p_livraison">10€</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="form-group col-12">
-                                <label style="color: #fff;" class="col-md-12 control-label" for="code"> code promo:
-                                </label>
-                                <div class="col-md-12">
-                                    <input class="input_profil form-control" type="text" id="result" />
-                                </div>
-                            </div>
-
-                            <div class="field btns">
-                                <button class="btn_paiement prev-1 prev">Précédent</button>
-                                <button class="btn_paiement next-1 next">Suivant</button>
-                            </div>
-                        </div>
-
-
-                        <!-- paiement -->
-                        <div class="page">
-                            <div class="titre_page">Mode de paiement :</div>
-
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class=""></div>
-                                    <div class="">
-                                        <div class="card bg-light">
-                                            <div class="card-header">Mode de paiement :</div>
-                                            <div class="card-body">
-                                                <div class="alert alert-success" v-if="nonce">
-                                                    Votre paiement a bien été accepté.
-                                                </div>
-                                                <div class="alert alert-danger" v-if="error">
-                                                    {{ error }}
-                                                </div>
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label for="amount">Montant</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">$</span>
-                                                            </div>
-                                                            <input type="number" id="amount" v-model="amount"
-                                                                class="form-control" placeholder="Enter Amount" />
-                                                        </div>
-                                                    </div>
-                                                    <hr />
-                                                    <div class="form-group">
-                                                        <label class="label_paypal">Numéro de carte</label>
-                                                        <div id="creditCardNumber" class="form-control"></div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-7">
-                                                                <label class="label_paypal">Date d'expiration</label>
-                                                                <div id="expireDate" class="form-control"></div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <label class="label_paypal">CVV</label>
-                                                                <div id="cvv" class="form-control"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-primary btn-block"
-                                                        @click.prevent="payWithCreditCard">
-                                                        Pay with Credit Card
-                                                    </button>
-                                                    <hr />
-                                                    <div id="paypalButton"></div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-2 col-12"></div>
-                                </div>
-                            </div>
-
-
-
-
-                            <div class="field btns">
-                                <button class="btn_paiement prev-2 prev">Précédent</button>
-                                <button class="btn_paiement next-2 next">Suivant</button>
-                            </div>
-
-                        </div>
-
-
-                        <!-- valider -->
-                        <div class="page">
-                            <div class="titre_page">Récapitulatif :</div>
-
-                            <div class="content-box">
-                                <div class="content-box__row">
-                                    <div class="row review-block">
-                                        <div class="review-block__inner">
-                                            <p>Contact</p>
-                                        </div>
-                                    </div>
-                                    <div class="row review-block" style="padding-bottom: 70px !important;">
-                                        <div class="review-block__inner">
-                                            <p>Expédier à</p>
-                                        </div>
-                                    </div>
-                                    <div class="row review-block">
-                                        <div class="review-block__inner">
-                                            <p>Paiement</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="content-box" v-for="(item,index) in paiemet" :key="index">
-                                <div class="content-box__row">
-                                    <div class="row review-block">
-                                        <div class="review-block__inner">
-                                            <p>Sous-total</p>
-                                        </div>
-                                    </div>
-                                    <div class="row review-block">
-                                        <div class="review-block__inner">
-                                            <p>Livraison</p>
-                                        </div>
-                                    </div>
-                                    <div class="row review-block">
-                                        <div class="review-block__inner">
-                                            <p>Total</p>
-                                            <p>Total: {{ total }}€</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-
-
-
-                            <div class="field btns">
-                                <button class="btn_paiement prev-3 prev">Précédent</button>
-                                <button class="btn_paiement submit">Valider</button>
-                            </div>
-                            <p class="petite_ligne">En confirmant votre commande vous acceptez <a href="/faq">nos
-                                    conditions générales</a>, <a href="/faq">notre politique de confidentialité</a> et
-                                <a href="/faq">nos modalités concernant les retours</a>
-                                et donnez votre autorisation pour que COP X conserve certaines de vos donnés dans le but
-                                d'améliorer vos prochaines expériences de shopping.</p>
-                        </div>
-
-
-                    </form>
-                </div>
-
-
-
+                <!-- fin section 2 -->
 
             </div>
         </div>
+        <!-- fin section all -->
     </div>
-
 </template>
 
-<script type="text/javascript">
+<script>
+    import VueJwtDecode from "vue-jwt-decode";
     import braintree from "braintree-web";
     import paypal from "paypal-checkout";
-    import VueJwtDecode from "vue-jwt-decode"; /* import du vuejwtdecode */
-
     export default {
-        name: "paiement",
-        props: ["panier"],
 
         data() {
             return {
-                client: {},
                 hostedFieldInstance: false,
                 nonce: "",
                 error: "",
                 amount: "",
+                client: {},
+                Panier: {},
+                produit: {},
+                pays: [{
+                        value: 'Allemagne',
+                        text: 'Allemagne'
+                    },
+                    {
+                        value: 'Autriche',
+                        text: 'Autriche'
+                    },
+                    {
+                        value: 'Belgique',
+                        text: 'Belgique'
+                    },
+                    {
+                        value: 'Bulgarie',
+                        text: 'Bulgarie',
+
+                    },
+                    {
+                        value: 'Chypre',
+                        text: 'Chypre'
+                    },
+                    {
+                        value: 'Croatie',
+                        text: 'Croatie'
+                    },
+                    {
+                        value: 'Danemark',
+                        text: 'Danemark'
+                    },
+                    {
+                        value: 'Espagne',
+                        text: 'Espagne'
+                    },
+                    {
+                        value: 'Estonie',
+                        text: 'Estonie',
+
+                    },
+                    {
+                        value: 'Finlande',
+                        text: 'Finlande'
+                    },
+                    {
+                        value: 'France',
+                        text: 'France'
+                    },
+                    {
+                        value: 'Grece',
+                        text: 'Grèce'
+                    },
+                    {
+                        value: 'Hongrie',
+                        text: 'Hongrie'
+                    },
+                    {
+                        value: 'Irlande',
+                        text: 'Irlande',
+
+                    },
+                    {
+                        value: 'Italie',
+                        text: 'Italie',
+
+                    },
+                    {
+                        value: 'Lettonie',
+                        text: 'Lettonie'
+                    },
+                    {
+                        value: 'Lituanie',
+                        text: 'Lituanie'
+                    },
+                    {
+                        value: 'Luxembourg',
+                        text: 'Luxembourg'
+                    },
+                    {
+                        value: 'Malte',
+                        text: 'Malte'
+                    },
+                    {
+                        value: 'Pays-Bas',
+                        text: 'Pays-Bas',
+
+                    },
+                    {
+                        value: 'Pologne',
+                        text: 'Pologne',
+
+                    },
+                    {
+                        value: 'Portugal',
+                        text: 'Portugal'
+                    },
+                    {
+                        value: 'Republique_tcheque',
+                        text: 'République tchèque'
+                    },
+                    {
+                        value: 'Roumanie',
+                        text: 'Roumanie'
+                    },
+                    {
+                        value: 'Slovaquie',
+                        text: 'Slovaquie'
+                    },
+                    {
+                        value: 'Slovenie',
+                        text: 'Slovénie'
+                    },
+                    {
+                        value: 'Suede',
+                        text: 'Suède'
+                    },
+                ]
             };
         },
+
         computed: {
             total: function () {
                 let total = 0;
@@ -389,14 +431,17 @@
                     total += element.prix_unitaire * element.quantite;
                 }
                 return total.toFixed(2);
-            },
+            }
         },
         created: function () {
             if (localStorage.getItem("token") === null) {
                 this.$router.push({
                     name: "login"
                 });
-            } 
+            } else {
+                this.client = VueJwtDecode.decode(localStorage.getItem("token"));
+                console.log(this.client);
+            }
             // eslint-disable-next-line no-console
             console.log("this.$route.params.total", this.$route.params.total);
             if (this.$route.params.total !== undefined) {
@@ -404,80 +449,15 @@
             } else {
                 this.$router.push("/panier");
             }
+            if (!localStorage.getItem("panier")) {
+                return;
+            } else {
+                this.panier = JSON.parse(localStorage.getItem("panier"));
+            }
+
         },
 
         methods: {
-            retour: function () {
-                this.$router.go(-1);
-            },
-            update: function (index) {
-                this.panier[index].quantite++;
-                this.panier[index].soustotal =
-                    this.panier[index].quantite * this.panier[index].prix_unitaire;
-                console.log(this.panier);
-                localStorage.removeItem("panier");
-                localStorage.setItem("panier", JSON.stringify(this.panier));
-            },
-            /*  */
-            updateqtn: function (index) {
-                if (this.panier[index].quantite > 1) {
-                    this.panier[index].quantite--;
-                    console.log(this.panier);
-                    localStorage.removeItem("panier");
-                    localStorage.setItem("panier", JSON.stringify(this.panier));
-                } else {
-                    this.supprimer(index);
-                }
-            },
-            /*  */
-            supprimer: function (index) {
-                this.panier.splice(index, 1);
-                localStorage.removeItem("panier");
-                if (this.panier.lengh > 0) {
-                    localStorage.setItem("panier", JSON.stringify(this.panier));
-                }
-            },
-            /*  */
-            valide: function () {
-                if (localStorage.getItem("token")) {
-                    var client = VueJwtDecode.decode(localStorage.getItem("token"));
-                    var produitId = [];
-                    var prix = [];
-                    var quantite = [];
-                    this.panier.forEach((item) => {
-                        produitId.push(item.produitId);
-                        prix.push(item.prix_unitaire);
-                        quantite.push(item.quantite);
-                    });
-                    this.axios.post("http://localhost:3000/commande/new", {
-                            clientId: client.id,
-                            panier: this.panier,
-                            produitId: produitId,
-                            prix: prix,
-                            quantite: quantite,
-                        })
-                        .then((res) => {
-                            console.log(res.data);
-                            this.$router.push({
-                                name: 'paiement',
-                                params: {
-                                    total: this.total
-                                },
-                            });
-                        })
-                        .catch((err) => {
-                            alert("error");
-                            console.log(err);
-                        });
-                } else {
-                    this.$router.push({
-                        name: "login"
-                    });
-                }
-            },
-
-
-
             payWithCreditCard() {
                 if (this.hostedFieldInstance) {
                     this.error = "";
@@ -585,424 +565,94 @@
                 })
                 // eslint-disable-next-line no-unused-vars
                 .catch((err) => {});
-
-
-            /* Created By CodingNepal */
-            const slidePage = document.querySelector(".slide-page");
-            const nextBtnFirst = document.querySelector(".firstNext");
-            const prevBtnSec = document.querySelector(".prev-1");
-            const nextBtnSec = document.querySelector(".next-1");
-            const prevBtnThird = document.querySelector(".prev-2");
-            const nextBtnThird = document.querySelector(".next-2");
-            const prevBtnFourth = document.querySelector(".prev-3");
-            const submitBtn = document.querySelector(".submit");
-            const progressText = [...document.querySelectorAll(".step p")];
-            const progressCheck = [...document.querySelectorAll(".step .check")];
-            const bullet = [...document.querySelectorAll(".step .bullet")];
-            /* let max = 4; */
-            let current = 1;
-
-            nextBtnFirst.addEventListener("click", function () {
-                slidePage.style.marginLeft = "-50%";
-                bullet[current - 1].classList.add("active");
-                progressCheck[current - 1].classList.add("active");
-                progressText[current - 1].classList.add("active");
-                current += 1;
-            });
-            nextBtnSec.addEventListener("click", function () {
-                slidePage.style.marginLeft = "-100%";
-                bullet[current - 1].classList.add("active");
-                progressCheck[current - 1].classList.add("active");
-                progressText[current - 1].classList.add("active");
-                current += 1;
-            });
-            nextBtnThird.addEventListener("click", function () {
-                slidePage.style.marginLeft = "-150%";
-                bullet[current - 1].classList.add("active");
-                progressCheck[current - 1].classList.add("active");
-                progressText[current - 1].classList.add("active");
-                current += 1;
-            });
-            submitBtn.addEventListener("click", function () {
-                bullet[current - 1].classList.add("active");
-                progressCheck[current - 1].classList.add("active");
-                progressText[current - 1].classList.add("active");
-                current += 1;
-                setTimeout(function () {
-                    alert("Your Form Successfully Signed up");
-                    location.reload();
-                }, 800);
-            });
-
-            prevBtnSec.addEventListener("click", function () {
-                slidePage.style.marginLeft = "0%";
-                bullet[current - 2].classList.remove("active");
-                progressCheck[current - 2].classList.remove("active");
-                progressText[current - 2].classList.remove("active");
-                current -= 1;
-            });
-            prevBtnThird.addEventListener("click", function () {
-                slidePage.style.marginLeft = "-50%";
-                bullet[current - 2].classList.remove("active");
-                progressCheck[current - 2].classList.remove("active");
-                progressText[current - 2].classList.remove("active");
-                current -= 1;
-            });
-            prevBtnFourth.addEventListener("click", function () {
-                slidePage.style.marginLeft = "-100%";
-                bullet[current - 2].classList.remove("active");
-                progressCheck[current - 2].classList.remove("active");
-                progressText[current - 2].classList.remove("active");
-                current -= 1;
-            });
-
-
-        }
+        },
     }
 </script>
 
 <style>
-    .label_paypal {
-        font-size: 20px;
-    }
-
-    /* css */
-
-    .body {
-        background: #262626;
-    }
-
-    .container_panier_box {
-        background: #202020;
-        height: 100vh;
-    }
-
-    .panier {
-        margin-top: 100px;
-        height: 100px !important;
-        width: 100%;
-    }
-
-    .tt .content-box {
-        border-top: 1px solid #808080 !important;
-        border-radius: 0 !important;
-        border: none;
-        margin-top: 20px;
-    }
-
-
-    /* input radio */
-    .radio_input {
-        padding: 0 10.5px 0;
-        white-space: nowrap;
-    }
-
-    input[type="radio"],
-    input[type="checkbox"] {
-        height: 20px;
-        width: 20px;
-        vertical-align: middle;
-    }
-
-    /* partie récap */
-    .review-block__inner {
-        display: flex;
-        flex: 1;
-    }
-
-    .review-block__inner p {
-        margin: 12px 0 0;
-        padding: 0 0 12px;
-    }
-
-    .review-block {
-        display: flex;
-    }
-
-    .review-block~.review-block {
-        margin-top: 0.8571428571em;
-        padding-top: 0.8571428571em;
-        border-top: 1px solid #808080;
-    }
-
-    .content-box {
-        border: 1px solid #808080;
-        border-radius: 5px;
-        margin-top: 20px;
-    }
-
-    .content-box__row {
-        padding: 16px;
-    }
-
-
-    /* container */
-    .container_paiement_box {
-        width: 100%;
-
-        background: #262626;
-        text-align: center;
-        padding: 50px 35px 10px 35px;
-        box-sizing: unset !important;
-    }
-
-    /* titre paiement */
-    .container_paiement_box .titre_paiement {
-        margin: 0 0 30px 0;
-    }
-
-    /* container */
-    .container_paiement_box .form_box_all {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .form_box_all .form_box {
-
-        display: flex;
-        width: 400%;
-    }
-
-    /* page */
-    .form_box_all .form_box .page {
-        padding: 0 50px !important;
-        width: 25%;
-        transition: margin-left 0.5s ease-in-out;
-    }
-
-    .form_box_all .form_box .page .titre_page {
-        text-align: left;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 30px;
-        color: #fff;
-        margin-bottom: 20px;
-    }
-
-    /* css form en row */
-    .form_box {
-        flex-direction: row !important;
-        padding: 0;
-        background: transparent;
-    }
-
-    /* info input */
-    .form_box_all .form_box .page .field {
-        height: 40px;
-        /* width: 100%; */
-        margin: 20px 0;
-        color: #fff;
-        position: relative;
-        display: flex;
-
-    }
-
-    form .page .field .label {
-        position: absolute;
-        top: -30px;
-        font-size: 20px;
-        font-weight: 500;
-    }
-
-    /* input */
-    .form_box_all .form_box .page .field .input_paiement {
-        height: 100%;
-        border: 1px solid lightgray;
-        border-radius: 5px;
-        font-size: 18px;
-        padding-left: 15px;
-    }
-
-    .input_paiement {
-        height: 100%;
-        border: 1px solid lightgray;
-        border-radius: 5px;
-        font-size: 18px;
-        padding-left: 15px;
-    }
-
-    /* btn  */
-    .form_box_all .form_box .page .field .btn_paiement {
-        width: 100%;
-        border: 2px solid rgba(104, 68, 255, 255);
-        color: rgba(104, 68, 255, 255);
-        height: calc(100% + 5px);
-        margin-top: -20px;
-        font-size: 18px;
-        border-radius: 8px;
-        text-transform: uppercase;
-        font-weight: 600;
-        transition: 0.4s linear;
-        background-color: transparent !important;
-    }
-
-    .form_box_all .form_box .page .field .btn_paiement:hover {
-        background-color: #6844ff !important;
-        color: #fff;
-    }
-
-    /* btns */
-    .form_box_all .form_box .page .btns .btn_paiement {
-        margin-top: 10px;
-    }
-
-    .form_box .page .btns .btn_paiement .prev {
-        margin-right: 3px;
-        font-size: 17px;
-    }
-
-    .form_box .page .btns .btn_paiement .next {
-        margin-left: 3px;
-        font-size: 17px;
-    }
-
-    /* progress bar */
-    .progress-bar {
-        overflow: visible;
-        flex-direction: row !important;
-        background: transparent !important;
-        margin-bottom: 40px;
-    }
-
-    .container .progress-bar {
-        display: flex;
-    }
-
-    .container .progress-bar .step {
-        position: relative;
-        text-align: center;
-        width: 100%;
-    }
-
-    /* titre étape */
-    .progress-bar .step .titre_step {
-        font-size: 20px;
-        font-weight: 500;
-        color: #fff;
-        margin-bottom: 8px;
-        transition: 0.2s;
-
-    }
-
-    .progress-bar .step .titre_step.active {
-        color: #6844ff;
-    }
-
-    /* trait */
-    .progress-bar .step .bullet {
-        position: relative;
-        margin: 0 40px !important;
-        height: 25px;
-        width: 25px;
-        border: 2px solid #fff;
-        display: inline-block;
-        border-radius: 50%;
-        transition: 0.3s;
-        box-sizing: unset !important;
-    }
-
-    .progress-bar .step .bullet.active {
-        border-color: #6844ff;
-        background: #6844ff;
-
-    }
-
-    .progress-bar .step:last-child .bullet:before,
-    .progress-bar .step:last-child .bullet:after {
-        display: none;
-    }
-
-    .progress-bar .step .bullet:before,
-    .progress-bar .step .bullet:after {
-        position: absolute;
-        content: '';
-        bottom: 11px;
-        right: -82px;
-        height: 4px;
-        width: 80px;
-        background: #fff;
-    }
-
-    .progress-bar .step .bullet.active:after {
-        background: #6844ff;
-        transform: scaleX(0);
-        transform-origin: left;
-        animation: animate 0.3s linear forwards;
-    }
-
-    @keyframes animate {
-        100% {
-            transform: scaleX(1);
-        }
-    }
-
-    span {
-        z-index: unset !important;
-    }
-
-    /* number */
-    .progress-bar .step .bullet span {
-        font-weight: 500;
-        font-size: 17px;
-        line-height: 25px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #fff !important;
-    }
-
-    .progress-bar .step .bullet.active span {
-        display: none !important;
-    }
-
-    /* check */
-    .progress-bar .step .check {
-        position: absolute;
-        top: 70%;
-        font-size: 15px;
-        transform: translate(315%, -50%);
-        display: none;
-    }
-
-    .progress-bar .step .check.active {
+    /* nav_paiement */
+     /*logo navbar */
+    .nav_paiement .navlogo {
+        position: relative !important;
         display: block;
+        text-align: center;
+        margin: 0;
+        text-transform: uppercase;
+        transition: .5s;
+        padding: 5px 10px;
+        color: transparent !important;
+        font-size: 50px !important;
+        font-weight: 500;
+    }
+
+    .nav_paiement .navlogo:before,
+    .navlogo:after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: #0f111a;
+        box-sizing: border-box;
+        transition: .5s;
+        transition-delay: .25s;
+    }
+
+    .nav_paiement .navlogo:before {
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+        color: #6844ff;
+        transform: translate(0, 1px);
+    }
+
+    .nav_paiement .navlogo:after {
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        color: #6844ff;
+        transform: translate(0, 0);
+    }
+
+    .nav_paiement .navlogo:hover:before {
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+        color: #00bcd4;
+        transform: translate(10px, -2px);
+    }
+
+    .nav_paiement .navlogo:hover:after {
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        color: #f0f;
+        transform: translate(-10px, 2px);
+    }
+
+    /* trait logo */
+    .nav_paiement .trait {
+        position: relative;
+        overflow: hidden !important;
+    }
+
+    .nav_paiement .trait:before {
+        content: '';
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        width: 100%;
+        left: -100%;
+        height: 1px;
+        background: #fff;
+        transition: .5s;
+    }
+    .nav_paiement .trait:hover:before {
+        left: 100%;
+    }
+
+    /* fin nav paiement */
+
+    /* section */
+    .container .container-fluid .row .form-group {
+        background: #292d3e;
+        padding: 20px;
+        margin: 7px;
         color: #fff;
+        font-size: 18px;
     }
 
-    /* paiement */
-    .padding {
-        padding: 5rem !important;
-    }
-
-    .icon_paiement {
-        width: 36px;
-    }
-
-    .label_text {
-        color: #fff !important;
-        font-size: 20px;
-    }
-
-    /* valider */
-    .p_livraison {
-        color: #fff;
-        font-size: 20px;
-    }
-
-    /* petite ligne */
-    .petite_ligne {
-        font-size: 15px;
-    }
-
-    /* tt */
-    .total_paiement p {
-        color: #fff;
-    }
-
-    .total {
-        margin-left: 70%;
-    }
-
-    .total p {
-        color: #fff;
-    }
+    /* fin section */
 </style>

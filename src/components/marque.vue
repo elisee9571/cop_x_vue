@@ -108,8 +108,9 @@
     }
 
     .marque_nike {
-        height: 100px;
-        width: 100px;
+        transform: translateY(50%);
+        height: 50px;
+        width: 135px;
     }
 
     .marque_yeezy {

@@ -5,6 +5,7 @@
       <div class="columun">
         <h1 class="titre_panier">Panier</h1>
         <div class="row col-12 justify-content-center">
+          
           <div class="col-lg-8 col-12 col table_produit">
             <table class="table ">
               <tbody>
@@ -18,15 +19,18 @@
                   </td>
                   <td>{{item.nom}}
                     <!-- <br>{{item.produitId}} -->
+
                     <br>Taille : {{item.taille}}
                     <br>{{ item.prix_unitaire }}€ </td>
-                  <!-- <td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td> -->
+                    <!-- <td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td> -->
+                  
                   <td><input type="button" class="btn btn-dark" @click="updateqtn(index)" value="-"> {{item.quantite}}
                     <input type="button" class="btn btn-dark" @click="update(index)" value="+"></td>
                 </tr>
               </tbody>
             </table>
           </div>
+
           <div class="col-lg-4 col-12 table_achat">
             <table class="col-lg-8 col-12">
               <div class="partie_achat">
@@ -36,6 +40,7 @@
                 <a class="continuer_achat" @click="retour">
                   <p>continuer mes achats</p>
                 </a>
+                
                 <div class="row">
                   <td class="total_panier">Total: {{ total }}€
                     <p class="text_expedition"> + Frais d'expédition</p>

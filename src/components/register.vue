@@ -3,7 +3,7 @@
     <div class="container container_login" id="container">
         <div class="row">
 
-            <div class="form-container sign-in-container" @submit.prevent="doregister">
+            <div class="form-container sign-in-container" @submit.prevent="doregister" >
                 <form>
                     <h1 class="titre_sign">Créer un compte</h1>
                     <div class="social-container">
@@ -19,7 +19,7 @@
                 </form>
             </div>
 
-            <div class="form-container sign-up-container" @submit.prevent="dologin">
+            <div class="form-container sign-up-container" @submit.prevent="dologin" >
                 <form>
                     <h1 class="titre_sign">Se connecter</h1>
                     <div class="social-container">

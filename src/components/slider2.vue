@@ -15,10 +15,11 @@
 
                         <!-- text produit -->
                         <div class="contentBx">
-                            <h2>{{ produit.nom }}</h2>
+                            <h2 style="margin-bottom:10px;">{{ produit.nom }}</h2>
                             <div class="size">
-                                <h3>Tailles :</h3>
-                                <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span>
+                                <h3>Prix :</h3>
+                                <!-- <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span> -->
+                                <h1 class="prix_card">{{ produit.prix }} €</h1>
                             </div>
                             <!-- voir produit -->
                             

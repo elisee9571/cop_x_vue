@@ -15,10 +15,11 @@
 
                         <!-- text produit -->
                         <div class="contentBx">
-                            <h2>{{ produit.nom }}</h2>
+                            <h2 style="margin-bottom:10px;">{{ produit.nom }}</h2>
                             <div class="size">
-                                <h3>Tailles :</h3>
-                                <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span>
+                                <h3>Prix :</h3>
+                                <!-- <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span> -->
+                                <h1 class="prix_card">{{ produit.prix }} €</h1>
                             </div>
                             <!-- voir produit -->
                             <router-link :to="`/pageproduit/${produit.id}`">
@@ -41,7 +42,10 @@
     export default {
         name: "pagesneakers",
         props: ["produits"],
-        
+        /* permet de passer des accessoires à d'autres composants
+        en gros permet de pouvoir utiliser "produits" d'autre pages
+        contraire de props "emit" */
+
     }
 </script>
 
@@ -191,7 +195,7 @@
         font-weight: bolder !important;
         font-style: italic !important;
         color: rgba(255, 255, 250, 0.08) !important;
-        font-family: 'Bebas Neue',sans-serif;
+        font-family: 'Bebas Neue', sans-serif;
     }
 
     /* img produit */
@@ -250,9 +254,8 @@
     /* size produit */
     .container2 .card .contentBx .size {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 20px;
+        justify-content: center !important;
+        align-items: center !important;
         transition: 0.5s;
         opacity: 0;
         visibility: hidden;
@@ -270,11 +273,18 @@
         font-weight: 400;
         font-size: 14px;
         text-transform: uppercase;
-        margin-right: 10px;
         font-family: 'Oswald', sans-serif;
+        margin: 10px 10px;
     }
 
-    .container2 .card .contentBx .size span {
+    .container2 .card .contentBx .size .prix_card {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    /* .container2 .card .contentBx .size span {
         width: 40px;
         height: 40px;
         text-align: center;
@@ -283,13 +293,13 @@
         display: inline-block;
         color: #111 !important;
         background: #fff;
-        /* margin: 0 5px; */
+        margin: 0 5px;
         transition: 0.5s;
         color: #111;
         border-radius: 4px;
         cursor: pointer;
         transition: 0.4s linear;
-    }
+    } */
 
     /* btn voir plus card */
     .container2 .card .contentBx a {

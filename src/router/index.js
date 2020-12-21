@@ -17,3 +17,4 @@ const router = new VueRouter({
 })
 
 export default router
+/* permet d'expoter nos routes */

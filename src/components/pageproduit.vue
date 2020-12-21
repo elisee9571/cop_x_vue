@@ -33,29 +33,14 @@
               <!-- fin description produit -->
               <div class="size-container">
                 <div class="row">
-                  <div style="padding:0; margin:0;" class="dropdown col-6">
-                    <!-- btn tailles -->
-                    <button style="padding:10px; margin:0;letter-spacing:1px;" class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10">
-                      Tailles
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <div class="select-control">
-                        <div class="select-options">
-                          <ul class="list-unstyled sneakers">
-                            <li style="color:#111;" v-for="taille in produit.Tailles" :key="taille.id" class="select-option" role="menuitem"
-                              tabindex="0" aria-disabled="false">
-                              <div class="inset">
-                                <div class="taille_eu">EU {{ taille.taille }}</div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
+                  <div style="margin:0;padding:0;display:flex;align-items:center;" class="col-7">
+                  <select style="color:#333;font-size:15px;" class="form-control col-8">
+                    <option v-for="taille in produit.Tailles" :key="taille.id">EU {{ taille.taille }}</option>
+                  </select>
                   </div>
                   <!-- btn guides des tailles -->
-                  <button style="padding:10px; margin:0;letter-spacing:1px;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
+                  <button style="padding:10px; margin:0;letter-spacing:1px;" type="button" class="btn btn-danger"
+                    data-toggle="modal" data-target="#staticBackdrop">
                     Guide des tailles
                   </button>
                 </div>
@@ -68,7 +53,8 @@
                 </div>
               </div>
               <div class="buy-price">
-                <button @click="ajouter(produit.id, produit.nom, produit.prix, produit.Images[0].image, produit.taille)" type="button" class="btn_ajouter" data-toggle="modal" data-target="#exampleModal">
+                <button @click="ajouter(produit.id, produit.nom, produit.prix, produit.Images[0].image)"
+                  type="button" class="btn_ajouter" data-toggle="modal" data-target="#exampleModal">
                   <a>Ajouter
                     au
                     panier</a>
@@ -86,7 +72,7 @@
 
       <offre /><!-- import myfooter -->
       <h1 class="grand_titre">Vous aimerez aussi</h1>
-      <Aimer/><!-- import aimer -->
+      <Aimer /><!-- import aimer -->
 
     </div>
     <!-- Modal guides tailles-->
@@ -104,11 +90,13 @@
             <div class="container-fluid">
               <div class="text-center">
                 <p style="color:#333; padding:0 30px;">
-                  Pour les paires de type <strong>YEEZY</strong> la paire <strong>taille une demi-taile plus petit</strong>, nous vous recommandons de
+                  Pour les paires de type <strong>YEEZY</strong> la paire <strong>taille une demi-taile plus
+                    petit</strong>, nous vous recommandons de
                   prendre <strong>une demi-taille plus
-                  grand que votre taille habituelle</strong>.</p>
-                <p style="color:#333; padding:0 30px;">Sinon pour les autres <strong>Marques</strong> aucun soucis ça <strong>taille
-                  normalement</strong>.</p>
+                    grand que votre taille habituelle</strong>.</p>
+                <p style="color:#333; padding:0 30px;">Sinon pour les autres <strong>Marques</strong> aucun soucis ça
+                  <strong>taille
+                    normalement</strong>.</p>
               </div>
               <table class="tableau_tailles">
                 <thead>
@@ -276,7 +264,8 @@
     </div>
     <!-- fin Modal guides tailles-->
     <!-- Modal panier -->
-    <div style="z-index:10000;" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div style="z-index:10000;" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -311,8 +300,7 @@
     data() {
       return {
         client: {},
-        Panier: {},
-        /* panier */
+        Panier: {}, /* panier */
         produit: {},
         id: this.$route.params.id,
 
@@ -393,9 +381,10 @@
 </script>
 
 <style>
-.card_box h2, h3{
-  color: #333;
-}
+  .card_box h2,
+  h3 {
+    color: #333;
+  }
 
   /* btn taille */
   div.dropdown.col-7 {
@@ -540,7 +529,7 @@
   }
 
   h4.marque_shadow {
-    font-family: 'Bebas Neue',sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     position: absolute;
     color: rgba(255, 255, 250, 0.04);
     top: 8%;

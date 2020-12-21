@@ -14,10 +14,11 @@
 
 
                         <div class="contentBx">
-                            <h2>{{ produit.nom }}</h2>
+                            <h2 style="margin-bottom:10px;">{{ produit.nom }}</h2>
                             <div class="size">
-                                <h3>Tailles :</h3>
-                                <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span>
+                                <h3>Prix :</h3>
+                                <!-- <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span> -->
+                                <h1 class="prix_card">{{ produit.prix }} €</h1>
                             </div>
 
 
@@ -44,6 +45,9 @@
     export default {
         name: "pagestreetwear",
         props: ["produits"],
+        /* permet de passer des accessoires à d'autres composants
+        en gros permet de pouvoir utiliser "produits" d'autre pages
+        contraire de props "emit" */
 
 
     }

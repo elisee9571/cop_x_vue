@@ -21,3 +21,5 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+// permet de ignorer les dossier qu'on veux pas que git push

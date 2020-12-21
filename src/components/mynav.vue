@@ -199,7 +199,6 @@
         top: 0;
         left: 0;
         width: 100%;
-        padding: 5px 0;
         color: #0f111a;
         box-sizing: border-box;
         transition: .5s;

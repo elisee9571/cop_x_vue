@@ -273,4 +273,4 @@ function view(name) {
    return res;
 };**/
 
-export default routes;
+export default routes; /* permet d'expoter nos routes */

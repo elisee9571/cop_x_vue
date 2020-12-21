@@ -19,11 +19,11 @@
                         required>
                     <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe"
                         v-model="password" required>
-                    <button class="btn_sign">S'inscrire</button>
+                    <button class="btn_sign" >S'inscrire</button>
                 </form>
             </div>
 
-            <div class="form-container sign-in-container" @submit.prevent="dologin">
+            <div class="form-container sign-in-container" @submit.prevent="dologin" >
                 <form>
                     <h1 class="titre_sign">Se connecter</h1>
                     <div class="social-container">
@@ -39,7 +39,7 @@
                         placeholder="Mot de passe" v-model="passwordlogin" required>
                     <a href="/mpo" class="mdp_oublié">Mot de passe oublié</a>
 
-                    <button class="btn_sign">Se connecter</button>
+                    <button class="btn_sign" >Se connecter</button>
                     <a class="a_rejoindre" href="/register">
                         <p class="p_rejoindre">Vous n'avez pas encore de compte?<br>Rejoignez-nous.</p>
                     </a>
@@ -82,7 +82,6 @@
                 passwordlogin: ""
             }
         },
-        components: {},
         methods: {
             dologin: function () {
 
