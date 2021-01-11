@@ -157,13 +157,15 @@
     }
 
     .marque_adidas {
-        width: 105px;
-        height: 80px;
+        transform: translateY(15%);
+        width: 100px;
+        height: 70px;
     }
 
     .marque_bape {
-        width: 180px;
-        height: 90px;
+        transform: translateY(20%);
+        width: 170px;
+        height: 70px;
     }
 
     .marque_asics {

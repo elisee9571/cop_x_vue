@@ -1,38 +1,30 @@
 <template>
 
-    <!-- page sneakers -->
-    <div class="container-fluid">
-        <div class="row">
-
-            <!-- card produit -->
-            <div class="container container2">
+    <div class="container-fluid container3">
+        <div class="row ">
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div v-for="produit in produits" :key="produit.id" class="col-lg-3 col-md-5 col-sm-5 card">
-                        <h4>{{ produit.marque }}</h4>
-
-                        <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
-
-
-                        <div class="contentBx">
-                            <h2 style="margin-bottom:10px;">{{ produit.nom }}</h2>
-                            <div class="size">
-                                <h3>Prix :</h3>
-                                <!-- <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span> -->
-                                <h1 class="prix_card">{{ produit.prix }} €</h1>
+                    <div v-for="produit in produits" :key="produit.id" class="card">
+                        <router-link :to="`/pageproduit/${produit.id}`">
+                            <div class="imgBx">
+                                <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
                             </div>
-
-
-
-                            <router-link :to="`/pageproduit/${produit.id}`">
-                                Voir plus
-                            </router-link>
-
+                        </router-link>
+                        <div class="contentBx">
+                            <h2 style="cursor:default;">{{ produit.nom }}</h2>
+                            <div class="row">
+                                <div class="price">{{ produit.Stocks[0].prix }} €</div>
+                                <div class="orther">
+                                    <router-link :to="`/pageproduit/${produit.id}`">
+                                        <div class="panier"><i class="fas fa-shopping-cart"></i></div>
+                                    </router-link>
+                                    <div class="favoris"><i class="fas fa-heart"></i></div>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -44,7 +36,7 @@
 
     export default {
         name: "pagestreetwear",
-        props: ["produits"],
+        props: ["produits", "stocks"],
         /* permet de passer des accessoires à d'autres composants
         en gros permet de pouvoir utiliser "produits" d'autre pages
         contraire de props "emit" */

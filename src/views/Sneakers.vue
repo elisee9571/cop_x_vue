@@ -9,7 +9,7 @@
     <div class="container container1">
       <div class="row">
         <div class="searchbox" @search.prevent="search">
-          <input type="search" v-model="nom" class="searchbox__input" placeholder="Recherche...">
+          <input type="search" v-model="nom" class="searchbox__input" placeholder="Recherche..." spellcheck="false">
           <img class="searchbox__icon" src="https://img.icons8.com/ios-filled/50/000000/search.png" />
         </div>
       </div>
@@ -37,10 +37,10 @@
 
     <pagesneakers :produits="produits" /> <!-- import components pagesneakers -->
 
-    <div class="container voirplus_box">
+    <div class="voirplus_box">
       <div class="row">
         <div class="col"></div>
-        <button class="btn_voirplus" @click="voirplus">Voir plus</button>
+        <button class="btn_new" @click="voirplus">Voir plus</button>
         <div class="col"></div>
       </div>
     </div>
@@ -135,7 +135,7 @@
             alert(err);
           });
       },
-      voirplus: function (){
+      voirplus: function () {
         this.axios
           .get("http://localhost:3000/produit/categorie/sneakers")
           .then((res) => {

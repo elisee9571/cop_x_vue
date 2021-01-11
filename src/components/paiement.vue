@@ -5,9 +5,7 @@
             <div class="row" style="padding-top:20px !important;">
                 <span class="trait">
                     <a style="font-weight:bolder;
-                    letter-spacing:-6px !important;" 
-                    class="navbar-brand navlogo"
-                        data-text="COP X" href="/">COP X</a>
+                    letter-spacing:-6px !important;" class="navbar-brand navlogo" data-text="COP X" href="/">COP X</a>
                 </span>
                 <div class="col-8 text-center">
                     <h1 class="titre_paiement" style="padding-top:20px;">paiement</h1>
@@ -17,14 +15,12 @@
         <!-- fin header -->
         <!-- section all -->
         <div class="container-fluid">
-            <div class="row col-12 justify-content-center">
+            <div class="row col-12 justify-content-center align-items-start">
                 <!-- Section 1 -->
-                <div class="row col-lg-7 col-12">
-                    <form class="text-left" 
-                    style="padding:0!important;
+                <div class="row col-lg-7 col-12 order-lg-1 order-2">
+                    <form class="text-left" style="padding:0!important;
                     margin:0px!important;
-                    background:unset;"
-                        action="">
+                    background:unset;" action="">
                         <!-- pays livraison -->
 
                         <div class="form-group">
@@ -43,8 +39,7 @@
                             <label class="col-12" for="codes">CODE PROMO:</label>
                             <div style="padding:0 15px;">
                                 <input class="col-lg-5 col-9 " type="text">
-                                <button class="btn_jour" 
-                                style="font-size:15px;
+                                <button class="btn_jour" style="font-size:15px;
                             padding:5px 15px;
                             border-radius:5px;" type="submit">Appliquer</button>
                             </div>
@@ -86,16 +81,16 @@
                                                         v-model="client.livraison" required />
                                                     <label class="sexe_label" for="Livraison_Standard">Livraison
                                                         Standard</label>
-                                                        <p style="font-size:17px;
+                                                    <p style="font-size:17px;
                                                     padding-left:55px;
                                                     display:flex;
                                                     jutify-content:center;
                                                     align-items:center;">
-                                                        <img class="icontext_info" 
-                                                        style="width:18px;
+                                                        <img class="icontext_info" style="width:18px;
                                                         height:18px;
-                                                        margin-right:5px;" src="https://img.icons8.com/material/20/000000/info--v1.png" />
-                                                    10 jours ouvrés</p>
+                                                        margin-right:5px;"
+                                                            src="https://img.icons8.com/material/20/000000/info--v1.png" />
+                                                        10 jours ouvrés</p>
                                                 </td>
                                                 <td class="col-2">
                                                     <label for="Livraison_Standard">10€</label>
@@ -105,23 +100,23 @@
 
                                             <div class="row col-12">
                                                 <td class="col-10">
-                                                    <input class="sexe_input align-bottom" type="radio" id="Livraison_24"
-                                                        name="livraison" value="15€" v-model="client.livraison"
-                                                        required />
-                                                    <label class="sexe_label" for="Livraison_24">Livraison 24h</label>
+                                                    <input class="sexe_input align-bottom" type="radio"
+                                                        id="Livraison_24" name="livraison" value="15€"
+                                                        v-model="client.livraison" required />
+                                                    <label class="sexe_label" for="Livraison_24">Livraison 48h</label>
                                                     <p style="font-size:17px;
                                                     padding-left:55px;
                                                     display:flex;
                                                     jutify-content:center;
                                                     align-items:center;">
-                                                        <img class="icontext_info" 
-                                                        style="width:18px;
+                                                        <img class="icontext_info" style="width:18px;
                                                         height:18px;
-                                                        margin-right:5px;" src="https://img.icons8.com/material/20/000000/info--v1.png" />
-                                                    Livraison entre 7h et 22h</p>
+                                                        margin-right:5px;"
+                                                            src="https://img.icons8.com/material/20/000000/info--v1.png" />
+                                                        Livraison entre 7h et 22h</p>
                                                 </td>
                                                 <td class="col-2">
-                                                    <label for="Livraison_24">15€</label>
+                                                    <label for="Livraison_24">20€</label>
                                                 </td>
                                             </div>
                                         </div>
@@ -172,33 +167,32 @@
                                                         <label for="amount">Montant</label>
                                                         <div class="input-group">
 
-                                                            <input type="number" id="amount" v-model="amount"
-                                                                class="form-control" placeholder="Enter Amount" />
+                                                            <input style="color:#333;" type="number" id="amount"
+                                                                v-model="amount" class="form-control" />
                                                             <div class="">
                                                                 <span class="input-group-text">€</span>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" required>
                                                         <label class="label_paypal">Numéro de carte</label>
-                                                        <div id="creditCardNumber" class="form-control" required></div>
+                                                        <div id="creditCardNumber" class="form-control"></div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-7">
+                                                        <div class="row justify-content-start">
+                                                            <div class="col-6" style="padding:0;">
                                                                 <label class="label_paypal">Date d'expiration</label>
-                                                                <div id="expireDate" class="form-control" required>
+                                                                <div id="expireDate" class="form-control">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-4">
+                                                            <div class="col-3" style="margin:0 20px;">
                                                                 <label class="label_paypal">CVV</label>
-                                                                <div id="cvv" class="form-control" required></div>
+                                                                <div id="cvv" class="form-control"></div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-block"
-                                                        @click.prevent="payWithCreditCard">
+                                                    <button class="btn btn-block" @click.prevent="payWithCreditCard">
                                                         Pay with Credit Card
                                                     </button>
 
@@ -234,50 +228,50 @@
                 </div>
                 <!-- fin section 1 -->
                 <!-- section 2 -->
-                <div class="col-lg-5 col-12 ">
-                    <div class="form-group">
+                <div class="row col-lg-5 col-12 order-lg-2 order-1">
+                    <div class="form-group section2">
                         <!-- style="position:fixed;" -->
-                         <div class="row">
+                        <div class="row">
                             <h1 class="col-8" style="padding:0;margin:0 10px;"> Articles</h1>
                             <a class="col-2" href="/panier">modifier</a>
-                        </div> 
+                        </div>
                         <hr style="border:1px solid #6844ff;">
-                        <div class="form-group" >
-                        <table class="table">
-                            <tbody>
-                                <tr v-for="(item,index) in panier" :key="index">
-                                    <h1>{{ quantite}}</h1>
-                                    <td class="img_Bxpanier">
-                                        <img class="img_panier" :src="require(`@/assets/${item.image}.png`)">
-                                    </td>
-                                    <td>{{item.nom}}
-                                        <!-- <br>{{item.produitId}} -->
-                                        <br>Taille : {{item.taille}}
-                                        <br>{{ item.prix_unitaire }}€ </td>
-                                    <!-- <td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td> -->
-                                    <td>{{item.quantite}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="form-group">
+                            <table class="table">
+                                <tbody>
+                                    <tr v-for="(item,index) in panier" :key="index">
+                                        <h1>{{ quantite}}</h1>
+                                        <td class="img_Bxpanier">
+                                            <img class="img_panier" :src="require(`@/assets/${item.image}.png`)">
+                                        </td>
+                                        <td>{{item.nom}}
+                                            <!-- <br>{{item.produitId}} -->
+                                            <br>Taille : {{item.taille}}
+                                            <br>{{ item.prix_unitaire }}€ </td>
+                                        <!-- <td>{{ (item.quantite * item.prix_unitaire).toFixed(2) }}€</td> -->
+                                        <td>{{item.quantite}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                        <hr style="border:1px solid #6844ff;">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="col-10"> Sous-Total :</td>
-                                    <td class="col-2">{{ total }}€</td>
-                                </tr>
-                                <tr>
-                                    <td class="col-10"> Livraison :</td>
-                                    <td class="col-2">{{ client.livraison }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="col-10"> Total:</td>
-                                    <td class="col-2">{{ total }}€</td>
-                                </tr>
+                            <hr style="border:1px solid #6844ff;">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="col-10"> Sous-Total :</td>
+                                        <td class="col-2">{{ total }}€</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-10"> Livraison :</td>
+                                        <td class="col-2">{{ client.livraison }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-10"> Total:</td>
+                                        <td class="col-2">{{ total }}€</td>
+                                    </tr>
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
                         </div>
 
 
@@ -571,7 +565,7 @@
 
 <style>
     /* nav_paiement */
-     /*logo navbar */
+    /*logo navbar */
     .nav_paiement .navlogo {
         position: relative !important;
         display: block;
@@ -639,6 +633,7 @@
         background: #fff;
         transition: .5s;
     }
+
     .nav_paiement .trait:hover:before {
         left: 100%;
     }
@@ -654,5 +649,30 @@
         font-size: 18px;
     }
 
+    /* type paiement */
+    .container .container-fluid .card-body {
+        margin-bottom: 15px;
+    }
+
+    .container .container-fluid .card-body .form-group {
+        background: #fff;
+        color: #333;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .container .container-fluid .card-body form {
+        border-radius: 10px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container .container-fluid .card-body form .form-group .form-control {
+        border: 1px solid #cdcdcd !important;
+    }
+
+    /* fin type paiement */
     /* fin section */
 </style>

@@ -15,10 +15,14 @@
                       @click="supprimer(index)" />
                   </td>
                   <td class="img_Bxpanier">
+                    <router-link :to="`/pageproduit/${produit.id}`">
+                    <img class="img_panier" :src="require(`@/assets/${item.image}.png`)">
+                            </router-link>
                     <img class="img_panier" :src="require(`@/assets/${item.image}.png`)">
                   </td>
                   <td>{{item.nom}}
                     <!-- <br>{{item.produitId}} -->
+                    
 
                     <br>Taille : {{item.taille}}
                     <br>{{ item.prix_unitaire }}€ </td>
@@ -78,7 +82,7 @@
           total += element.prix_unitaire * element.quantite;
         }
         return total.toFixed(2);
-      }
+      },
     },
     created: function () {
       if (localStorage.getItem("token") === null) {
@@ -92,6 +96,7 @@
       retour: function (){
         this.$router.go(-1);
       },
+      /* + */
       update: function (index) {
         this.panier[index].quantite++;
         this.panier[index].soustotal =
@@ -100,7 +105,7 @@
         localStorage.removeItem("panier");
         localStorage.setItem("panier", JSON.stringify(this.panier));
       },
-      /*  */
+      /* - */
       updateqtn: function (index) {
         if (this.panier[index].quantite > 1) {
           this.panier[index].quantite--;
@@ -111,7 +116,7 @@
           this.supprimer(index);
         }
       },
-      /*  */
+      /* delete */
       supprimer: function (index) {
         this.panier.splice(index, 1);
         localStorage.removeItem("panier");
@@ -247,6 +252,7 @@
     font-size: 20px;
     line-height: 50px;
     text-align: center;
+    cursor: pointer;
   }
   .continuer_achat:hover p {
     color: #808080;
@@ -288,6 +294,9 @@
       background: #292D3E;
       padding-left: 25px;
       height: unset;
+    }
+    .columun{     
+      margin-bottom: -150px;
     }
     .table_achat::before {
       content: '';

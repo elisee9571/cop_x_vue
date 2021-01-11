@@ -1,30 +1,25 @@
 <template>
-
-    <!-- page sneakers -->
-    <div class="container-fluid">
-        <div class="row">
-            <!-- card produit -->
-            <div class="container container2">
+    <div class="container-fluid container3">
+        <div class="row ">
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div v-for="produit in produits" :key="produit.id" class="col-lg-3 col-md-5 col-sm-5 card">
-                        <!-- marque produit -->
-                        <h4>{{ produit.marque }}</h4>
-
-                        <!-- image produit -->
-                        <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
-
-                        <!-- text produit -->
-                        <div class="contentBx">
-                            <h2 style="margin-bottom:10px;">{{ produit.nom }}</h2>
-                            <div class="size">
-                                <h3>Prix :</h3>
-                                <!-- <span v-for="taille in produit.Tailles" :key="taille.id">{{ taille.taille }}</span> -->
-                                <h1 class="prix_card">{{ produit.prix }} €</h1>
+                    <div v-for="produit in produits" :key="produit.id" class="card">
+                        <router-link :to="`/pageproduit/${produit.id}`">
+                            <div class="imgBx">
+                                <img class="imgBx" :src="require(`@/assets/${produit.Images[0].image}.png`)">
                             </div>
-                            <!-- voir produit -->
-                            <router-link :to="`/pageproduit/${produit.id}`">
-                                Voir plus
-                            </router-link>
+                        </router-link>
+                        <div class="contentBx">
+                            <h2 style="cursor:default;">{{ produit.nom }}</h2>
+                            <div class="row">
+                                <div class="price" v-if="produit.Stocks">{{ produit.Stocks[0].prix }} €</div>
+                                <div class="orther">
+                                    <router-link :to="`/pageproduit/${produit.id}`">
+                                        <div class="panier"><i class="fas fa-shopping-cart"></i></div>
+                                    </router-link>
+                                    <div class="favoris"><i class="fas fa-heart"></i></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -41,9 +36,9 @@
 
     export default {
         name: "pagesneakers",
-        props: ["produits"],
+        props: ["produits","produit.Stocks"],
         /* permet de passer des accessoires à d'autres composants
-        en gros permet de pouvoir utiliser "produits" d'autre pages
+        en gros permet de pouvoir utiliser "produits" sur d'autre pages
         contraire de props "emit" */
 
     }
@@ -76,6 +71,7 @@
         max-width: 60px;
         transition: 0.4s linear;
         overflow: hidden;
+        
     }
 
     .container1 .searchbox .searchbox__input {
@@ -85,17 +81,22 @@
         border: none;
         outline: none;
         border-radius: 50px;
-        background-color: #6844ff;
+        background-color: #32325d;
         padding: 15px;
-        color: #6844ff;
+        color: #fff;
+        font-family: 'Oswald',sans-serif;
+        letter-spacing: 1px;
         font-size: 20px;
         cursor: pointer;
         transition: 0.4s linear;
+        box-shadow: inset -3px -3px 9px #0f111a70, inset 3px 3px 9px #292d3e90;
 
     }
 
     .container1 .searchbox .searchbox__input::placeholder {
         visibility: hidden;
+        color: rgb(82, 95, 127);
+        font-weight: 400;
     }
 
     .container1 .searchbox .searchbox__input:focus::placeholder {
@@ -111,7 +112,6 @@
         height: 20px;
         pointer-events: none;
         filter: invert(1);
-        fill: #6844ff;
         transition: 0.4s linear;
 
     }
@@ -122,28 +122,67 @@
     }
 
     .container1 .searchbox .searchbox__input:focus-within {
-        background-color: #0f111a;
+        background-color: #32325d;
         padding-right: 50px;
-        box-shadow: inset 0 0 10px rgba(104, 68, 255, 255);
+        box-shadow: inset -3px -3px 9px #0f111a70, inset 3px 3px 9px #292d3e90;
+
+
     }
 
     /* btn filtrer */
     .btn_filtrer {
-        border: 2px solid rgba(104, 68, 255, 255);
-        color: rgba(104, 68, 255, 255);
+        color: #fff;
+        /* color: rgb(82, 95, 127); */
         padding: 15px 30px;
+        border: 1px solid transparent;
         border-radius: 8px;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: bold;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 18px;
+        letter-spacing: 1px;
         transition: .3 linear;
-        background-color: transparent !important;
+        background-color: transparent;
         margin-right: 30px;
         transition: 0.4s linear;
+        box-shadow: inset -3px -3px 9px #0f111a70, inset 3px 3px 9px #292d3e90;
     }
 
     .btn_filtrer:hover {
-        background-color: #6844ff !important;
+        box-shadow: -3px -3px 9px #0f111a70, 3px 3px 9px #292d3e90;
+        
+    }
+    .voirplus_box{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        padding: 0;
+        margin-top: 100px;
+        margin-bottom: -100px;
+    }
+
+    /* btn voir plus new */
+    .btn_new {
         color: #fff;
+        /* color: rgb(82, 95, 127); */
+        padding: 15px 30px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 18px;
+        letter-spacing: 1px;
+        transition: .3 linear;
+        background-color: transparent;
+        /* margin-right: 30px; */
+        transition: 0.4s linear;
+        box-shadow: inset -3px -3px 9px #0f111a70, inset 3px 3px 9px #292d3e90;
+    }
+
+    .btn_new:hover {
+        box-shadow:  -3px -3px 9px #0f111a70,  3px 3px 9px #292d3e90;
+        
     }
 
     /* titre sneakers */
@@ -154,262 +193,111 @@
         margin-left: 5%;
     }
 
-    .container2 {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .container2 .card {
-        display: grid;
-        width: 100%;
-        height: 450px;
-        background: #292D3E;
-        border-radius: 20px;
-        margin: 20px;
-        overflow: hidden;
-        box-shadow: 0px 0px 30px black;
-    }
-
-    .container2 .card:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #f0f, #22abfa);
-        clip-path: circle(150px at 80% 20%);
-        transition: 0.5s ease-in-out;
-    }
-
-    .container2 .card:hover:before {
-        clip-path: circle(300px at 80% -20%);
-    }
-
-    /* marque */
-    .container2 h4 {
-        position: absolute !important;
-        top: 15% !important;
-        left: -20% !important;
-        font-size: 15em !important;
-        font-weight: bolder !important;
-        font-style: italic !important;
-        color: rgba(255, 255, 250, 0.08) !important;
-        font-family: 'Bebas Neue', sans-serif;
-    }
-
-    /* img produit */
-    .container2 .card .imgBx {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 9900;
-        width: 100%;
-        transition: 0.5s;
-    }
-
-    .container2 .card:hover .imgBx {
-        top: 0%;
-        transform: translateY(0%);
-    }
-
-    .container2 .card .imgBx {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -60%);
-        width: 90%;
-    }
-
-    .container2 .card:hover .imgBx {
-        transform: translate(-50%, -0%) rotate(-15deg);
-        transition: 1s;
-    }
-
-
-    .container2 .card .contentBx {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 100px;
-        text-align: center;
-        transition: 1s;
-        z-index: 10;
-    }
-
-    .container2 .card:hover .contentBx {
-        height: 210px;
-    }
-
-    /* titre produit card */
-    .container2 .card .contentBx h2 {
-        position: relative;
-        color: #fff;
-        font-size: 30px;
-        font-family: 'Bebas Neue', sans-serif;
-        width: 100%;
-        cursor: default;
-    }
-
-    /* size produit */
-    .container2 .card .contentBx .size {
+    /* card */
+    .container3 .row .card .contentBx .row .orther {
         display: flex;
-        justify-content: center !important;
-        align-items: center !important;
-        transition: 0.5s;
-        opacity: 0;
-        visibility: hidden;
-        cursor: default;
-    }
-
-    .container2 .card:hover .contentBx .size {
-        opacity: 1;
-        visibility: visible;
-        transition-delay: 0.5s;
-    }
-
-    .container2 .card .contentBx .size h3 {
-        color: #fff;
-        font-weight: 400;
-        font-size: 14px;
-        text-transform: uppercase;
-        font-family: 'Oswald', sans-serif;
-        margin: 10px 10px;
-    }
-
-    .container2 .card .contentBx .size .prix_card {
-        margin: 0;
-        padding: 0;
-        display: flex;
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
+        position: absolute;
+        right: 0;
+        margin: 30px;
+
     }
 
-    /* .container2 .card .contentBx .size span {
-        width: 40px;
-        height: 40px;
+    .container3 .card {
+        font-family: 'Bebas Neue', sans-serif;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        margin: 20px;
+        position: relative;
+        width: 300px;
+        height: 420px;
+        border-radius: 20px;
+        box-shadow: -3px -3px 9px #0f111a70,  3px 3px 9px #292d3e90;
+ }
+
+    .container3 .card:hover {
+        box-shadow:inset -3px -3px 9px #0f111a70, inset 3px 3px 9px #292d3e90;
+ }
+
+    .container3 .card .imgBx img {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+    }
+
+    .container3 .card .contentBx {
+        position: absolute;
+        width: 100%;
+        height: 50%;
         text-align: center;
-        line-height: 40px;
-        font-size: 14px;
-        display: inline-block;
-        color: #111 !important;
-        background: #fff;
-        margin: 0 5px;
-        transition: 0.5s;
-        color: #111;
-        border-radius: 4px;
+        top: 50%;
+    }
+
+    .container3 .card .contentBx .row {
+        position: relative;
+        height: 50%;
+    }
+
+    .container3 .card .contentBx .row .price {
+        color: #fff;
+        font-size: 25px;
+        letter-spacing: 1px;
         cursor: pointer;
-        transition: 0.4s linear;
-    } */
+        margin: 27px 30px;
+        display: flex;
+        position: absolute;
+        left: 0;
+        padding: 5px 20px;
+        border-radius: 20px;
+        font-weight: 200;
+        box-shadow: -3px -3px 9px #0f111a70,  3px 3px 9px #292d3e90;
 
-    /* btn voir plus card */
-    .container2 .card .contentBx a {
-        display: inline-block;
-        padding: 10px;
-        margin-top: 20px;
-        text-decoration: none;
-        opacity: 0;
-        transform: translateY(50px);
-        transition: 0.5s;
-        border: 2px solid rgba(104, 68, 255, 255);
-        color: rgba(104, 68, 255, 255);
-        border-radius: 8px;
-        text-transform: uppercase;
-        transition: 0.4 linear;
-        font-family: 'Oswald', sans-serif;
-        font-weight: 500;
     }
 
-    .container2 .card:hover .contentBx a {
-        opacity: 1;
-        transform: translateY(0px);
-        transition-delay: 0.75s;
+    .container3 .card .contentBx .row .price:hover {
+        box-shadow:inset -3px -3px 9px #0f111a70, inset 3px 3px 9px #292d3e90;
+
     }
 
-    .container2 .card .contentBx a:hover {
-        transition-delay: 0.1s;
-        background: #6844ff;
+    .container3 .card .contentBx .row .panier {
+        color: rgb(82, 95, 127);
+        cursor: pointer;
+        margin: 0 15px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: bold;
+        box-shadow: inset -3px -3px 9px #0f111a70, inset 3px 3px 9px #292d3e90;
+    }
+
+    .container3 .card .contentBx .row .panier:hover {
+        color: #292a5a;
+        box-shadow: -3px -3px 9px #0f111a70,  3px 3px 9px #292d3e90;
+    }
+
+    .container3 .card .contentBx .row .favoris {
+        color: rgb(82, 95, 127);
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: bold;
+        box-shadow: inset -3px -3px 9px #0f111a70, inset 3px 3px 9px #292d3e90;
+    }
+
+    .container3 .card .contentBx .row .favoris:hover {
+        color: #292a5a;
+        box-shadow: -3px -3px 9px #0f111a70,  3px 3px 9px #292d3e90;
+    }
+
+    .container3 .card .contentBx h2 {
+        padding: 0 30px;
+        margin: 0;
+        height: 50%;
         color: #fff;
-        text-transform: uppercase;
-    }
-
-    /* btn voir plus */
-    .btn_voirplus {
-        border: 2px solid rgba(104, 68, 255, 255);
-        color: rgba(104, 68, 255, 255);
-        padding: 15px 30px;
-        border-radius: 8px;
-        text-transform: uppercase;
-        font-weight: 500;
-        transition: .3 linear;
-        background-color: transparent !important;
-        transition: 0.4s linear;
-    }
-
-    .btn_voirplus:hover {
-        background-color: #6844ff !important;
-        color: #fff;
-    }
-
-    button:active {
-        transform: scale(0.95);
-    }
-
-    button:focus {
-        outline: none;
-    }
-
-    .voirplus_box {
-        margin-top: 100px;
-        margin-bottom: 150px;
-    }
-
-    /* .container2 .card .contentBx a img {
-        width: 15px;
-    } */
-
-    /* responsive card */
-    @media (min-width: 0px) {
-
-        /* col- */
-        .container2 .card {
-            height: 350px;
-            width: 50%;
-        }
-    }
-
-    @media (min-width: 576px) {
-
-        /* col-sm */
-        .container2 .card {
-            height: 350px;
-            width: 100%;
-        }
-    }
-
-    @media (min-width: 768px) {
-
-        /* col-md */
-        .container2 .card {
-            height: 400px;
-            width: 100%;
-        }
-    }
-
-    @media (min-width: 992px) {
-
-        /* col-lg */
-        .container2 .card {
-            height: 400px;
-            width: 100%;
-        }
-    }
-
-    @media (min-width: 1280px) {
-
-        /* col-xl */
-        .container2 .card {
-            height: 400px;
-            width: 100%;
-        }
+        /* color: rgb(82, 95, 127); */
     }
 </style>

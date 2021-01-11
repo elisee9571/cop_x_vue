@@ -17,11 +17,13 @@
 
                         <!-- image profil -->
                         <div class="avatar_box text-center">
-                            <img v-if="client.image !== undefined" src="../assets/image_profil.jpg" class="avatar" alt="avatar" /><!-- :src="client.image" -->
+                            <img v-if="client.image !== undefined" src="../assets/image_profil.jpg" class="avatar"
+                                alt="avatar" /><!-- :src="client.image" -->
                             <img v-else :src="pic" class="avatar" alt="avatar" />
                             <label class="ajouter_image" for="file"><img
                                     src="https://img.icons8.com/fluent-systems-filled/35/000000/add.png" /></label>
-                            <input class="input_ajouter-img" id="file" type="file" accept="image/jpeg" @change="uploadImage"/>
+                            <input class="input_ajouter-img" id="file" type="file" accept="image/jpeg"
+                                @change="uploadImage" />
                             <h6 class="nom_profil">{{client.nom}}</h6>
 
                             <!--  <div class="file-upload">
@@ -42,37 +44,32 @@
                         <!-- mes information -->
                         <a class="nav-link nav_titre_profil active" id="v-pills-information-tab" data-toggle="pill"
                             href="#v-pills-information" role="tab" aria-controls="v-pills-information"
-                            aria-selected="true"><img class="icon_titre_profil"
-                                src="https://img.icons8.com/metro/25/000000/view-details.png" /> Mes informations</a>
+                            aria-selected="true"><i class="fas fa-align-left icon_titre_profil"></i> Mes
+                            informations</a>
 
                         <!-- mes commande -->
                         <a class="nav-link nav_titre_profil" id="v-pills-commande-tab" data-toggle="pill"
                             href="#v-pills-commande" role="tab" aria-controls="v-pills-commande"
-                            aria-selected="false"><img class="icon_titre_profil"
-                                src="https://img.icons8.com/android/25/000000/cardboard-box.png" /> Mes commandes</a>
+                            aria-selected="false"><i class="fas fa-box icon_titre_profil"></i> Mes commandes</a>
 
-                        <!-- information de paiement -->
-                        <a class="nav-link nav_titre_profil" id="v-pills-paiement-tab" data-toggle="pill"
-                            href="#v-pills-paiement" role="tab" aria-controls="v-pills-paiement"
-                            aria-selected="false"><img class="icon_titre_profil"
-                                src="https://img.icons8.com/ios-filled/30/000000/card-in-use.png" /> informations de
-                            paiement</a>
+                        <!-- information de favoris -->
+                        <a class="nav-link nav_titre_profil" id="v-pills-favoris-tab" data-toggle="pill"
+                            href="#v-pills-favoris" role="tab" aria-controls="v-pills-favoris" aria-selected="false"><i
+                                class="fas fa-heart icon_titre_profil"></i> Favoris</a>
 
                         <!-- mon abonnement -->
                         <a class="nav-link nav_titre_profil" id="v-pills-abonnement-tab" data-toggle="pill"
                             href="#v-pills-abonnement" role="tab" aria-controls="v-pills-abonnement"
-                            aria-selected="false">
-                            <img class="icon_titre_profil"
-                                src="https://img.icons8.com/material/30/000000/ruby-gemstone.png" /> Mon Abonnement</a>
+                            aria-selected="false"><i class="fas fa-crown icon_titre_profil"></i> Mon Abonnement</a>
 
                         <!-- changer le mdp -->
                         <a class="nav-link nav_titre_profil" id="v-pills-mdp-tab" data-toggle="pill" href="#v-pills-mdp"
-                            role="tab" aria-controls="v-pills-mdp" aria-selected="false"><img class="icon_titre_profil"
-                                src="https://img.icons8.com/android/25/000000/lock.png" /> sécurité</a>
+                            role="tab" aria-controls="v-pills-mdp" aria-selected="false"><i
+                                class="fas fa-lock icon_titre_profil"></i> sécurité</a>
 
                         <!-- deconnexion -->
-                        <a class="nav-link nav_titre_profil" @click="logout">
-                            <img class="icon_titre_profil" src="https://img.icons8.com/windows/30/000000/exit.png" />
+                        <a class="nav-link nav_titre_profil" @click="logout"><i
+                                class="fas fa-sign-out-alt icon_titre_profil"></i>
                             Déconnexion</a>
 
 
@@ -91,7 +88,7 @@
                             <div class="renseignement_box">
 
                                 <!-- form -->
-                                <form action="">
+                                <form action="" style="background: #dde1e7">
                                     <h1 class="titre_page_nav text-center">Mes informations</h1>
 
                                     <div class="row col-12">
@@ -110,7 +107,10 @@
                                             </label>
                                             <div class="col-lg-12" style="padding:0;">
                                                 <input class="input_profil form-control"
-                                                    style="padding: 0 0.75rem !important;" type="date" name="date"
+                                                    style="padding: 0 0.75rem !important;
+                                                    box-shadow: inset -3px -3px 7px #ffffff73, 
+                                                    inset 3px 3px 5px rgba(94, 104, 121, .2); !important" 
+                                                    type="date" name="date"
                                                     id="date" v-model="client.date" />
                                             </div>
                                         </div>
@@ -221,35 +221,11 @@
 
                                     <!-- btn profil a jour -->
                                     <div class="">
-                                        <button @click="update" type="button" class="btn_jour"
-                                            data-toggle="modal" data-target="#exampleModal">
+                                        <button @click="update" type="button" class="btn_new2" data-toggle="modal"
+                                            data-target="#exampleModal">
                                             Sauvegarder les
                                             modifications
                                         </button>
-                                    </div>
-
-                                    <!-- Modal profil a jour-->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Mise à jour du profil
-                                                    </h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body text-left">
-                                                    Votre profil a été mis à jour.
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Fermer</button>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -265,95 +241,42 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="v-pills-paiement" role="tabpanel"
-                            aria-labelledby="v-pills-paiement-tab">
-                            <!-- information de paiement -->
+                        <div class="tab-pane fade" id="v-pills-favoris" role="tabpanel"
+                            aria-labelledby="v-pills-favoris-tab">
+                            <!-- information de favoris -->
                             <div class="row">
-                                <div class="information_de_paiement">
-                                    <h1 class="titre_page_nav text-center">Informations de paiement</h1>
+                                <div class="information_de_favoris">
+                                    <h1 class="titre_page_nav text-center">Mes Favoris</h1>
+                                    <div class="center">
 
-                                    <div class="text-center col-12">
-
-                                        <a class="btn_ajout_paiement" id="v-pills-information_paiement-tab"
-                                            data-toggle="pill" href="#v-pills-information_paiement" role="tab"
-                                            aria-controls="v-pills-information_paiement" aria-selected="false">
-                                            Ajouter un nouveau mode de paiement</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- information paiement -->
-                        <div class="tab-pane fade" id="v-pills-information_paiement" role="tabpanel"
-                            aria-labelledby="v-pills-information_paiement-tab">
-                            <!-- information paiement -->
-
-                            <div class="row information_de_paiement">
-                                <div class="col-12">
-                                    <div class="card_paiement">
-
-                                        <div class="card-header header_paiement">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <p>Carte de crédit / débit<br>ou<br> <a href="#"
-                                                            class="paypal">PAYPAL
-                                                            <img class="icon_paiement" src="../assets/icon_paypal.png"
-                                                                alt=""></a></p>
+                                        <div id="player-list" class="list-group">
+                                            <div v-for="produit in produits" :key="produit.id" class="list-group-item">
+                                                <div class="handle flex-center">
+                                                    <i class="fa fa-bars"></i>
                                                 </div>
-                                                <div class="col-md-6 text-right" style="margin-top: -5px;">
-                                                    <img class="icon_paiement" src="../assets/icon_visa.png" alt="">
-                                                    <img class="icon_paiement" src="../assets/icon_mastercard.png"
-                                                        alt="">
-                                                    <img class="icon_paiement" src="../assets/icon_amex.png" alt="">
+                                                <div class="thumbnail lex-center">
+                                                    <router-link :to="`/pageproduit/${produit.id}`">
+                                                        <img class="imgBx"
+                                                            :src="require(`@/assets/${produit.Images[0].image}.png`)">
+                                                    </router-link>
+                                                </div>
+                                                <div class="details">
+                                                    <h2>{{ produit.nom }}</h2>
+                                                    <p>{{ produit.marque }}</p>
+                                                    <p>prix :{{ produit.marque }}</p>
+                                                </div>
+                                                <div class="btnn flex-center">
+                                                    <i class="fa fa-heart"></i>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="card-body">
-                                            <div class="form-group">
-                                                <label for="cc-number" class="control-label label_card">Numéro de
-                                                    carte</label>
-                                                <input type="tel" id="cc-number" class="input-lg form-control cc-number"
-                                                    autocomplete="cc-number" placeholder="•••• •••• •••• ••••" name="">
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="cc-exp" class="control-label label_card">Date
-                                                            d'expiration</label>
-                                                        <input type="tel" id="cc-exp"
-                                                            class="input-lg form-control cc-exp" autocomplete="cc-exp"
-                                                            placeholder="•• / ••" name="">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="cc-cvc" class="control-label label_card">Numéro
-                                                            de
-                                                            carte</label>
-                                                        <input type="tel" id="cc-cvc"
-                                                            class="input-lg form-control cc-cvc" autocomplete="off"
-                                                            placeholder="•••" name="">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="numeric" class="control-label label_card">Nom du
-                                                    titulaire</label>
-                                                <input type="text" class="input-lg form-control">
-                                            </div>
-
-                                            <div class="form-group text-center">
-                                                <input type="submit" class="btn_jour" value="Ajouter" />
-                                            </div>
-                                        </div>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
-                        <!-- fin information paiement -->
+                        <!-- fin information favoris -->
 
                         <!-- abonnement -->
                         <div class="tab-pane fade" id="v-pills-abonnement" role="tabpanel"
@@ -371,11 +294,11 @@
                         <div class="tab-pane fade" id="v-pills-mdp" role="tabpanel" aria-labelledby="v-pills-mdp-tab">
                             <!-- changer le mdp -->
                             <div class="row text-center">
-                                <div class="securite col-12">
-                                    <form action="#">
+                                <div class="securite col-12" style="margin-top:150px;">
+                                    <form action="#" style="background: #dde1e7;">
                                         <h1 class="mpo_titre" for="mpou">Réinitialiser le mot de passe</h1>
 
-                                        <input class="email_mpo" type="email" name="mpou" placeholder="Email"
+                                        <input style="width:70%;" class="email_mpo input_profil form-control" type="email" name="mpou" placeholder="Email"
                                             v-model="email" id="mpou">
                                         <span><img class="icon_mpo"
                                                 src="https://img.icons8.com/ios-glyphs/24/000000/box-important.png" />Nous
@@ -383,7 +306,7 @@
                                             enverrons un
                                             e-mail pour réinitialiser votre mot de passe.</span>
                                         <div class="form-group">
-                                            <input @click="oublier" type="submit" class="btn_jour" value="envoyer" />
+                                            <input @click="oublier" type="submit" class="btn_new2" value="envoyer" />
                                         </div>
                                     </form>
                                 </div>
@@ -405,6 +328,7 @@
         name: "profil",
         data() {
             return {
+                produits: {},
                 password: "",
                 email: "",
                 client: {},
@@ -527,6 +451,14 @@
                 this.client = VueJwtDecode.decode(localStorage.getItem("token"));
                 console.log(this.client);
             }
+            this.axios
+                .get("http://localhost:3000/produit/order1/6")
+                .then((res) => {
+                    this.produits = res.data.produits;
+                })
+                .catch((err) => {
+                    alert(err);
+                });
 
         },
         methods: {
@@ -552,11 +484,12 @@
                         if (res.status === 200) {
                             localStorage.setItem("token", JSON.stringify(res.data.token));
                             this.message = "votre profil est à jour";
+                            alert("Votre profil est à jour.");
 
                         } else {
 
                             this.message = "error: votre profil  n'a pas été mis à jour";
-                            alert(`erreur: votre profil n'a pas été mis à jour`);
+                            alert(`ERREUR: votre profil n'a pas été mis à jour !!!`);
                         }
                     })
                     .catch((err) => {
@@ -588,6 +521,13 @@
                     });
             },
         },
+        mounted() {
+            let player = document.getElementById("player-list");
+            new Sortable(player, {
+                handle: '.handle',
+                animation: 200
+            })
+        },
 
     };
 </script>
@@ -597,10 +537,11 @@
 
     .container_profil {
         margin-top: 50px;
+        min-height: 100vh !important;
     }
 
     .container_back {
-        background: #fff;
+        background: #dde1e7;
     }
 
     /* css */
@@ -619,6 +560,15 @@
         margin: 0;
     }
 
+    .renseignement_box .input_profil, .securite .input_profil{
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .2);
+
+    }
+    .renseignement_box .input_profil:focus, .securite .input_profil:focus{
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .2);
+
+    }
+
     .form-group {
         margin: 20px 0;
     }
@@ -628,7 +578,6 @@
         font-family: 'Oswald', sans-serif !important;
         height: 100%;
         border: 1px solid #cad1d7 !important;
-        box-shadow: inset 0 1px 2px rgba(34, 42, 66, 0.075);
         border-radius: 4px !important;
         font-size: 18px !important;
         padding-left: 15px;
@@ -663,16 +612,19 @@
         height: 200px;
         border: 2px solid transparent;
         border-radius: 100%;
-        box-shadow: 0 0 20px #6844ff;
+        box-shadow: -9px -9px 9px #ffffff73, 9px 9px 9px rgba(94, 104, 121, .2);
         overflow: hidden;
         margin-bottom: 20px;
+    }
+    .avatar:hover {
+        box-shadow: 0px 0px 15px #6844ff;
     }
 
 
     .image_profil {
         width: 100%;
         height: 700px;
-        background: #fff;
+        background: #dde1e7;
         padding: 0 !important;
     }
 
@@ -687,7 +639,7 @@
         position: absolute;
         left: 47%;
         bottom: 15%;
-        background: #fff;
+        background: #dde1e7;
         border-radius: 50%;
         box-shadow: 0 0 10px #6844ff;
     }
@@ -718,6 +670,9 @@
         transition: .3 linear;
         background-color: transparent !important;
         transition: 0.4s linear;
+        font-weight: bold;
+        margin-top: 50px;
+        font-weight: bold;
     }
 
     .btn_jour:hover {
@@ -747,22 +702,52 @@
         font-size: 23px;
         font-family: 'Bebas Neue', sans-serif;
         color: #333 !important;
-        margin-left: 5px;
-        padding-left: 10px;
     }
 
     .icon_titre_profil {
         margin-right: 10px;
+
+    }
+
+    #v-pills-abonnement-tab .icon_titre_profil {
+        margin-right: 7px;
+    }
+
+    #v-pills-abonnement-tab {
+        padding-left: 12px;
+    }
+
+    #v-pills-abonnement-tab.active {
+        padding-left: 20px;
+    }
+
+    #v-pills-mdp-tab {
+        padding-left: 16px;
+    }
+
+    #v-pills-mdp-tab .icon_titre_profil {
+        margin-right: 12px;
+    }
+
+    #v-pills-mdp-tab.active {
+        padding-left: 20px;
     }
 
 
     .nav-pills .nav-link.active,
     .nav-pills .show>.nav-link {
         color: #333 !important;
-        background: #eeeeff !important;
+        background: #efefef !important;
         border-left: 5px solid #6844ff;
         width: 100%;
-        padding-left: 15px;
+        padding-left: 20px;
+        color: #6844ff;
+        box-shadow: -9px -9px 9px #ffffff73, 9px 9px 9px rgba(94, 104, 121, .2);
+
+    }
+
+    .nav-pills .nav-link.active .icon_titre_profil {
+        color: #6844ff !important;
 
     }
 
@@ -791,70 +776,143 @@
 
     /* mes commande */
     .mes_commandes {
-        background: #fff;
+        background: #dde1e7;
         height: 100vh;
         width: 100%;
     }
 
-    /* information de paiement */
-    .information_de_paiement {
-        background: #fff;
+    /* information de favoris */
+    .information_de_favoris {
+        background: #dde1e7;
         height: 100vh;
         width: 100%;
+        position: relative;
     }
 
-    .btn_ajout_paiement {
+    .center {
+        width: 90%;
+        margin: 50px auto;
+    }
+
+    .center .list-group {
         width: 100%;
-        background: #111;
-        color: #fff;
-        border: 1px solid #111;
-        padding: 15px 30px;
-        outline: none;
-        border-radius: 30px;
-        font-weight: 500;
-        font-size: 15px;
+        background: #f5f5f5;
     }
 
-    .btn_ajout_paiement:hover {
-        background: #222;
-        color: #fff;
-        border: 1px solid #222;
-        text-decoration: none
+    .center .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+
+    .center .list-group .list-group-item {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .center .list-group .list-group-item>div {
+        padding: 15px 0;
+    }
+
+    .center .list-group .list-group-item .handle {
+        width: 50px;
+        background: #eee;
+        border: 1px solid #ddd;
+        cursor: pointer;
+    }
+
+    .center .list-group .list-group-item .handle i.fa {
+        color: #555;
+    }
+
+    .center .list-group .list-group-item .handle:hover i.fa {
+        color: #111;
+    }
+
+    .center .list-group .list-group-item .thumbnail {
+        padding: 0 10px;
+    }
+
+    .center .list-group .list-group-item .thumbnail img {
+        width: 125px;
+    }
+
+    .center .list-group .list-group-item .details {
+        flex: 1;
+    }
+
+    .center .list-group .list-group-item .details h2 {
+        font-size: 25px;
+        color: #111;
+        padding: 0 5px 3px;
+    }
+
+    .center .list-group .list-group-item .details p {
+        font-size: 16px;
+        color: #555;
+        padding: 0 7px;
+    }
+
+    .center .list-group .list-group-item .btnn {
+        width: 50px;
+    }
+
+    .center .list-group .list-group-item .btnn i.fa {
+        color: #aaa;
+    }
+
+    .center .list-group .list-group-item .btnn:hover i.fa {
+        color: #ff0000;
+    }
+
 
 
     /* mon abonnement */
     .mon_abonnement {
-        background: #fff;
-        height: 100vh;
+        background: #dde1e7;
+        min-height: 100vh;
         width: 100%;
     }
 
     /* securité */
     .securite {
-        background: #fff;
-        height: 100vh;
+        background: #dde1e7;
+        min-height: 100vh;
         width: 100%;
+        display: flex;
+        justify-content: center !important;
+        justify-items: center !important;
+    }
+    .securite .form{
+        display: flex;
+        justify-content: center !important;
+        justify-items: center !important;
     }
 
-    /* paiement ajout */
-    .label_card {
-        color: #333 !important;
+
+    /* btn new2 */
+    .btn_new2 {
+        color: rgb(82, 95, 127);
+        padding: 15px 30px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 18px;
+        letter-spacing: 1px;
+        transition: .3 linear;
+        background-color: transparent;
+        margin-top: 30px;
+        transition: 0.4s linear;
+                box-shadow: -9px -9px 9px #ffffff73, 9px 9px 9px rgba(94, 104, 121, .2);
+
     }
 
-    button:active {
-        transform: scale(0.95);
-    }
+    .btn_new2:hover {
+                box-shadow: inset -9px -9px 9px #ffffff73, inset 9px 9px 9px rgba(94, 104, 121, .2);
 
-    button:focus {
-        outline: none;
-    }
-
-    .btn_jour:active {
-        transform: scale(0.95);
-    }
-
-    .btn_jour:focus {
-        outline: none;
+        
     }
 </style>

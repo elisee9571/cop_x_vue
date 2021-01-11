@@ -33,7 +33,7 @@
                         })
                     })
                     .catch(() => {
-                        alert("erreur: le mail n'est pas reconnu");
+                        alert("ERREUR: le mail n'est pas reconnu !!!");
                     });
             },
         },
@@ -117,17 +117,9 @@
         padding: 12px 15px;
         margin-bottom: 8px;
         width: 100%;
-    }
-
-    /* .mpo-container_box {
-        background-color: #fff;
         border-radius: 10px;
-        padding: 0 50px;
-        width: 600px;
-        max-width: 90%;
-        min-height: 500px;
-        transform: translateY(30%);
-    } */
+        box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .2);
+    }
 
     .icon_mpo {
         filter: invert(0.5) !important;

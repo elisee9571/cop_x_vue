@@ -33,14 +33,28 @@
               <!-- fin description produit -->
               <div class="size-container">
                 <div class="row">
-                  <div style="margin:0;padding:0;display:flex;align-items:center;" class="col-7">
-                  <select style="color:#333;font-size:15px;" class="form-control col-8">
-                    <option v-for="taille in produit.Tailles" :key="taille.id">EU {{ taille.taille }}</option>
-                  </select>
+                  <div style="margin:0;
+                  padding:0;
+                  display:flex;
+                  align-items:center;" class="col-6">
+                    <select style="color:#333;
+                    font-size:15px;
+                    font-size: 15px;
+                    background: #cdcdcd;
+                    padding:10px !important;
+                    border: none;" class="form-control col-10">
+                      <option id="add-prix" v-for="taille in produit.Stocks" :key="taille.id" style="background:#fff;">
+                        {{ taille.taille }}
+                        <span v-if="produit.Stocks[0].inStock">En stock</span>
+                        <span v-else>En rupture de stock</span></option>
+                    </select>
                   </div>
                   <!-- btn guides des tailles -->
-                  <button style="padding:10px; margin:0;letter-spacing:1px;" type="button" class="btn btn-danger"
-                    data-toggle="modal" data-target="#staticBackdrop">
+                  <button style="padding:10px;
+                  margin:0;
+                  letter-spacing:1px;
+                  font-size:20px;" type="button" class="btn btn-danger" data-toggle="modal"
+                    data-target="#staticBackdrop">
                     Guide des tailles
                   </button>
                 </div>
@@ -52,15 +66,15 @@
                   <div class="">N°{{ produit.ref }}</div>
                 </div>
               </div>
+              <br><br>
               <div class="buy-price">
-                <button @click="ajouter(produit.id, produit.nom, produit.prix, produit.Images[0].image)"
-                  type="button" class="btn_ajouter" data-toggle="modal" data-target="#exampleModal">
-                  <a>Ajouter
-                    au
-                    panier</a>
+                <button @click="ajouter(produit.id, produit.nom, produit.Images[0].image)" type="button"
+                  class="btn_ajouter">
+                  Ajouter au panier
                 </button>
+
                 <div class="prix">
-                  <h2 class="prix_produit">{{ produit.prix }} €</h2>
+                  <h2 id="add-prix" class="prix_produit" v-if="produit.Stocks">{{ produit.Stocks[0].prix }} €</h2>
                 </div>
               </div>
             </div>
@@ -89,14 +103,20 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="text-center">
-                <p style="color:#333; padding:0 30px;">
-                  Pour les paires de type <strong>YEEZY</strong> la paire <strong>taille une demi-taile plus
-                    petit</strong>, nous vous recommandons de
-                  prendre <strong>une demi-taille plus
-                    grand que votre taille habituelle</strong>.</p>
-                <p style="color:#333; padding:0 30px;">Sinon pour les autres <strong>Marques</strong> aucun soucis ça
-                  <strong>taille
-                    normalement</strong>.</p>
+                <p style="color:#555; padding:0 30px;">
+                  Pour les paires de type
+                  <strong style="font-weight:bold;color:#111;">YEEZY</strong>
+                  la paire
+                  <strong style="font-weight:bold;color:#111;">taille une demi-taile plus petit</strong>,
+                  nous vous recommandons de prendre
+                  <strong style="font-weight:bold;color:#111;">une demi-taille plus grand que votre taille
+                    habituelle</strong>.
+                </p>
+                <p style="color:#555;padding:0 30px;">
+                  Sinon pour les autres
+                  <strong style="font-weight:bold;color:#111;">Marques</strong>
+                  aucun soucis ça
+                  <strong style="font-weight:bold;color:#111;">taille normalement</strong>.</p>
               </div>
               <table class="tableau_tailles">
                 <thead>
@@ -278,6 +298,7 @@
             Votre produit a bien été ajouter dans votre panier
           </div>
           <div class="modal-footer">
+            <div class="col-8"></div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
           </div>
         </div>
@@ -296,11 +317,11 @@
 
   export default {
     name: "pageproduit",
-
     data() {
       return {
         client: {},
-        Panier: {}, /* panier */
+        Panier: {},
+        Stocks: {},
         produit: {},
         id: this.$route.params.id,
 
@@ -330,42 +351,47 @@
       retour: function () {
         this.$router.go(-1);
       },
-      ajouter: function (id, nom, prix, image, taille) {
+      ajouter: function (id, nom, image) {
         this.Panier = this.Panier || [];
         localStorage.removeItem("panier");
 
-        if (this.Panier.length === 0) {
+        if (status = true,
+        this.Panier.length === 0) {
+          alert(`Votre produit ${produit.nom} a bien été ajouter dans votre panier`);
           let quantite = 1;
           this.Panier.push({
             produitId: id,
             nom: nom,
-            quantite: quantite,
+            quantite: quantite,/* 
             prix_unitaire: prix,
-            soustotal: quantite * prix,
-            image: image,
-            taille: taille,
+            soustotal: quantite * prix, */
+            image: image,/* 
+            taille: taille, */
           });
         } else {
           let alreadyProduit = false;
           this.Panier.forEach((item) => {
             if (item.produitId === id) {
               item.quantite++;
-              item.soustotal = item.quantite * prix,
-                alreadyProduit = true;
+              item.soustotal = item.quantite * prix
+              alreadyProduit = true;
             }
           });
+
           if (alreadyProduit === false) {
+            alert(`Désoler le ${produit.nom} est en rupture de stock !`);
             let quantite = 1;
             this.Panier.push({
               produitId: id,
               nom: nom,
-              quantite: quantite,
+              quantite: quantite,/* 
               prix_unitaire: prix,
-              soustotal: quantite * prix,
-              image: image,
-              taille: taille,
+              soustotal: quantite * prix, */
+              image: image,/* 
+              taille: taille, */
             });
           }
+
         }
         localStorage.setItem("panier", JSON.stringify(this.Panier));
       },
@@ -525,7 +551,7 @@
 
   .img_produit {
     width: 100%;
-    transform: translateY(25%) rotate(-10deg) !important;
+    transform: translateY(25%) !important;
   }
 
   h4.marque_shadow {
@@ -643,6 +669,7 @@
     transition: 0.4s linear;
     text-decoration: none !important;
     cursor: pointer;
+    font-weight: bold;
   }
 
   .btn_ajouter:hover {

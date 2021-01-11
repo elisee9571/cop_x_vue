@@ -59,12 +59,6 @@
                   <a class="dropdown-item" href="/supreme2">SUPREME</a>
                 </div>
               </li>
-              <!-- menu lifestyle -->
-              <li class="nav-item dropdown ">
-                <div>
-                  <a class="nav-link" href="lifestyle"><span>LIFESTYLE</span></a>
-                </div>
-              </li>
             </ul>
             <!-- mon icon profil -->
             <ul class="navbar-nav mr-auto text-center">

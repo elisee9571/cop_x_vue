@@ -6,19 +6,17 @@
             <div class="form-container sign-up-container" @submit.prevent="doregister">
                 <form>
                     <h1 class="titre_sign">Créer un compte</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><img class="connection_icon"
-                                src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png" /></a>
-                        <a href="#" class="social"><img class="connection_icon"
-                                src="https://img.icons8.com/ios/26/000000/google-plus.png" /></a>
-                    </div>
-                    <span class="sous_titre">ou utiliser votre email pour vous inscrire</span>
+                    <br><br>
+                    <span class="sous_titre">utiliser votre email pour vous inscrire</span>
                     <input class="input_login" type="text" name="nom" id="nom" placeholder="Nom Prénom" v-model="nom"
                         required>
                     <input class="input_login" type="email" name="email" id="email" placeholder="Email" v-model="email"
                         required>
+                        <input class="input_login" type="email" name="email" placeholder="Email de validation" v-model="emailValidation"
+                        required>
                     <input class="input_login" type="password" name="password" id="password" placeholder="Mot de passe"
                         v-model="password" required>
+                        <br>
                     <button class="btn_sign" >S'inscrire</button>
                 </form>
             </div>
@@ -26,13 +24,8 @@
             <div class="form-container sign-in-container" @submit.prevent="dologin" >
                 <form>
                     <h1 class="titre_sign">Se connecter</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><img class="connection_icon"
-                                src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png" /></a>
-                        <a href="#" class="social"><img class="connection_icon"
-                                src="https://img.icons8.com/ios/26/000000/google-plus.png" /></a>
-                    </div>
-                    <span class="sous_titre">ou utiliser votre compte</span>
+                    <br><br>
+                    <span class="sous_titre">utiliser votre compte</span>
                     <input class="input_login" type="email" name="email" id="emaillogin" placeholder="Email"
                         v-model="emaillogin" required>
                     <input class="input_login" type="password" name="passwordlogin" id="passwordlogin"
@@ -77,6 +70,7 @@
             return {
                 nom: "",
                 email: "",
+                emailValidation: "",
                 password: "",
                 emaillogin: "",
                 passwordlogin: ""
@@ -159,7 +153,6 @@
 </script>
 
 <style>
-    @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
 
     /* responsive */
     @media (min-width: 0px) {
@@ -335,7 +328,16 @@
         padding: 12px 15px;
         margin: 8px 0;
         width: 100%;
+        border-radius: 10px;
+        box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .2);
     }
+    .input_login:focus {
+        box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .2);
+    }
+    input{
+        outline: none;
+    }
+
 
     /* .container_login {
         background-color: #fff;

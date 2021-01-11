@@ -2,46 +2,46 @@
 
     <!-- myfooter -->
     <div class="container-fluid infooter">
-        <div class="row">
+        
+                <div class="row col-12">
 
-            <!-- info -->
-            <div class="col-lg-4 col-md-12 info_info text-center">
-                <a href="/sneakers">sneakers</a>
-                <div class="w-100"></div>
-                <a href="/streetwear">streetwear</a>
-                <div class="w-100"></div>
-                <a href="/lifestyle">lifestyle</a>
-                <div class="w-100"></div>
-                <a href="/faq">politique de confidentialité</a>
-                <div class="w-100"></div>
-                <a href="/faq">mentions légales</a>
-                <div class="w-100"></div>
-                <a href="/faq">condition d'utilisateur</a>
-            </div>
+                <!-- info -->
+                <div class="col-lg-4 col-md-12 info_info text-center">
+                    <a href="/sneakers">sneakers</a>
+                    <div class="w-100"></div>
+                    <a href="/streetwear">streetwear</a>
+                    <div class="w-100"></div>
+                    <a href="/faq">politique de confidentialité</a>
+                    <div class="w-100"></div>
+                    <a href="/faq">mentions légales</a>
+                    <div class="w-100"></div>
+                    <a href="/faq">condition d'utilisateur</a>
+                </div>
 
-            <!-- réseaux -->
-            <div class="col-lg-4 col-md-12 reseaux text-center">
-                <h6>nos réseaux sociaux</h6>
-                <a href="" target="_blank"><img src="https://img.icons8.com/android/45/000000/facebook.png" /></a>
-                <a href="https://www.instagram.com/_copx_/" target="_blank"><img
-                        src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" /></a>
-                <a href="" target="_blank"><img src="https://img.icons8.com/android/50/000000/twitter.png" /></a>
-            </div>
+                <!-- réseaux -->
+                <div class="col-lg-4 col-md-12 reseaux text-center">
+                    <h6>nos réseaux sociaux</h6>
+                    <a href="" target="_blank"><img src="https://img.icons8.com/android/45/000000/facebook.png" /></a>
+                    <a href="https://www.instagram.com/_copx_/" target="_blank"><img
+                            src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" /></a>
+                    <a href="" target="_blank"><img src="https://img.icons8.com/android/50/000000/twitter.png" /></a>
+                </div>
 
-            <!-- newletter -->
-            <div class="col-lg-4 col-md-12 newletter text-center">
-                <h6>Inscription à la newletter</h6>
-                <p style="padding: 20px 50px;">Abonne toi à la newletter pour ne pas rater notre actualité.</p>
+                <!-- newletter -->
+                <div class="col-lg-4 col-md-12 newletter text-center">
+                    <h6>Inscription à la newletter</h6>
+                    <p style="padding: 20px 50px;">Abonne toi à la newletter pour ne pas rater notre actualité.</p>
 
-                <div class="input-group input-group_email">
-                    <input id="newsletter" type="email" class="form-control input_email" placeholder="Email" required>
-                    <div class="input">
-                        <button for="newsletter" class="btn_email" type="submit">Envoyer</button>
+                    <div class="input-group input-group_email">
+                        <input id="newsletter" type="email" class="form-control input_email" placeholder="Email"
+                            required>
+                        <div class="input">
+                            <button for="newsletter" class="btn_email" type="submit">Envoyer</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
     </div>
 
 
@@ -70,10 +70,15 @@
     }
 
     .infooter {
-        width: 100%;
-    }
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: flex-end;
+        min-height: 60vh;
+         }
 
-    .reseaux h6, .newletter h6 {
+    .reseaux h6,
+    .newletter h6 {
         font-family: 'Bebas Neue', sans-serif !important;
         font-size: 30px !important;
         color: #cdcdcd;
@@ -144,17 +149,19 @@
     }
 
     @media (min-width: 0) {
-        .input-group_email{
+        .input-group_email {
             padding: 0 50px;
         }
     }
+
     @media (min-width: 576px) {
-        .input-group_email{
+        .input-group_email {
             padding: 0 100px;
         }
     }
+
     @media (min-width: 992px) {
-        .input-group_email{
+        .input-group_email {
             padding: 0px;
         }
     }

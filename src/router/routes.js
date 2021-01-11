@@ -34,7 +34,6 @@ import supreme2 from '../components/supreme2.vue'; /* import du components supre
 /* components liée aux pages nouveauté */
 import Sneakers from "../views/Sneakers.vue"; /* import du views Sneakers  */
 import Streetwear from "../views/Streetwear.vue"; /* import du views Streetwear  */
-import Lifestyle from "../views/Lifestyle.vue"; /* import du views Lifestyle  */
 
 
 /* components liée à la finalisation et au paiement */
@@ -166,11 +165,6 @@ const routes = [{
         path: "/streetwear",
         name: "Streetwear",
         component: Streetwear,
-    },
-    {
-        path: "/lifestyle",
-        name: "Lifestyle",
-        component: Lifestyle,
     },
     {
         path: "/pageproduit/:id",

@@ -67,6 +67,7 @@
     .body_parent {
         position: relative;
         overflow: hidden;
+        margin-bottom: -300px;
     }
     section {
         display: flex;
@@ -101,8 +102,8 @@
     }
     @media (min-width: 768px){
         .carde{
-        width: 500px;
-        height: 550px;
+        width: 450px;
+        height: 525px;
     }
     }
     .carde .face {
